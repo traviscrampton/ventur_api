@@ -10,7 +10,113 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_21_025154) do
+ActiveRecord::Schema.define(version: 2018_04_21_164256) do
+
+  create_table "chapters", force: :cascade do |t|
+    t.integer "journal_id"
+    t.string "title"
+    t.string "slug"
+    t.text "description"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "distances", force: :cascade do |t|
+    t.integer "distanceable_id"
+    t.string "distanceable_type"
+    t.decimal "amount", precision: 8, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "favoriteable_id"
+    t.string "favoriteable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "followings", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gear_items", force: :cascade do |t|
+    t.string "title"
+    t.decimal "price", precision: 8, scale: 2
+    t.decimal "donated", precision: 8, scale: 2
+    t.string "product_image_file_name"
+    t.string "product_image_content_type"
+    t.integer "product_image_file_size"
+    t.datetime "product_image_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gear_lists", force: :cascade do |t|
+    t.integer "journal_id"
+    t.integer "gear_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "journals", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "slug"
+    t.string "title"
+    t.text "description"
+    t.integer "status"
+    t.string "banner_image_file_name"
+    t.string "banner_image_content_type"
+    t.integer "banner_image_file_size"
+    t.datetime "banner_image_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profile_infos", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string "background_image_file_name"
+    t.string "background_image_content_type"
+    t.integer "background_image_file_size"
+    t.datetime "background_image_updated_at"
+    t.text "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "gear_item_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "taggable_id"
+    t.string "taggable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
