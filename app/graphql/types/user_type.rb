@@ -12,10 +12,10 @@ Types::UserType = GraphQL::ObjectType.define do
     }
   end
 	
-	field :profile_info, Types::ProfileInfoType do 
-		description "returns profile info"
+	field :avatar_image_url, types.String do 
+		description "returns profile avatar"
 		resolve -> (obj, args, ctx) {
-			obj.profile_info
+			"http://localhost:3000" + obj.profile_info.avatar.url(:small)	
 		}
 	end
 end

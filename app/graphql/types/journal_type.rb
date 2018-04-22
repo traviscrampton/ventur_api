@@ -6,13 +6,13 @@ Types::JournalType = GraphQL::ObjectType.define do
   field :description, !types.String
 	field :status, !types.String
 	
-	field :distance, Types::DistanceType do 
+	field :distance, types.Int do 
 		resolve ->(obj, args, ctx) {
-			obj.distance
+			obj.distance.amount.to_i
 		}
 	end
 	
-	field :card_image, types.String do
+	field :card_image_url, types.String do
 		resolve ->(obj, args, ctx) {
 			"http://localhost:3000" + obj.banner_image.url(:card)
 		}
