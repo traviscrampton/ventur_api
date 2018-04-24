@@ -17,6 +17,18 @@ Types::JournalType = GraphQL::ObjectType.define do
 			"http://localhost:3000" + obj.banner_image.url(:card)
 		}
 	end
+	
+	field :gear_item_count, types.Int do 
+		resolve -> (obj, args, ctx) {
+			obj.gear_items.count
+		}
+	end
+	
+	field :chapters, types[Types::ChapterType] do 
+		resolve -> (obj, args, ctx) {
+			obj.chapters
+		} 
+	end
 
   field :user, Types::UserType do
     description "user associated with a specific journal"

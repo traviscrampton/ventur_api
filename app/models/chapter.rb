@@ -11,6 +11,8 @@ class Chapter < ActiveRecord::Base
 
   validates_presence_of :title, :journal, :slug
   belongs_to :journal
+	has_attached_file :image, styles: { banner: "960x550>", card: "460x215>" }
+	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
 end
