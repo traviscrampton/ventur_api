@@ -37,9 +37,9 @@ ju12.save!
 
 #
 # Chapters
-cj1 = ju1.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out in argentina")
-c2j1 = ju1.chapters.new( title: "Chapter 2", slug: "chapter-1", description: "Second day out in argentina")
-cj2 = ju2.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out on the silk road" )
+cj1 = ju1.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out in argentina", image: File.open("#{Rails.root}/public/images/journal_1_image.png"))
+c2j1 = ju1.chapters.new( title: "Chapter 2", slug: "chapter-1", description: "Second day out in argentina", image: File.open("#{Rails.root}/public/images/journal_1_image.png"))
+cj2 = ju2.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out on the silk road", image: File.open("#{Rails.root}/public/images/journal_1_image.png") )
 cj1.save!
 c2j1.save!
 cj2.save!
