@@ -5,35 +5,10 @@ Types::JournalType = GraphQL::ObjectType.define do
   field :slug, !types.String
   field :description, !types.String
 	field :status, !types.String
-	
-	field :distance, types.Int do 
-		resolve ->(obj, args, ctx) {
-			obj.distance.amount.to_i
-		}
-	end
-	
-	field :card_image_url, types.String do
-		resolve ->(obj, args, ctx) {
-			"http://localhost:3000" + obj.banner_image.url(:card)
-		}
-	end
-	
-	field :gear_item_count, types.Int do 
-		resolve -> (obj, args, ctx) {
-			obj.gear_item_count
-		}
-	end
-	
-	field :chapters, types[Types::ChapterType] do 
-		resolve -> (obj, args, ctx) {
-			obj.chapters
-		} 
-	end
-
-  field :user, Types::UserType do
-    description "user associated with a specific journal"
-    resolve -> (obj, arg, ctx) {
-      user = obj.user
-    }
-  end
+	field :chapters, types[Types::ChapterType]
+	field :gearItems, types[Types::GearItemType], property: :gear_items
+	field :gearItemCount, types.Int, property: :gear_item_count
+	field :cardImageUrl, types.String, property: :banner_image_url
+	field :distance, types.Int, property: :total_distance
+	field :user, Types::UserType
 end

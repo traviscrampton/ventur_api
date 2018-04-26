@@ -4,33 +4,11 @@ Types::UserType = GraphQL::ObjectType.define do
   field :email, !types.String
   field :firstName, !types.String, property: :first_name
   field :lastName, !types.String, property: :last_name
-
-  field :journals, types[Types::JournalType] do
-    description "all journals for a specific user"
-    resolve -> (obj, args, ctx) {
-      obj.journals
-    }
-  end
-	
-	field :avatar_image_url, types.String do 
-		description "returns profile avatar"
-		resolve -> (obj, args, ctx) {
-			"http://localhost:3000" + obj.avatar_image_url	
-		}
-	end
-	
-	field :bio, types.String do 
-		description "returns a bio for the user"
-		resolve -> (obj, args, ctx) {
-			obj.bio	
-		}
-	end
-
-	field :banner_image_url, types.String do 
-		description "returns the background image"
-		resolve -> (obj, args, ctx) {
-			"http://localhost:3000" + obj.banner_image_url	
-		}
-	end
-	
+	field :fullName, !types.String, property: :full_name
+	field :journals, types[Types::JournalType]
+	field :bio, !types.String
+	field :journalCount, types.Int, property: :journal_count
+	field :totalDistance, types.Int, property: :total_distance
+	field :avatarImageUrl, types.String, property: :avatar_image_url
+	field :bannerImageUrl, types.String, property: :banner_image_url
 end

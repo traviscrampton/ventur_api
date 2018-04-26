@@ -26,10 +26,24 @@ class Journal < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   def update_total_distance
-    distance_array = chapters.map(&:distance).pluck(:amount)
-    total_distance = distance_array.inject(0, &:+)
-    distance.update(amount: total_distance)
+    distance.update(amount: calculate_total_distance)
   end
+	
+	def total_distance
+		distance.amount.to_i
+	end
+	
+	def gear_item_count
+		gear_items.count
+	end
+	
+	def banner_image_url
+		"http://localhost:3000" + banner_image.url(:card)
+	end
+	
+	def calculate_total_distance
+		chapters.map(&:distance).pluck(:amount).inject(0, &:+)
+	end
 	
 	def gear_item_count
 		gear_items.count

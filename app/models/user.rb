@@ -31,14 +31,26 @@ class User < ActiveRecord::Base
   end
 	
 	def avatar_image_url 
-		profile_info.avatar.url(:small)
+		"http://localhost:3000" + profile_info.avatar.url(:small)
 	end
 	
 	def banner_image_url
-		profile_info.background_image.url(:banner)
+		"http://localhost:3000" + profile_info.background_image.url(:banner)
 	end
 	
 	def bio 
 		profile_info.bio
+	end
+	
+	def total_distance
+		journals.map(&:total_distance).inject(0, &:+)
+	end
+	
+	def journal_count
+		journals.count
+	end
+	
+	def full_name
+		first_name + " " + last_name 
 	end
 end

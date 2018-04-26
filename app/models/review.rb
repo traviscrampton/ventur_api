@@ -7,6 +7,6 @@ class Review < ActiveRecord::Base
 
   validates_presence_of :user, :gear_item, :content
 
-  belongs_to :gear_list
+  belongs_to :gear_item
   belongs_to :user
 end

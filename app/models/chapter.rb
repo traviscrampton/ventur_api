@@ -15,4 +15,16 @@ class Chapter < ActiveRecord::Base
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
+	
+	def distance_to_i
+		distance.amount.to_i
+	end
+	
+	def readable_date
+		created_at.strftime("%B %d, %Y")
+	end
+	
+	def image_url 
+		"http://localhost:3000" + image.url(:card)
+	end
 end
