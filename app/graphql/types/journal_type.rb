@@ -20,7 +20,7 @@ Types::JournalType = GraphQL::ObjectType.define do
 	
 	field :gear_item_count, types.Int do 
 		resolve -> (obj, args, ctx) {
-			obj.gear_items.count
+			obj.gear_item_count
 		}
 	end
 	

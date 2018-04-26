@@ -30,4 +30,8 @@ class Journal < ActiveRecord::Base
     total_distance = distance_array.inject(0, &:+)
     distance.update(amount: total_distance)
   end
+	
+	def gear_item_count
+		gear_items.count
+	end
 end

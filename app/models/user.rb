@@ -29,4 +29,16 @@ class User < ActiveRecord::Base
                 exp: 60.days.from_now.to_i },
                 Rails.application.secrets.secret_key_base)
   end
+	
+	def avatar_image_url 
+		profile_info.avatar.url(:small)
+	end
+	
+	def banner_image_url
+		profile_info.background_image.url(:banner)
+	end
+	
+	def bio 
+		profile_info.bio
+	end
 end
