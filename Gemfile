@@ -9,7 +9,9 @@ gem 'rack-cors'
 gem 'paperclip'
 gem 'devise'
 gem 'rspec'
+gem 'rubocop'
 gem 'jwt'
+gem 'annotate', group: :development
 gem 'graphql'
 gem 'spring',        group: :development
 gem 'sqlite3',        group: :development

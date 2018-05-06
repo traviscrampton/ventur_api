@@ -1,9 +1,15 @@
-class GearList < ActiveRecord::Base
-  # t.integer "journal_id"
-  # t.integer "gear_item_id"
-  # t.datetime "created_at", null: false
-  # t.datetime "updated_at", null: false
+# == Schema Information
+#
+# Table name: gear_lists
+#
+#  id           :integer          not null, primary key
+#  journal_id   :integer
+#  gear_item_id :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
 
+class GearList < ActiveRecord::Base
   validates_presence_of :journal, :gear_item
 
   belongs_to :journal

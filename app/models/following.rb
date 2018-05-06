@@ -1,9 +1,15 @@
-class Following < ActiveRecord::Base
-  # t.integer "follower_id"
-  # t.integer "followed_id"
-  # t.datetime "created_at", null: false
-  # t.datetime "updated_at", null: false
+# == Schema Information
+#
+# Table name: followings
+#
+#  id          :integer          not null, primary key
+#  follower_id :integer
+#  followed_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 
+class Following < ActiveRecord::Base
   validates_presence_of :follower, :followed
 
   belongs_to :follower, class_name: "User"

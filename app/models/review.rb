@@ -1,10 +1,16 @@
-class Review < ActiveRecord::Base
-  # t.integer "user_id"
-  # t.integer "gear_item_id"
-  # t.text "content"
-  # t.datetime "created_at", null: false
-  # t.datetime "updated_at", null: false
+# == Schema Information
+#
+# Table name: reviews
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  gear_item_id :integer
+#  content      :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
 
+class Review < ActiveRecord::Base
   validates_presence_of :user, :gear_item, :content
 
   belongs_to :gear_item
