@@ -1,0 +1,1014 @@
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 15:59:09 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.8ms)
+Completed 200 OK in 157ms (Views: 156.0ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 15:59:10 -0400
+Started GET "/assets/application-148c6aaf8a601f52456a16438b42d75454e32742b1eca706b356657a7bddaa02.js" for 127.0.0.1 at 2017-10-06 15:59:10 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 15:59:10 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 15:59:10 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel is streaming from graphql-subscription:4f6de169-8628-4934-8ab8-c338f025eeda
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-subscription:c5224de0-4feb-4a6a-8c29-6f9f2a0e8685
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 15:59:12 -0400
+GraphqlChannel stopped streaming from graphql-subscription:4f6de169-8628-4934-8ab8-c338f025eeda
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:c5224de0-4feb-4a6a-8c29-6f9f2a0e8685
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:00:19 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.7ms)
+Completed 200 OK in 148ms (Views: 146.4ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:00:20 -0400
+Started GET "/assets/application-148c6aaf8a601f52456a16438b42d75454e32742b1eca706b356657a7bddaa02.js" for 127.0.0.1 at 2017-10-06 16:00:20 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:00:20 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:00:20 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:02175e0d-c47d-4cc5-ac5a-7368cc3c8d96
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:c41229a6-5c36-467e-977e-43f423a9f985
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:00:23 -0400
+GraphqlChannel stopped streaming from graphql-subscription:02175e0d-c47d-4cc5-ac5a-7368cc3c8d96
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:c41229a6-5c36-467e-977e-43f423a9f985
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:00:35 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.8ms)
+Completed 200 OK in 147ms (Views: 146.2ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:00:35 -0400
+Started GET "/assets/application-148c6aaf8a601f52456a16438b42d75454e32742b1eca706b356657a7bddaa02.js" for 127.0.0.1 at 2017-10-06 16:00:35 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:00:35 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:00:35 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:337e39e1-03c9-4702-b7b9-6f1d166d2681
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:3c029a19-b703-410a-8f90-bbcfa4a12c16
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:00:38 -0400
+GraphqlChannel stopped streaming from graphql-subscription:337e39e1-03c9-4702-b7b9-6f1d166d2681
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:3c029a19-b703-410a-8f90-bbcfa4a12c16
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:01:27 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (2.0ms)
+Completed 200 OK in 208ms (Views: 205.1ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:01:28 -0400
+Started GET "/assets/application-148c6aaf8a601f52456a16438b42d75454e32742b1eca706b356657a7bddaa02.js" for 127.0.0.1 at 2017-10-06 16:01:28 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:01:28 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:01:28 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88
+GraphqlChannel is streaming from graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>4})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzQ\"}"
+[ActionCable] Broadcasting to graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88: {:result=>{"data"=>{"payload"=>{"value"=>4}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>4}}}, "more"=>true} (via streamed from graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>4})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzQ\"}"
+[ActionCable] Broadcasting to graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb: {:result=>{"data"=>{"payload"=>{"value"=>4}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>4}}}, "more"=>true} (via streamed from graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>5})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzU\"}"
+[ActionCable] Broadcasting to graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb: {:result=>{"data"=>{"payload"=>{"value"=>5}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>5}}}, "more"=>true} (via streamed from graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>5})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzU\"}"
+[ActionCable] Broadcasting to graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88: {:result=>{"data"=>{"payload"=>{"value"=>5}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>5}}}, "more"=>true} (via streamed from graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>6})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzY\"}"
+[ActionCable] Broadcasting to graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88: {:result=>{"data"=>{"payload"=>{"value"=>6}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>6}}}, "more"=>true} (via streamed from graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:01:41 -0400
+GraphqlChannel stopped streaming from graphql-subscription:2cef2e8a-ffa4-47f0-ae85-30650d4cda88
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:7c7f8935-131f-4ad1-bb76-d98a5d155afb
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:02:29 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.4ms)
+Completed 200 OK in 205ms (Views: 204.0ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:02:29 -0400
+Started GET "/assets/application-501d9398098c38e9379b18c5b5e9c0b5d06910584a10056703b9df6544f17f0e.js" for 127.0.0.1 at 2017-10-06 16:02:29 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:02:29 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:02:30 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-subscription:33222a6a-e957-4a31-ac56-f3e8e1632d4f
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:bfa6b8cc-9334-4c9a-a13a-180eb09983bc
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:33222a6a-e957-4a31-ac56-f3e8e1632d4f: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:33222a6a-e957-4a31-ac56-f3e8e1632d4f)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:33222a6a-e957-4a31-ac56-f3e8e1632d4f: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:33222a6a-e957-4a31-ac56-f3e8e1632d4f)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:bfa6b8cc-9334-4c9a-a13a-180eb09983bc: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:bfa6b8cc-9334-4c9a-a13a-180eb09983bc)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:02:40 -0400
+GraphqlChannel stopped streaming from graphql-subscription:33222a6a-e957-4a31-ac56-f3e8e1632d4f
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:bfa6b8cc-9334-4c9a-a13a-180eb09983bc
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:04:59 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.4ms)
+Completed 200 OK in 216ms (Views: 214.1ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:04:59 -0400
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-06 16:04:59 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:05:00 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:05:00 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":1507320299910}", "data"=>"{\"id\":\"updates-1\",\"value\":2,\"action\":\"make_trigger\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"GraphqlChannel","id":1507320299910}]: /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:76:in `find' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:53:in `perform_action' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:17:in `execute_command' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/base.rb:85:in `dispatch_websocket_message' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/server/worker.rb:58:in `block in invoke'
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel is streaming from graphql-subscription:b765bc42-1127-47ef-95a6-4c6023c44604
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:d7b0cfe1-ccc6-48bb-bbb6-2ca9397d1484
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:d7b0cfe1-ccc6-48bb-bbb6-2ca9397d1484: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:d7b0cfe1-ccc6-48bb-bbb6-2ca9397d1484)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:b765bc42-1127-47ef-95a6-4c6023c44604: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:b765bc42-1127-47ef-95a6-4c6023c44604)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:05:10 -0400
+GraphqlChannel stopped streaming from graphql-subscription:b765bc42-1127-47ef-95a6-4c6023c44604
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+GraphqlChannel stopped streaming from graphql-subscription:d7b0cfe1-ccc6-48bb-bbb6-2ca9397d1484
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:05:19 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.0ms)
+Completed 200 OK in 185ms (Views: 183.5ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:05:19 -0400
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-06 16:05:20 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:05:20 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:05:20 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:873cefb9-b9cf-409e-9a54-f6af6e42f3a8
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:fa599337-34b8-4be8-a286-d89829bdea68
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:873cefb9-b9cf-409e-9a54-f6af6e42f3a8: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:873cefb9-b9cf-409e-9a54-f6af6e42f3a8)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:873cefb9-b9cf-409e-9a54-f6af6e42f3a8: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:873cefb9-b9cf-409e-9a54-f6af6e42f3a8)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:873cefb9-b9cf-409e-9a54-f6af6e42f3a8: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:873cefb9-b9cf-409e-9a54-f6af6e42f3a8)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:fa599337-34b8-4be8-a286-d89829bdea68: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:fa599337-34b8-4be8-a286-d89829bdea68)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:05:31 -0400
+GraphqlChannel stopped streaming from graphql-subscription:873cefb9-b9cf-409e-9a54-f6af6e42f3a8
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:fa599337-34b8-4be8-a286-d89829bdea68
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:07:44 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.7ms)
+Completed 200 OK in 165ms (Views: 163.7ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:07:44 -0400
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-06 16:07:44 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:07:44 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:07:44 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:bd17180c-a361-4e3f-92b8-cde2b0a230d8
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:cf60a690-ce9d-4e91-89f0-4037e6bb21b8
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:bd17180c-a361-4e3f-92b8-cde2b0a230d8: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:bd17180c-a361-4e3f-92b8-cde2b0a230d8)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:bd17180c-a361-4e3f-92b8-cde2b0a230d8: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:bd17180c-a361-4e3f-92b8-cde2b0a230d8)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:bd17180c-a361-4e3f-92b8-cde2b0a230d8: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:bd17180c-a361-4e3f-92b8-cde2b0a230d8)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:cf60a690-ce9d-4e91-89f0-4037e6bb21b8: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:cf60a690-ce9d-4e91-89f0-4037e6bb21b8)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:cf60a690-ce9d-4e91-89f0-4037e6bb21b8: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:cf60a690-ce9d-4e91-89f0-4037e6bb21b8)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:07:45 -0400
+GraphqlChannel stopped streaming from graphql-subscription:bd17180c-a361-4e3f-92b8-cde2b0a230d8
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:cf60a690-ce9d-4e91-89f0-4037e6bb21b8
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:08:41 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.8ms)
+Completed 200 OK in 154ms (Views: 152.8ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:08:41 -0400
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-06 16:08:41 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:08:41 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:08:41 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel is streaming from graphql-subscription:998666b8-79e5-4dc0-9679-d02cd691c205
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-subscription:2384d1fe-2af9-4ed9-b10d-a5aec50cd008
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:998666b8-79e5-4dc0-9679-d02cd691c205: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:998666b8-79e5-4dc0-9679-d02cd691c205)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:998666b8-79e5-4dc0-9679-d02cd691c205: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:998666b8-79e5-4dc0-9679-d02cd691c205)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:998666b8-79e5-4dc0-9679-d02cd691c205: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:998666b8-79e5-4dc0-9679-d02cd691c205)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:2384d1fe-2af9-4ed9-b10d-a5aec50cd008: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:2384d1fe-2af9-4ed9-b10d-a5aec50cd008)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:2384d1fe-2af9-4ed9-b10d-a5aec50cd008: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:2384d1fe-2af9-4ed9-b10d-a5aec50cd008)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:08:42 -0400
+GraphqlChannel stopped streaming from graphql-subscription:998666b8-79e5-4dc0-9679-d02cd691c205
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:2384d1fe-2af9-4ed9-b10d-a5aec50cd008
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:10:58 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.7ms)
+Completed 200 OK in 154ms (Views: 152.4ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:10:59 -0400
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-06 16:10:59 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:10:59 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:10:59 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:2cca3c71-a4d3-4780-ad2a-ee1e769c8257
+GraphqlChannel is streaming from graphql-subscription:d4a64a06-2af4-4a3f-8437-93dc38618d1d
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:2cca3c71-a4d3-4780-ad2a-ee1e769c8257: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:2cca3c71-a4d3-4780-ad2a-ee1e769c8257)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:2cca3c71-a4d3-4780-ad2a-ee1e769c8257: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:2cca3c71-a4d3-4780-ad2a-ee1e769c8257)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:2cca3c71-a4d3-4780-ad2a-ee1e769c8257: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:2cca3c71-a4d3-4780-ad2a-ee1e769c8257)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:d4a64a06-2af4-4a3f-8437-93dc38618d1d: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:d4a64a06-2af4-4a3f-8437-93dc38618d1d)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:d4a64a06-2af4-4a3f-8437-93dc38618d1d: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:d4a64a06-2af4-4a3f-8437-93dc38618d1d)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:11:00 -0400
+GraphqlChannel stopped streaming from graphql-subscription:2cca3c71-a4d3-4780-ad2a-ee1e769c8257
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:d4a64a06-2af4-4a3f-8437-93dc38618d1d
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:14:04 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.8ms)
+Completed 200 OK in 147ms (Views: 145.8ms)
+Started GET "/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" for 127.0.0.1 at 2017-10-06 16:14:04 -0400
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-06 16:14:04 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:14:04 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:14:04 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:dec593eb-4956-40b7-8876-273dd00d7878
+GraphqlChannel is streaming from graphql-subscription:0e3c6249-8f1a-41f5-9340-7c6028bc6e3b
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:dec593eb-4956-40b7-8876-273dd00d7878: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:dec593eb-4956-40b7-8876-273dd00d7878)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:dec593eb-4956-40b7-8876-273dd00d7878: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:dec593eb-4956-40b7-8876-273dd00d7878)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:dec593eb-4956-40b7-8876-273dd00d7878: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:dec593eb-4956-40b7-8876-273dd00d7878)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:0e3c6249-8f1a-41f5-9340-7c6028bc6e3b: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:0e3c6249-8f1a-41f5-9340-7c6028bc6e3b)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:0e3c6249-8f1a-41f5-9340-7c6028bc6e3b: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:0e3c6249-8f1a-41f5-9340-7c6028bc6e3b)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:14:05 -0400
+GraphqlChannel stopped streaming from graphql-subscription:dec593eb-4956-40b7-8876-273dd00d7878
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:0e3c6249-8f1a-41f5-9340-7c6028bc6e3b
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 16:27:30 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.8ms)
+Completed 200 OK in 180ms (Views: 178.6ms)
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-06 16:27:30 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 16:27:31 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:27:31 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-subscription:db2b39c7-d11b-4b5d-901b-34339a671e4f
+GraphqlChannel is streaming from graphql-subscription:21c00929-1026-4a5f-a3de-b3bcbf0e11a0
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:21c00929-1026-4a5f-a3de-b3bcbf0e11a0: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:21c00929-1026-4a5f-a3de-b3bcbf0e11a0)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:21c00929-1026-4a5f-a3de-b3bcbf0e11a0: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:21c00929-1026-4a5f-a3de-b3bcbf0e11a0)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:21c00929-1026-4a5f-a3de-b3bcbf0e11a0: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:21c00929-1026-4a5f-a3de-b3bcbf0e11a0)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:db2b39c7-d11b-4b5d-901b-34339a671e4f: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:db2b39c7-d11b-4b5d-901b-34339a671e4f)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:db2b39c7-d11b-4b5d-901b-34339a671e4f: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:db2b39c7-d11b-4b5d-901b-34339a671e4f)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 16:27:31 -0400
+GraphqlChannel stopped streaming from graphql-subscription:21c00929-1026-4a5f-a3de-b3bcbf0e11a0
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:db2b39c7-d11b-4b5d-901b-34339a671e4f
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-06 17:05:53 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.5ms)
+Completed 200 OK in 113ms (Views: 111.6ms)
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-06 17:05:53 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-06 17:05:54 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 17:05:54 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:5c6c5734-5f25-406d-a3ff-891ffffe5225
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-subscription:1d5b2832-4444-4d5a-b62b-d5f320a15a14
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:1d5b2832-4444-4d5a-b62b-d5f320a15a14: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:1d5b2832-4444-4d5a-b62b-d5f320a15a14)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:1d5b2832-4444-4d5a-b62b-d5f320a15a14: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:1d5b2832-4444-4d5a-b62b-d5f320a15a14)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:1d5b2832-4444-4d5a-b62b-d5f320a15a14: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:1d5b2832-4444-4d5a-b62b-d5f320a15a14)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:5c6c5734-5f25-406d-a3ff-891ffffe5225: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:5c6c5734-5f25-406d-a3ff-891ffffe5225)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:5c6c5734-5f25-406d-a3ff-891ffffe5225: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:5c6c5734-5f25-406d-a3ff-891ffffe5225)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-06 17:05:54 -0400
+GraphqlChannel stopped streaming from graphql-subscription:1d5b2832-4444-4d5a-b62b-d5f320a15a14
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:5c6c5734-5f25-406d-a3ff-891ffffe5225
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-07 08:34:51 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.2ms)
+Completed 200 OK in 128ms (Views: 125.4ms)
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-07 08:34:51 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-07 08:34:52 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-07 08:34:52 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:703c6f6e-8cbe-44b9-8510-2a54b92b4eb2
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:8c1f4fc5-fee7-4ceb-9366-0f5da89ca41b
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:703c6f6e-8cbe-44b9-8510-2a54b92b4eb2: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:703c6f6e-8cbe-44b9-8510-2a54b92b4eb2)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:703c6f6e-8cbe-44b9-8510-2a54b92b4eb2: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:703c6f6e-8cbe-44b9-8510-2a54b92b4eb2)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:703c6f6e-8cbe-44b9-8510-2a54b92b4eb2: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:703c6f6e-8cbe-44b9-8510-2a54b92b4eb2)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:8c1f4fc5-fee7-4ceb-9366-0f5da89ca41b: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:8c1f4fc5-fee7-4ceb-9366-0f5da89ca41b)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:8c1f4fc5-fee7-4ceb-9366-0f5da89ca41b: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:8c1f4fc5-fee7-4ceb-9366-0f5da89ca41b)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-07 08:34:53 -0400
+GraphqlChannel stopped streaming from graphql-subscription:703c6f6e-8cbe-44b9-8510-2a54b92b4eb2
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:8c1f4fc5-fee7-4ceb-9366-0f5da89ca41b
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-07 08:35:33 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.8ms)
+Completed 200 OK in 106ms (Views: 105.3ms)
+Started GET "/assets/application-2c708bb1ac085ce53ebbd1db7650b07820d943de14e296e1cbebce0b3ffeb14a.js" for 127.0.0.1 at 2017-10-07 08:35:33 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-07 08:35:33 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-07 08:35:33 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:0898f540-e54f-448f-b6f2-bf7fdf89715f
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:0474ffd4-243a-48a7-8d9b-1284b863c07f
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:0898f540-e54f-448f-b6f2-bf7fdf89715f: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:0898f540-e54f-448f-b6f2-bf7fdf89715f)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:0898f540-e54f-448f-b6f2-bf7fdf89715f: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:0898f540-e54f-448f-b6f2-bf7fdf89715f)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:0898f540-e54f-448f-b6f2-bf7fdf89715f: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:0898f540-e54f-448f-b6f2-bf7fdf89715f)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:0474ffd4-243a-48a7-8d9b-1284b863c07f: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:0474ffd4-243a-48a7-8d9b-1284b863c07f)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:0474ffd4-243a-48a7-8d9b-1284b863c07f: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:0474ffd4-243a-48a7-8d9b-1284b863c07f)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-07 08:35:34 -0400
+GraphqlChannel stopped streaming from graphql-subscription:0898f540-e54f-448f-b6f2-bf7fdf89715f
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:0474ffd4-243a-48a7-8d9b-1284b863c07f
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-07 13:09:09 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.2ms)
+Completed 200 OK in 126ms (Views: 124.7ms)
+Started GET "/assets/application-a7a1e33290f15b4e22e2daceb6d4c39f591417a71648a723daf085750f9c785e.js" for 127.0.0.1 at 2017-10-07 13:09:09 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-07 13:09:09 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-07 13:09:09 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:21b5f35c-2b2d-4532-a3a2-08044a819e4b
+GraphqlChannel is streaming from graphql-subscription:7dd2b47c-803a-4715-bf1c-981c1496190a
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:7dd2b47c-803a-4715-bf1c-981c1496190a: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:7dd2b47c-803a-4715-bf1c-981c1496190a)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:7dd2b47c-803a-4715-bf1c-981c1496190a: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:7dd2b47c-803a-4715-bf1c-981c1496190a)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:7dd2b47c-803a-4715-bf1c-981c1496190a: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:7dd2b47c-803a-4715-bf1c-981c1496190a)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:21b5f35c-2b2d-4532-a3a2-08044a819e4b: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:21b5f35c-2b2d-4532-a3a2-08044a819e4b)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:21b5f35c-2b2d-4532-a3a2-08044a819e4b: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:21b5f35c-2b2d-4532-a3a2-08044a819e4b)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-07 13:09:10 -0400
+GraphqlChannel stopped streaming from graphql-subscription:21b5f35c-2b2d-4532-a3a2-08044a819e4b
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+GraphqlChannel stopped streaming from graphql-subscription:7dd2b47c-803a-4715-bf1c-981c1496190a
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-07 13:09:33 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.2ms)
+Completed 200 OK in 131ms (Views: 130.3ms)
+Started GET "/assets/application-23865d1c14f9d1f55132a0ee5eb0cdd00fedeee33a8d1a924d8226aec25e3107.js" for 127.0.0.1 at 2017-10-07 13:09:33 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-07 13:09:33 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-07 13:09:34 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel is streaming from graphql-subscription:a5395d91-1ae9-4133-a791-3631745d5f66
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:76a32201-0ca5-4d22-a60b-ed1e6e8fdf3b
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:a5395d91-1ae9-4133-a791-3631745d5f66: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:a5395d91-1ae9-4133-a791-3631745d5f66)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:a5395d91-1ae9-4133-a791-3631745d5f66: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:a5395d91-1ae9-4133-a791-3631745d5f66)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:a5395d91-1ae9-4133-a791-3631745d5f66: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:a5395d91-1ae9-4133-a791-3631745d5f66)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-07 13:09:36 -0400
+GraphqlChannel stopped streaming from graphql-subscription:a5395d91-1ae9-4133-a791-3631745d5f66
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:76a32201-0ca5-4d22-a60b-ed1e6e8fdf3b
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-10-08 21:31:13 -0400
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.0ms)
+Completed 200 OK in 126ms (Views: 125.1ms)
+Started GET "/assets/application-aca150c4b2db51d5326af18134f6281fbce7e823a372b0337cca65ff41b4a7ea.js" for 127.0.0.1 at 2017-10-08 21:31:13 -0400
+Started GET "/cable" for 127.0.0.1 at 2017-10-08 21:31:13 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-08 21:31:13 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:9596f3a8-2ca8-4cc7-af9b-a451c56174ac
+GraphqlChannel is streaming from graphql-subscription:3fbcb52a-1716-445f-bd18-30dd7e6d5cbd
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:3fbcb52a-1716-445f-bd18-30dd7e6d5cbd: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:3fbcb52a-1716-445f-bd18-30dd7e6d5cbd)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:3fbcb52a-1716-445f-bd18-30dd7e6d5cbd: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:3fbcb52a-1716-445f-bd18-30dd7e6d5cbd)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:3fbcb52a-1716-445f-bd18-30dd7e6d5cbd: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:3fbcb52a-1716-445f-bd18-30dd7e6d5cbd)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:9596f3a8-2ca8-4cc7-af9b-a451c56174ac: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:9596f3a8-2ca8-4cc7-af9b-a451c56174ac)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:9596f3a8-2ca8-4cc7-af9b-a451c56174ac: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:9596f3a8-2ca8-4cc7-af9b-a451c56174ac)
+Unsubscribing from channel: {"channel":"GraphqlChannel","id":"15efec1fc12"}
+GraphqlChannel stopped streaming from graphql-subscription:3fbcb52a-1716-445f-bd18-30dd7e6d5cbd
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15efec1fc12\"}", "data"=>"{\"id\":\"updates-1\",\"value\":4,\"action\":\"make_trigger\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"GraphqlChannel","id":"15efec1fc12"}]: /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:76:in `find' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:53:in `perform_action' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:17:in `execute_command' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/base.rb:85:in `dispatch_websocket_message' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/server/worker.rb:58:in `block in invoke'
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:9596f3a8-2ca8-4cc7-af9b-a451c56174ac: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:9596f3a8-2ca8-4cc7-af9b-a451c56174ac)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-10-08 21:31:14 -0400
+GraphqlChannel stopped streaming from graphql-subscription:9596f3a8-2ca8-4cc7-af9b-a451c56174ac
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-11-13 21:58:51 -0500
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.9ms)
+Completed 200 OK in 136ms (Views: 134.7ms)
+Started GET "/assets/application-aca150c4b2db51d5326af18134f6281fbce7e823a372b0337cca65ff41b4a7ea.js" for 127.0.0.1 at 2017-11-13 21:58:51 -0500
+Started GET "/cable" for 127.0.0.1 at 2017-11-13 21:58:51 -0500
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-13 21:58:51 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15fb8788afa\"}"}) [SyntaxError - /Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:43: syntax error, unexpected keyword_end
+  end
+     ^
+/Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:103: syntax error, unexpected end-of-input, expecting keyword_end]: /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:379:in `block in require_or_load'
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15fb87828a0\"}"}) [SyntaxError - /Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:43: syntax error, unexpected keyword_end
+  end
+     ^
+/Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:103: syntax error, unexpected end-of-input, expecting keyword_end]: /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:379:in `block in require_or_load'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-13 21:58:53 -0500
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-11-16 21:25:41 -0500
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.1ms)
+Completed 200 OK in 169ms (Views: 167.8ms)
+Started GET "/assets/application-aca150c4b2db51d5326af18134f6281fbce7e823a372b0337cca65ff41b4a7ea.js" for 127.0.0.1 at 2017-11-16 21:25:41 -0500
+Started GET "/cable" for 127.0.0.1 at 2017-11-16 21:25:42 -0500
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-16 21:25:42 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:2d85fcfd-550d-45ce-9b98-71d4adc0dcc0
+GraphqlChannel is streaming from graphql-subscription:a225c15d-b0a3-4bdf-b535-e6e5e937cc25
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15fc7cbd4ad\"}", "data"=>"{\"id\":\"updates-1\",\"value\":1,\"action\":\"make_trigger\"}"}) [NoMethodError - undefined method `dump_value' for GraphqlChannel::CustomSerializer:Module]: /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions/serialize.rb:21:in `dump' | /Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:36:in `dump' | /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions/action_cable_subscriptions.rb:78:in `execute_all' | /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions.rb:52:in `trigger' | /Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:83:in `make_trigger'
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15fc7cbd4ad\"}", "data"=>"{\"id\":\"updates-1\",\"value\":2,\"action\":\"make_trigger\"}"}) [NoMethodError - undefined method `dump_value' for GraphqlChannel::CustomSerializer:Module]: /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions/serialize.rb:21:in `dump' | /Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:36:in `dump' | /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions/action_cable_subscriptions.rb:78:in `execute_all' | /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions.rb:52:in `trigger' | /Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:83:in `make_trigger'
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15fc7cbd4ad\"}", "data"=>"{\"id\":\"updates-1\",\"value\":3,\"action\":\"make_trigger\"}"}) [NoMethodError - undefined method `dump_value' for GraphqlChannel::CustomSerializer:Module]: /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions/serialize.rb:21:in `dump' | /Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:36:in `dump' | /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions/action_cable_subscriptions.rb:78:in `execute_all' | /Users/rmosolgo/code/graphql-ruby/lib/graphql/subscriptions.rb:52:in `trigger' | /Users/rmosolgo/code/graphql-ruby/spec/dummy/app/channels/graphql_channel.rb:83:in `make_trigger'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-16 21:25:45 -0500
+GraphqlChannel stopped streaming from graphql-subscription:2d85fcfd-550d-45ce-9b98-71d4adc0dcc0
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+GraphqlChannel stopped streaming from graphql-subscription:a225c15d-b0a3-4bdf-b535-e6e5e937cc25
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-11-16 21:31:11 -0500
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (0.7ms)
+Completed 200 OK in 138ms (Views: 136.5ms)
+Started GET "/assets/application-aca150c4b2db51d5326af18134f6281fbce7e823a372b0337cca65ff41b4a7ea.js" for 127.0.0.1 at 2017-11-16 21:31:11 -0500
+Started GET "/cable" for 127.0.0.1 at 2017-11-16 21:31:11 -0500
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-16 21:31:11 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:17acca37-2b4d-448c-b9bb-51ce54d11284
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:17acca37-2b4d-448c-b9bb-51ce54d11284: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:17acca37-2b4d-448c-b9bb-51ce54d11284)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:17acca37-2b4d-448c-b9bb-51ce54d11284: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:17acca37-2b4d-448c-b9bb-51ce54d11284)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:17acca37-2b4d-448c-b9bb-51ce54d11284: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:17acca37-2b4d-448c-b9bb-51ce54d11284)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0)
+Unsubscribing from channel: {"channel":"GraphqlChannel","id":"15fc7d184bc"}
+GraphqlChannel stopped streaming from graphql-subscription:17acca37-2b4d-448c-b9bb-51ce54d11284
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15fc7d184bc\"}", "data"=>"{\"id\":\"updates-1\",\"value\":4,\"action\":\"make_trigger\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"GraphqlChannel","id":"15fc7d184bc"}]: /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:76:in `find' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:53:in `perform_action' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:17:in `execute_command' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/base.rb:85:in `dispatch_websocket_message' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/server/worker.rb:58:in `block in invoke'
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>4})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "4x"
+[ActionCable] Broadcasting to graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0: {:result=>{"data"=>{"payload"=>{"value"=>400}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>400}}}, "more"=>true} (via streamed from graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-16 21:31:15 -0500
+GraphqlChannel stopped streaming from graphql-subscription:606ac42b-b06b-4d48-9f1e-0a82a7c313b0
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-11-16 21:31:35 -0500
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (2.2ms)
+Completed 200 OK in 195ms (Views: 194.0ms)
+Started GET "/assets/application-aca150c4b2db51d5326af18134f6281fbce7e823a372b0337cca65ff41b4a7ea.js" for 127.0.0.1 at 2017-11-16 21:31:35 -0500
+Started GET "/cable" for 127.0.0.1 at 2017-11-16 21:31:35 -0500
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-16 21:31:35 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel is streaming from graphql-subscription:ded77eba-1a76-4246-83f2-bd4637b11de0
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:ded77eba-1a76-4246-83f2-bd4637b11de0: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:ded77eba-1a76-4246-83f2-bd4637b11de0)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:ded77eba-1a76-4246-83f2-bd4637b11de0: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:ded77eba-1a76-4246-83f2-bd4637b11de0)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:ded77eba-1a76-4246-83f2-bd4637b11de0: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:ded77eba-1a76-4246-83f2-bd4637b11de0)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11)
+Unsubscribing from channel: {"channel":"GraphqlChannel","id":"15fc7d19ae3"}
+GraphqlChannel stopped streaming from graphql-subscription:ded77eba-1a76-4246-83f2-bd4637b11de0
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15fc7d19ae3\"}", "data"=>"{\"id\":\"updates-1\",\"value\":4,\"action\":\"make_trigger\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"GraphqlChannel","id":"15fc7d19ae3"}]: /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:76:in `find' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:53:in `perform_action' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:17:in `execute_command' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/base.rb:85:in `dispatch_websocket_message' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/server/worker.rb:58:in `block in invoke'
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>4})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "4x"
+[ActionCable] Broadcasting to graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11: {:result=>{"data"=>{"payload"=>{"value"=>400}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>400}}}, "more"=>true} (via streamed from graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-16 21:31:41 -0500
+GraphqlChannel stopped streaming from graphql-subscription:deb86012-88c0-4449-872c-f71c390a3c11
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
+-----------------------------------------------------------
+ActionCableSubscriptionsTest: test_it_handles_subscriptions
+-----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2017-11-16 21:31:55 -0500
+Processing by PagesController#show as HTML
+  Rendering pages/show.html within layouts/application
+  Rendered pages/show.html within layouts/application (1.0ms)
+Completed 200 OK in 111ms (Views: 110.0ms)
+Started GET "/assets/application-aca150c4b2db51d5326af18134f6281fbce7e823a372b0337cca65ff41b4a7ea.js" for 127.0.0.1 at 2017-11-16 21:31:55 -0500
+Started GET "/cable" for 127.0.0.1 at 2017-11-16 21:31:56 -0500
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-16 21:31:56 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-2"}})
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::payload:id:updates-2
+GraphqlChannel#execute({"query"=>"subscription($id: ID!) { payload(id: $id) { value } }", "variables"=>{"id"=>"updates-1"}})
+GraphqlChannel is streaming from graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9
+GraphqlChannel transmitting {:result=>{"data"=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:359ce997-f8e7-4431-bd71-74af6276e37e
+GraphqlChannel is streaming from graphql-event::payload:id:updates-1
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:359ce997-f8e7-4431-bd71-74af6276e37e: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:359ce997-f8e7-4431-bd71-74af6276e37e)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:359ce997-f8e7-4431-bd71-74af6276e37e: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:359ce997-f8e7-4431-bd71-74af6276e37e)
+GraphqlChannel#make_trigger({"id"=>"updates-1", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-1: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:359ce997-f8e7-4431-bd71-74af6276e37e: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:359ce997-f8e7-4431-bd71-74af6276e37e)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>1})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzE\"}"
+[ActionCable] Broadcasting to graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9: {:result=>{"data"=>{"payload"=>{"value"=>1}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>1}}}, "more"=>true} (via streamed from graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>2})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzI\"}"
+[ActionCable] Broadcasting to graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9: {:result=>{"data"=>{"payload"=>{"value"=>2}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>2}}}, "more"=>true} (via streamed from graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9)
+Unsubscribing from channel: {"channel":"GraphqlChannel","id":"15fc7d1abf4"}
+GraphqlChannel stopped streaming from graphql-subscription:359ce997-f8e7-4431-bd71-74af6276e37e
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-1
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"GraphqlChannel\",\"id\":\"15fc7d1abf4\"}", "data"=>"{\"id\":\"updates-1\",\"value\":4,\"action\":\"make_trigger\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"GraphqlChannel","id":"15fc7d1abf4"}]: /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:76:in `find' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:53:in `perform_action' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/subscriptions.rb:17:in `execute_command' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/connection/base.rb:85:in `dispatch_websocket_message' | /Users/rmosolgo/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actioncable-5.1.4/lib/action_cable/server/worker.rb:58:in `block in invoke'
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>3})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "{\"__gid__\":\"Z2lkOi8vZHVtbXkvR3JhcGhxbENoYW5uZWw6OkV4YW1wbGVQYXlsb2FkLzM\"}"
+[ActionCable] Broadcasting to graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9: {:result=>{"data"=>{"payload"=>{"value"=>3}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>3}}}, "more"=>true} (via streamed from graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9)
+GraphqlChannel#make_trigger({"id"=>"updates-2", "value"=>4})
+[ActionCable] Broadcasting to graphql-event::payload:id:updates-2: "4x"
+[ActionCable] Broadcasting to graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9: {:result=>{"data"=>{"payload"=>{"value"=>400}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"payload"=>{"value"=>400}}}, "more"=>true} (via streamed from graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-11-16 21:31:59 -0500
+GraphqlChannel stopped streaming from graphql-subscription:4aa99f83-32cb-4a2f-a337-ebfa958ad4f9
+GraphqlChannel stopped streaming from graphql-event::payload:id:updates-2
