@@ -21,4 +21,12 @@ Types::QueryType = GraphQL::ObjectType.define do
     description "Retrieves all journals"
     resolve ->(obj, args, context) { Journal.all }
   end
+
+  field :chapter, Types::ChapterType do 
+    description "A single journal by ID"
+    argument :id, types.ID
+    resolve -> (obj, args, context) {
+      Chapter.find_by_id(args[:id])
+    }
+  end
 end
