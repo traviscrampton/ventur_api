@@ -55,8 +55,8 @@ cj2d = cj2.build_distance(amount: 108)
 cj2d.save!
 #
 # GearItems NOTE: This also creates a gear list
-ju1gi1 = ju1.gear_items.create(title: "Patagonia Sweater", price: 10000 )
-ju2gi2 = ju2.gear_items.create(title: "Ortlieb", price: 1000 )
+ju1gi1 = ju1.gear_items.create(title: "Patagonia Sweater", price: 10000, product_image: File.open("#{Rails.root}/public/images/travis_image.png") )
+ju2gi2 = ju2.gear_items.create(title: "Ortlieb", price: 1000, product_image: File.open("#{Rails.root}/public/images/gabe_image.jpg") )
 #
 # Following
 u1.followings.create(followed: u2) # user 1 follows user 2
