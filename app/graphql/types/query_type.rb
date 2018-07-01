@@ -33,7 +33,7 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :currentUser, Types::UserType do 
     description "gets user information for a single user"
     resolve -> (obj, args, context) {
-      User.find_by_id(context[:current_user].id)
+      context[:current_user]
     }
   end
 end
