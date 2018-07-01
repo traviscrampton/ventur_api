@@ -6,7 +6,7 @@ class GraphqlController < ApplicationController
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      current_user: current_user,
+      current_user: User.find(1),
     }
     result = VenturApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result

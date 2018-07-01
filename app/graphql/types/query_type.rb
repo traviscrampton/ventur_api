@@ -29,4 +29,11 @@ Types::QueryType = GraphQL::ObjectType.define do
       Chapter.find_by_id(args[:id])
     }
   end
+
+  field :currentUser, Types::UserType do 
+    description "gets user information for a single user"
+    resolve -> (obj, args, context) {
+      User.find_by_id(context[:current_user].id)
+    }
+  end
 end
