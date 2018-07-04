@@ -13,7 +13,8 @@ class CreateJournals < ActiveRecord::Migration[5.2]
       t.string :slug
       t.string :title
       t.text :description
-      t.integer :status
+      t.integer :status, default: 0
+      t.integer :stage, default: 0 
       t.attachment :banner_image
       t.timestamps
     end

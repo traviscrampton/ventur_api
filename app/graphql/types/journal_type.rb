@@ -5,6 +5,7 @@ Types::JournalType = GraphQL::ObjectType.define do
   field :slug, !types.String
   field :description, !types.String
   field :status, !types.String
+  field :stage, !types.String
   field :chapters, types[Types::ChapterType]
   field :gearItems, types[Types::GearItemType], property: :gear_items
   field :gearItemCount, types.Int, property: :gear_item_count

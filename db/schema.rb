@@ -72,7 +72,8 @@ ActiveRecord::Schema.define(version: 2018_04_21_164256) do
     t.string "slug"
     t.string "title"
     t.text "description"
-    t.integer "status"
+    t.integer "status", default: 0
+    t.integer "stage", default: 0
     t.string "banner_image_file_name"
     t.string "banner_image_content_type"
     t.integer "banner_image_file_size"

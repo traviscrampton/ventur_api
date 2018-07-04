@@ -8,6 +8,7 @@
 #  title                     :string
 #  description               :text
 #  status                    :integer
+#  stage                     :integer
 #  banner_image_file_name    :string
 #  banner_image_content_type :string
 #  banner_image_file_size    :integer
@@ -17,11 +18,15 @@
 #
 
 class Journal < ActiveRecord::Base
-  validates_presence_of :title, :slug, :description, :user
+  validates_presence_of :user, :status, :stage
   has_attached_file :banner_image, styles: { banner: "960x550>", card: "460x215>" }
   validates_attachment_content_type :banner_image, content_type: /\Aimage\/.*\z/
 
-  enum status: [:active, :paused, :completed]
+  validates :title, presence: { message: "Title can't be blank if you want to publish journal"}, if: -> { published? }
+  validates :description, presence: { message: "Description can't be blank if you want to publish journal" }, if: -> { published? }
+
+  enum status: [:not_started, :active, :paused, :completed]
+  enum stage: [:draft, :published]
 
   belongs_to :user
   has_one :distance, as: :distanceable, dependent: :destroy
@@ -31,6 +36,11 @@ class Journal < ActiveRecord::Base
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
+
+
+  def published?
+    stage == "published"
+  end
 
   def update_total_distance
     distance.update(amount: calculate_total_distance)
