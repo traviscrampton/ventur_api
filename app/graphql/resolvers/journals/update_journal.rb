@@ -44,3 +44,5 @@ Mutations::Journals::UpdateJournal = GraphQL::Relay::Mutation.define do
     end
   }
 end
+
+
