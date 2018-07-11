@@ -10,8 +10,8 @@ class Resolvers::Auth::Login < GraphQL::Function
 
 
   def call(obj, args, ctx)
-    user = User.find_by_email(args["email"])
-    if user && user.valid_password?(args["password"])
+    user = User.find_by_email(args[:email])
+    if user && user.valid_password?(args[:password])
       OpenStruct.new({
         user: user,
         token: user.generate_jwt
