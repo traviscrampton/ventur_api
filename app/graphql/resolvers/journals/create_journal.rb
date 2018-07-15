@@ -10,7 +10,7 @@ class Resolvers::Journals::CreateJournal < GraphQL::Function
     journal = current_user.journals.new
 
     begin 
-      journal.create!
+      journal.save!
 
       journal
     rescue ActiveRecord::RecordInvalid => err
