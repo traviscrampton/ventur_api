@@ -1,5 +1,9 @@
 class Resolvers::Journals::CreateJournal < GraphQL::Function
   type Types::JournalType
+  argument :title, !types.String
+  argument :description, !types.String
+  argument :stage, !types.String
+  argument :status, !types.String
 
   def call(obj, args, ctx)
     current_user = ctx[:current_user]
@@ -7,7 +11,14 @@ class Resolvers::Journals::CreateJournal < GraphQL::Function
       return GraphQL::ExecutionError.new("You need to be logged in to create a journal")
     end
 
-    journal = current_user.journals.new
+    journal_params = {
+      title: args[:title],
+      description: args[:description],
+      stage: args[:stage],
+      status: args[:status]
+    }
+
+    journal = current_user.journals.new(journal_params)
 
     begin 
       journal.save!
