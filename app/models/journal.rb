@@ -47,6 +47,7 @@ class Journal < ActiveRecord::Base
   end
 
   def total_distance
+    return 0
     distance.amount.to_i
   end
 

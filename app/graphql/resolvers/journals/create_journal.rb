@@ -19,7 +19,6 @@ class Resolvers::Journals::CreateJournal < GraphQL::Function
     }
 
     journal = current_user.journals.new(journal_params)
-
     begin 
       journal.save!
 
