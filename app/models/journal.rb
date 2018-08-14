@@ -47,7 +47,11 @@ class Journal < ActiveRecord::Base
   end
 
   def total_distance
-    distance.amount.to_i
+    if distance.amount
+      distance.amount.to_i
+    else
+      0 
+    end
   end
 
   def gear_item_count
