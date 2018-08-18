@@ -20,6 +20,7 @@
 #
 
 class User < ActiveRecord::Base
+  include ApplicationHelper
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
@@ -35,11 +36,13 @@ class User < ActiveRecord::Base
   end
 
   def avatar_image_url
-    "http://localhost:3000" + profile_info.avatar.url(:small)
+    # "http://localhost:3000" + profile_info.avatar.url(:small)
+    "http://#{get_ip_address}:3000" + profile_info.avatar.url(:small)
   end
 
   def banner_image_url
-    "http://localhost:3000" + profile_info.background_image.url(:banner)
+    # "http://localhost:3000" + profile_info.background_image.url(:banner)
+    "http://#{get_ip_address}:3000" + profile_info.background_image.url(:banner)
   end
 
   def bio

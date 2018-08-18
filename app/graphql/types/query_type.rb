@@ -17,6 +17,15 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
+  field :myJournals, types[Types::JournalType] do
+    description "Retrieves a current users journals"
+    resolve ->(obj, args, context) { 
+      current_user = context[:current_user]
+      binding.pry
+      current_user.journals
+    }
+  end
+
   field :allJournals, types[Types::JournalType] do
     description "Retrieves all journals"
     resolve ->(obj, args, context) { Journal.all }

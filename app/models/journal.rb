@@ -18,6 +18,8 @@
 #
 
 class Journal < ActiveRecord::Base
+
+  include ApplicationHelper
   validates_presence_of :user, :status, :stage
   has_attached_file :banner_image, styles: { banner: "960x550>", card: "460x215>" }
   validates_attachment_content_type :banner_image, content_type: /\Aimage\/.*\z/
@@ -59,7 +61,7 @@ class Journal < ActiveRecord::Base
   end
 
   def banner_image_url
-    "http://localhost:3000" + banner_image.url(:card)
+    "http://#{get_ip_address}:3000" + banner_image.url(:card)
   end
 
   def calculate_total_distance
