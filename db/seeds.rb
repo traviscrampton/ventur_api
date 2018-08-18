@@ -9,21 +9,21 @@ profile_info_u1.save!
 profile_info_u2.save!
 #
 # Journals
-ju1 = u1.journals.new( title: "Adventures in Argentina",
-                       slug: "adventures-in-argentina",
-                       description: "argentina is really insane highly recommended",
-											 status: 0,
-                       banner_image: File.open("#{Rails.root}/public/images/journal_1_image.png"))
-ju12 = u1.journals.new( title: "Adventures in Chile",
-                       slug: "adventures-in-chile",
-                       description: "chile is really insane highly please rreeecc",
+ju1 = u1.journals.new( title: "World's End By-Cycle",
+                       slug: "patagonia-by-cycle",
+                       description: "Patagonia, Chile",
 											 status: 1,
-											 banner_image: File.open("#{Rails.root}/public/images/journal_2_image.jpg")  )
-ju2 = u2.journals.new( title: "The Silk Road Adventure",
-                       slug: "the-silk-road-adventure",
-                       description: "where's my wife? seriously.",
+                       banner_image: File.open("#{Rails.root}/public/images/patagonia.jpg"))
+ju12 = u1.journals.new( title: "Himalayan Bikepacking",
+                       slug: "bike-climbing-in-nepal",
+                       description: "Nepal",
+											 status: 1,
+											 banner_image: File.open("#{Rails.root}/public/images/himalayas.jpg")  )
+ju2 = u2.journals.new( title: "Shogun",
+                       slug: "shogun",
+                       description: "Japan",
 											 status: 2,
-											 banner_image: File.open("#{Rails.root}/public/images/blank_state.png")
+											 banner_image: File.open("#{Rails.root}/public/images/japan.jpeg")
 										 )
 ju1.save!
 ju2.save!
@@ -37,8 +37,8 @@ ju12.save!
 
 #
 # Chapters
-cj1 = ju1.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out in argentina", image: File.open("#{Rails.root}/public/images/journal_1_image.png"))
-c2j1 = ju1.chapters.new( title: "Chapter 2", slug: "chapter-1", description: "Second day out in argentina", image: File.open("#{Rails.root}/public/images/journal_1_image.png"))
+cj1 = ju1.chapters.new( title: "The Initial Push-Off", slug: "chapter-1", description: "First day out in argentina", image: File.open("#{Rails.root}/public/images/journal_1_image.png"))
+c2j1 = ju1.chapters.new( title: "Undeniable Wind", slug: "chapter-1", description: "Second day out in argentina", image: File.open("#{Rails.root}/public/images/journal_2_image.jpg"))
 cj2 = ju2.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out on the silk road", image: File.open("#{Rails.root}/public/images/journal_1_image.png") )
 cj1.save!
 c2j1.save!

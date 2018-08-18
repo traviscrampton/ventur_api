@@ -16,6 +16,7 @@
 #
 
 class Chapter < ActiveRecord::Base
+  include ApplicationHelper
   validates_presence_of :title, :journal
   belongs_to :journal
   has_attached_file :image, styles: { banner: "960x550>", card: "460x215>" }
@@ -32,6 +33,6 @@ class Chapter < ActiveRecord::Base
   end
 
   def image_url
-    "http://localhost:3000" + image.url(:card)
+    "http://#{get_ip_address}:3000" + image.url(:card)
   end
 end
