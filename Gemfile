@@ -5,10 +5,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'pry'
 gem 'rack-cors'
-gem 'paperclip'
 gem 'devise'
 gem 'rspec'
 gem 'pg'
+gem "mini_magick"
 gem 'rubocop'
 gem 'jwt'
 gem 'annotate', group: :development

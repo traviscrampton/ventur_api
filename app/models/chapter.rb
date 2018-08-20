@@ -19,8 +19,7 @@ class Chapter < ActiveRecord::Base
   include ApplicationHelper
   validates_presence_of :title, :journal
   belongs_to :journal
-  has_attached_file :image, styles: { banner: "960x550>", card: "460x215>" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  has_one_attached :image
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
 
@@ -32,7 +31,11 @@ class Chapter < ActiveRecord::Base
     created_at.strftime("%B %d, %Y")
   end
 
+  def journal_thumbnail_chapter
+    image.variant(resize: "200x200").processed
+  end
+
   def image_url
-    "http://#{get_ip_address}:3000" + image.url(:card)
+    Rails.application.routes.url_helpers.url_for(journal_thumbnail_chapter)
   end
 end

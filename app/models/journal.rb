@@ -18,11 +18,11 @@
 #
 
 class Journal < ActiveRecord::Base
-
   include ApplicationHelper
+  include Rails.application.routes.url_helpers
+
   validates_presence_of :user, :status, :stage
-  has_attached_file :banner_image, styles: { banner: "960x550>", card: "460x215>" }
-  validates_attachment_content_type :banner_image, content_type: /\Aimage\/.*\z/
+  has_one_attached :banner_image
 
   validates :title, presence: { message: "Title can't be blank if you want to publish journal"}, if: -> { published? }
   validates :description, presence: { message: "Description can't be blank if you want to publish journal" }, if: -> { published? }
@@ -60,8 +60,28 @@ class Journal < ActiveRecord::Base
     gear_items.count
   end
 
-  def banner_image_url
-    "http://#{get_ip_address}:3000" + banner_image.url(:card)
+  def card_size
+    banner_image.variant(resize: "600x400").processed
+  end
+
+  def mini_size
+    banner_image.variant(resize: "300x300").processed
+  end
+
+  def web_banner_size
+    banner_image.variant(resize: "1000x800").processed
+  end
+
+  def card_banner_image_url
+    Rails.application.routes.url_helpers.url_for(card_size)
+  end
+
+  def mini_banner_image_url
+    Rails.application.routes.url_helpers.url_for(mini_size)
+  end
+
+  def web_banner_image_url
+    Rails.application.routes.url_helpers.url_for(web_banner_size)
   end
 
   def calculate_total_distance
