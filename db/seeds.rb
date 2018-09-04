@@ -48,9 +48,9 @@ cj2 = ju2.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "Fir
 cj1.save!
 c2j1.save!
 cj2.save!
-cj1.image.attach(io: File.open("#{Rails.root}/public/images/journal_1_image.png"), filename: "journal_1_image.png")
-c2j1.image.attach(io: File.open("#{Rails.root}/public/images/journal_2_image.jpg"), filename: "journal_2_image.jpg")
-cj2.image.attach(io: File.open("#{Rails.root}/public/images/journal_1_image.png"), filename: "journal_1_image.png")
+cj1.banner_image.attach(io: File.open("#{Rails.root}/public/images/journal_1_image.png"), filename: "journal_1_image.png")
+c2j1.banner_image.attach(io: File.open("#{Rails.root}/public/images/journal_2_image.jpg"), filename: "journal_2_image.jpg")
+cj2.banner_image.attach(io: File.open("#{Rails.root}/public/images/journal_1_image.png"), filename: "journal_1_image.png")
 
 # Chapter Distance
 cj1d = cj1.build_distance(amount: 78)
