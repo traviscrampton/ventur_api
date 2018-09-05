@@ -1,5 +1,6 @@
 class GraphqlController < ApplicationController
   before_action :authenticate_token
+  skip_before_action :verify_authenticity_token
   protect_from_forgery with: :null_session
 
   def execute
@@ -10,6 +11,7 @@ class GraphqlController < ApplicationController
       current_user: current_user,
     }
     result = VenturApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+    Rails.logger.debug("result #{result.inspect}")
     render json: result
   end
 

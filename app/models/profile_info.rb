@@ -19,10 +19,6 @@
 
 class ProfileInfo < ActiveRecord::Base
   belongs_to :user
-
-  has_attached_file :avatar, styles: { small: "180x180>" }
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-
-  has_attached_file :background_image, styles: { banner: "950x500>" }
-  validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\z/
+  has_one_attached :avatar
+  has_one_attached :background_image
 end
