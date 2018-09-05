@@ -2,8 +2,6 @@ class CreateJournals < ActiveRecord::Migration[5.2]
   def change
     create_table :profile_infos do |t|
       t.integer :user_id
-      t.attachment :avatar
-      t.attachment :background_image
       t.text :bio
       t.timestamps
     end
@@ -15,7 +13,6 @@ class CreateJournals < ActiveRecord::Migration[5.2]
       t.text :description
       t.integer :status, default: 0
       t.integer :stage, default: 0 
-      t.attachment :banner_image
       t.timestamps
     end
 
@@ -24,7 +21,6 @@ class CreateJournals < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :slug
       t.text :description
-      t.attachment :image
       t.timestamps
     end
 
@@ -70,7 +66,6 @@ class CreateJournals < ActiveRecord::Migration[5.2]
       t.string :title
       t.decimal :price, precision: 8, scale: 2
       t.decimal :donated, precision: 8, scale: 2
-      t.attachment :product_image
       t.timestamps
     end
 

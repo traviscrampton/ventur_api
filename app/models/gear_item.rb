@@ -16,9 +16,7 @@
 
 class GearItem < ActiveRecord::Base
   validates_presence_of :title, :price
-
-  has_attached_file :product_image, styles: { card: "500x500>" }
-  validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
+  has_one_attached :product_image
   has_many :journals, through: :gear_lists
   has_many :reviews, dependent: :destroy
 

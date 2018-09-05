@@ -21,7 +21,6 @@ Types::QueryType = GraphQL::ObjectType.define do
     description "Retrieves a current users journals"
     resolve ->(obj, args, context) { 
       current_user = context[:current_user]
-      binding.pry
       current_user.journals
     }
   end

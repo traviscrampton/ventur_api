@@ -4,6 +4,7 @@ class Resolvers::Journals::CreateJournal < GraphQL::Function
   argument :description, !types.String
   argument :stage, !types.String
   argument :status, !types.String
+  argument :cardImageUrl, !types.String
 
   def call(obj, args, ctx)
     current_user = ctx[:current_user]
@@ -15,7 +16,8 @@ class Resolvers::Journals::CreateJournal < GraphQL::Function
       title: args[:title],
       description: args[:description],
       stage: args[:stage],
-      status: args[:status]
+      status: args[:status],
+      banner_image: args[:cardImageUrl]
     }
 
     journal = current_user.journals.new(journal_params)

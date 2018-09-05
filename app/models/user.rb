@@ -36,13 +36,15 @@ class User < ActiveRecord::Base
   end
 
   def avatar_image_url
-    # "http://localhost:3000" + profile_info.avatar.url(:small)
-    "http://#{get_ip_address}:3000" + profile_info.avatar.url(:small)
+    Rails.application.routes.url_helpers.url_for(profile_image_avatar)
+  end
+
+  def profile_image_avatar
+    return self.profile_info.avatar.variant(resize: "100x100").processed
   end
 
   def banner_image_url
-    # "http://localhost:3000" + profile_info.background_image.url(:banner)
-    "http://#{get_ip_address}:3000" + profile_info.background_image.url(:banner)
+    return ""
   end
 
   def bio
