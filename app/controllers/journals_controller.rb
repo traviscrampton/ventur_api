@@ -29,6 +29,8 @@ class JournalsController < ApplicationController
 
   def handle_image_upload
   end
+  
+  private 
 
    def journal_json
     {
