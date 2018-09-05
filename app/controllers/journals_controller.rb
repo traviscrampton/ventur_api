@@ -11,18 +11,31 @@ class JournalsController < ApplicationController
     end
   end
 
+  def update
+    @journal = Journal.find(params[:id])
+    if @journal.update(non_image_params)
+      handle_image_upload
+      render json: journal_json
+    else
+      render json: @journal.errors
+    end
+  end
+
   private 
 
-   def non_image_params
-     params.permit(:title, :description, :stage, :status)
-   end
+  def non_image_params
+   params.permit(:title, :description, :stage, :status)
+  end
+
+  def handle_image_upload
+  end
 
    def journal_json
     {
       id: @journal.id,
       title: @journal.title,
       description: @journal.description,
-      cardBannerImageUrl: @journal.card_banner_image_url,
+      cardBannerImageUrl: @journal.banner_image.attached? ? @journal.card_banner_image_url : "",
       status: @journal.status,
       distance: 0,
       user: {
