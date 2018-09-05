@@ -7,6 +7,7 @@
 #  title              :string
 #  slug               :string
 #  description        :text
+#  content            :jsonb
 #  image_file_name    :string
 #  image_content_type :string
 #  image_file_size    :integer
