@@ -1,5 +1,4 @@
 class GraphqlController < ApplicationController
-  before_action :authenticate_token
   skip_before_action :verify_authenticity_token
   protect_from_forgery with: :null_session
 
@@ -11,29 +10,10 @@ class GraphqlController < ApplicationController
       current_user: current_user,
     }
     result = VenturApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
-    Rails.logger.debug("result #{result.inspect}")
     render json: result
   end
 
   private
-
-  def authenticate_token
-    if request.headers['Authorization'].present?
-      authenticate_or_request_with_http_token do |token|
-        begin
-          jwt_payload = JWT.decode(token, Rails.application.secrets.secret_key_base).first
-
-          @current_user_id = jwt_payload['id']
-        rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
-          head :unauthorized
-        end
-      end
-    end
-  end
-
-  def current_user
-    @current_user = User.find_by_id(@current_user_id)
-  end
 
   # Handle form data, JSON body, or a blank value
   def ensure_hash(ambiguous_param)

@@ -49,7 +49,7 @@ class Journal < ActiveRecord::Base
   end
 
   def total_distance
-    if distance.amount
+    if distance
       distance.amount.to_i
     else
       0 
