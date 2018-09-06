@@ -7,6 +7,7 @@
 #  title              :string
 #  slug               :string
 #  description        :text
+#  content            :jsonb
 #  image_file_name    :string
 #  image_content_type :string
 #  image_file_size    :integer
@@ -19,7 +20,7 @@ class Chapter < ActiveRecord::Base
   include ApplicationHelper
   validates_presence_of :title, :journal
   belongs_to :journal
-  has_one_attached :image
+  has_one_attached :banner_image
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
 
@@ -31,11 +32,23 @@ class Chapter < ActiveRecord::Base
     created_at.strftime("%B %d, %Y")
   end
 
+  def chapter_banner_size
+    banner_image.variant(resize: "800x600").processed
+  end
+
   def journal_thumbnail_chapter
-    image.variant(resize: "200x200").processed
+    banner_image.variant(resize: "400x300").processed
   end
 
   def image_url
     Rails.application.routes.url_helpers.url_for(journal_thumbnail_chapter)
+  end
+
+  def user
+    journal.user
+  end
+
+  def banner_image_url
+    Rails.application.routes.url_helpers.url_for(chapter_banner_size)
   end
 end
