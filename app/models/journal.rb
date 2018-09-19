@@ -61,7 +61,7 @@ class Journal < ActiveRecord::Base
   end
 
   def card_size
-    banner_image.variant(resize: "600x400").processed
+    banner_image.variant(resize: "800x500").processed
   end
 
   def mini_size
@@ -69,11 +69,15 @@ class Journal < ActiveRecord::Base
   end
 
   def web_banner_size
-    banner_image.variant(resize: "1000x800").processed
+    banner_image.variant(resize: "1300x1000").processed
   end
 
   def card_banner_image_url
-    Rails.application.routes.url_helpers.url_for(card_size)
+    if banner_image.attached?
+      Rails.application.routes.url_helpers.url_for(card_size)
+    else 
+      ""
+    end
   end
 
   def mini_banner_image_url
