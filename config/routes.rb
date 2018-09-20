@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   end
   post "/graphql", to: "graphql#execute"
   resources :journals
+  resources :chapters
 end
