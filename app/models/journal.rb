@@ -61,7 +61,7 @@ class Journal < ActiveRecord::Base
   end
 
   def card_size
-    banner_image.variant(resize: "800x500").processed
+    banner_image.variant(resize: "1400x700").processed
   end
 
   def mini_size
