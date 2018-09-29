@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user = User.find_by_id(@current_user_id)
+    @current_user = @current_user_id
   end
 end

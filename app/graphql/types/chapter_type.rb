@@ -10,5 +10,6 @@ Types::ChapterType = GraphQL::ObjectType.define do
   field :bannerImageUrl, types.String, property: :banner_image_url
   field :dateCreated, types.String, property: :readable_date
   field :user, Types::UserType, property: :user
+  field :journal, Types::JournalType, property: :journal
   field :content, types.String
 end
