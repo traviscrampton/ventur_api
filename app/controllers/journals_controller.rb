@@ -28,6 +28,10 @@ class JournalsController < ApplicationController
   end
 
   def handle_image_upload
+    return if !params[:banner_image] 
+    
+    @journal.banner_image.purge if @journal.banner_image.attached?
+    @journal.banner_image.attach(params[:banner_image]) 
   end
   
   private 
