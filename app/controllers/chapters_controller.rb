@@ -2,11 +2,12 @@ class ChaptersController < ApplicationController
 
   def create
     journal = Journal.find(params[:journalId])
-    chapter = journal.chapters.new(params[:title])
+    @chapter = journal.chapters.new(params[:title])
     if chapter.save
-      render json: chapter
+      handle_image_upload
+      render json: @chapter
     else
-      render json: chapter.errors
+      render json: @chapter.errors
     end
   end
 
