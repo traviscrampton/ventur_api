@@ -6,14 +6,14 @@ class ChaptersController < ApplicationController
     if @chapter.save
       @chapter.create_distance(amount: params[:distance])
       handle_image_upload
-      render json: @chapter
+      render json: chapter_json
     else
       render json: @chapter.errors
     end
   end
 
   def update
-    @chapter.find(params[:id])
+    @chapter = Chapter.find(params[:id])
     if @chapter.update(non_image_chapter_params)
       @chapter.distance.update(amount: params[:distance])
       handle_image_upload
@@ -35,4 +35,24 @@ class ChaptersController < ApplicationController
     @chapter.banner_image.purge if @chapter.banner_image.attached?
     @chapter.banner_image.attach(params[:banner_image]) 
   end
+
+  def chapter_json 
+    {
+      id: @chapter.id,
+      title: @chapter.title,
+      distance: @chapter.distance.amount,
+      journalId: @chapter.journal.id
+    }
+  end
+
+
+
+
+
+
+
+
+
+
+
 end
