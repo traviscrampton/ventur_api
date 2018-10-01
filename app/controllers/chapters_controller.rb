@@ -2,8 +2,9 @@ class ChaptersController < ApplicationController
 
   def create
     journal = Journal.find(params[:journalId])
-    @chapter = journal.chapters.new(params[:title])
-    if chapter.save
+    @chapter = journal.chapters.new(non_image_chapter_params)
+    if @chapter.save
+      @chapter.create_distance(amount: params[:distance])
       handle_image_upload
       render json: @chapter
     else
@@ -13,7 +14,8 @@ class ChaptersController < ApplicationController
 
   def update
     @chapter.find(params[:id])
-    if @chapter.update(non_image_params)
+    if @chapter.update(non_image_chapter_params)
+      @chapter.distance.update(amount: params[:distance])
       handle_image_upload
       render json: @chapter
     else
@@ -22,6 +24,10 @@ class ChaptersController < ApplicationController
   end
 
   private 
+
+   def non_image_chapter_params
+     params.permit(:title, :description)
+   end
 
   def handle_image_upload
     return if !params[:banner_image] 
