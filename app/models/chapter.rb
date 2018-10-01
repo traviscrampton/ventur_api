@@ -41,7 +41,11 @@ class Chapter < ActiveRecord::Base
   end
 
   def image_url
-    Rails.application.routes.url_helpers.url_for(journal_thumbnail_chapter)
+    if banner_image.attached?
+      Rails.application.routes.url_helpers.url_for(journal_thumbnail_chapter)
+    else
+      ""
+    end
   end
 
   def user
@@ -49,6 +53,10 @@ class Chapter < ActiveRecord::Base
   end
 
   def banner_image_url
-    Rails.application.routes.url_helpers.url_for(chapter_banner_size)
+    if banner_image.attached?
+      Rails.application.routes.url_helpers.url_for(chapter_banner_size)
+    else
+      ""
+    end
   end
 end

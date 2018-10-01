@@ -40,6 +40,7 @@ class ChaptersController < ApplicationController
     {
       id: @chapter.id,
       title: @chapter.title,
+      description: @chapter.description,
       distance: @chapter.distance.amount,
       journalId: @chapter.journal.id
     }
