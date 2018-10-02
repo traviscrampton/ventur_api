@@ -23,6 +23,8 @@ class Chapter < ActiveRecord::Base
   has_one_attached :banner_image
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
+  
+  enum stage: [:draft, :published]
 
   def distance_to_i
     distance.amount.to_i
