@@ -26,7 +26,7 @@ class ChaptersController < ApplicationController
   private 
 
    def non_image_chapter_params
-     params.permit(:title, :description)
+     params.permit(:title, :description, :stage)
    end
 
   def handle_image_upload
