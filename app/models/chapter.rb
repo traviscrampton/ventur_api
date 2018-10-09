@@ -21,6 +21,7 @@ class Chapter < ActiveRecord::Base
   validates_presence_of :title, :journal
   belongs_to :journal
   has_one_attached :banner_image
+  has_many_attached :blog_images
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
   

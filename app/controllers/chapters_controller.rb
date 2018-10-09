@@ -23,6 +23,16 @@ class ChaptersController < ApplicationController
     end
   end
 
+  def update_blog_content
+    @chapter = Chapter.find(params[:id])
+    if @chapter.update(content: params[:content])
+      BlogImageCurator.new(@chapter, params[:files]).call
+      render json: @chapter.content
+    else
+      render json: @chapter.errors
+    end
+  end
+
   private 
 
    def non_image_chapter_params
@@ -45,15 +55,4 @@ class ChaptersController < ApplicationController
       journalId: @chapter.journal.id
     }
   end
-
-
-
-
-
-
-
-
-
-
-
 end
