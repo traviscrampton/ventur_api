@@ -52,7 +52,10 @@ class ChaptersController < ApplicationController
       title: @chapter.title,
       description: @chapter.description,
       distance: @chapter.distance.amount,
-      journalId: @chapter.journal.id
+      journalId: @chapter.journal.id,
+      user: {
+        id: @chapter.journal.user.id
+      }
     }
   end
 end
