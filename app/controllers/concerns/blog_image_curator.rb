@@ -33,7 +33,9 @@ class BlogImageCurator
     @current_image_ids.each { |id| @chapter.blog_images.find(id).purge }
   end
 
-  def persist_new_images
+  def persist_new_images 
+    return if @images.nil?
+    
     @images.each { |img| @chapter.blog_images.attach(img) }
   end
 
