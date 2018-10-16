@@ -17,7 +17,7 @@ class ChaptersController < ApplicationController
     if @chapter.update(non_image_chapter_params)
       @chapter.distance.update(amount: params[:distance])
       handle_image_upload
-      render json: @chapter
+      render json: chapter_json
     else
       render json: @chapter.errors
     end
@@ -51,6 +51,7 @@ class ChaptersController < ApplicationController
       id: @chapter.id,
       title: @chapter.title,
       description: @chapter.description,
+      bannerImageUrl: @chapter.banner_image_url,
       distance: @chapter.distance.amount,
       journal: {
         id: @chapter.journal.id,
