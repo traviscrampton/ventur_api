@@ -55,6 +55,8 @@ class ChaptersController < ApplicationController
       dateCreated: @chapter.readable_date,
       bannerImageUrl: @chapter.banner_image_url,
       distance: @chapter.distance.amount,
+      stage: @chapter.stage,
+      slug: @chapter.slug,
       journal: {
         id: @chapter.journal.id,
         title: @chapter.journal.title,
