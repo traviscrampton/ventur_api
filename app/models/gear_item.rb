@@ -17,6 +17,8 @@
 class GearItem < ActiveRecord::Base
   validates_presence_of :title, :price
   has_one_attached :product_image
+  has_many_attached :content_images
+  belongs_to :user
   has_many :journals, through: :gear_lists
   has_many :reviews, dependent: :destroy
 
