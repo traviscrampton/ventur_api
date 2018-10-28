@@ -11,5 +11,5 @@ Types::UserType = GraphQL::ObjectType.define do
   field :totalDistance, types.Int, property: :total_distance
   field :avatarImageUrl, types.String, property: :avatar_image_url
   field :bannerImageUrl, types.String, property: :banner_image_url
-  field :gearItems, types[Types:GearItemType]
+  field :gearItems, types[Types::GearItemType], property: :gear_items
 end

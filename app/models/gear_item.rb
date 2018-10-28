@@ -30,7 +30,15 @@ class GearItem < ActiveRecord::Base
     donated.to_i
   end
 
-  def product_image_url
-    "http://localhost:3000" + product_image.url(:card)
+  def product_image_thumbnail
+    product_image.variant(resize: "400x300").processed
+  end
+
+def product_image_url
+    if product_image.attached?
+      Rails.application.routes.url_helpers.url_for(product_image_thumbnail)
+    else
+      ""
+    end
   end
 end

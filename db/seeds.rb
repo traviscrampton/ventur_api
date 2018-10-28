@@ -153,9 +153,11 @@ cj1.update(content: chapter_1_blog_entries.to_json )
 
 
 # GearItems NOTE: This also creates a gear list
-ju1gi1 = ju1.gear_items.create(title: "Patagonia Sweater", user_id: u1.id, price: 10000, product_image: File.open("#{Rails.root}/public/images/travis_image.png") )
-ju2gi2 = Journal.third.gear_items.create(title: "Ortlieb", user_id: u1.id, price: 1000, product_image: File.open("#{Rails.root}/public/images/gabe_image.jpg") )
-#
+ju1gi1 = ju1.gear_items.create(title: "Patagonia Sweater", user_id: u1.id, price: 10000)
+ju2gi2 = Journal.third.gear_items.create(title: "Ortlieb", user_id: u1.id, price: 1000 )
+ju1gi1.product_image.attach(io: File.open("#{Rails.root}/public/images/travis_image.png"), filename: "travsproduct")
+ju2gi2.product_image.attach(io: File.open("#{Rails.root}/public/images/gabe_image.jpg"), filename: 'patagucci') 
+
 # Following
 u1.followings.create(followed: u2) # user 1 follows user 2
 u2.followings.create(followed: u1) # user 2 follows user 1
