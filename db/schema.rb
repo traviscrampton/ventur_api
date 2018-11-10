@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_230121) do
+ActiveRecord::Schema.define(version: 2018_11_04_184540) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_10_28_230121) do
     t.datetime "updated_at", null: false
     t.json "content"
     t.integer "stage", default: 0
+    t.boolean "offline", default: false
   end
 
   create_table "distances", force: :cascade do |t|

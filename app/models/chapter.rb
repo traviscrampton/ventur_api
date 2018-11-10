@@ -18,7 +18,7 @@
 
 class Chapter < ActiveRecord::Base
   include ApplicationHelper
-  validates_presence_of :title, :journal
+  validates_presence_of :journal
   belongs_to :journal
   has_one_attached :banner_image
   has_many_attached :blog_images

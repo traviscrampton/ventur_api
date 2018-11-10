@@ -33,6 +33,7 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # routes.default_url_options = { host: "localhost:3000", port: 3000, protocol: 'http' }
   routes.default_url_options = { host: Socket.ip_address_list.detect{|intf| intf.ipv4_private?}.ip_address, port: 3000, protocol: 'http' }
 
   # Adds additional error checking when serving assets at runtime.

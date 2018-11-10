@@ -4,7 +4,7 @@ class ChaptersController < ApplicationController
     journal = Journal.find(params[:journalId])
     @chapter = journal.chapters.new(non_image_chapter_params)
     if @chapter.save
-      @chapter.create_distance(amount: params[:distance])
+      @chapter.create_distance(amount: 0) 
       handle_image_upload
       render json: chapter_json
     else
@@ -15,7 +15,7 @@ class ChaptersController < ApplicationController
   def update
     @chapter = Chapter.find(params[:id])
     if @chapter.update(non_image_chapter_params)
-      @chapter.distance.update(amount: params[:distance])
+      @chapter.distance.update(amount: params[:distance]) if params[:distance]
       handle_image_upload
       render json: chapter_json
     else
@@ -36,7 +36,7 @@ class ChaptersController < ApplicationController
   private 
 
    def non_image_chapter_params
-     params.permit(:title, :description, :stage)
+     params.permit(:title, :description, :stage, :offline)
    end
 
   def handle_image_upload
@@ -54,6 +54,7 @@ class ChaptersController < ApplicationController
       content: @chapter.content,
       dateCreated: @chapter.readable_date,
       bannerImageUrl: @chapter.banner_image_url,
+      offline: @chapter.offline,
       distance: @chapter.distance.amount,
       stage: @chapter.stage,
       slug: @chapter.slug,

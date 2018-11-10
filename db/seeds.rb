@@ -80,6 +80,7 @@ chapter_1_blog_entries = [
       filename: "abel_tasman",
       uri: Rails.application.routes.url_helpers.url_for(cj1.blog_images.first),
       type: "image",
+      localUri: "none",
       aspectRatio: 1,
       caption: "Abel tasman, so hot right now"
     },
@@ -93,6 +94,7 @@ chapter_1_blog_entries = [
       filename: "abel_tasman",
       uri: Rails.application.routes.url_helpers.url_for(cj1.blog_images.second),
       type: "image",
+      localUri: "none",
       aspectRatio: 1,
       caption: "The crown range was a big ol bitch, but not in a sexist type of way"
     },
@@ -101,6 +103,7 @@ chapter_1_blog_entries = [
       filename: "abel_tasman",
       uri: Rails.application.routes.url_helpers.url_for(cj1.blog_images.third),
       type: "image",
+      localUri: "none",
       aspectRatio: 1,
       caption: "Abel tasman, so hot right now"
     },
@@ -122,6 +125,7 @@ Arcu non sodales neque sodales. Suspendisse in est ante in nibh mauris cursus ma
       filename: "facebooker7",
       uri: Rails.application.routes.url_helpers.url_for(cj1.blog_images[3]),
       type: "image",
+      localUri: "none",
       aspectRatio: 1,
       caption: "Crown Royal"
     },
@@ -130,6 +134,7 @@ Arcu non sodales neque sodales. Suspendisse in est ante in nibh mauris cursus ma
       filename: "westcoastal",
       uri: Rails.application.routes.url_helpers.url_for(cj1.blog_images[4]),
       type: "image",
+      localUri: "none",
       aspectRatio: 1,
       caption: "Sometimes life on the road makes you give a big caption, that's a big caption if i have ever seen one and I am wondering if there will be a limit to how big these captions will be able to get because it seems like they are just gonna be getting bigger and bigger and bigger and bigger."
     },
@@ -143,6 +148,7 @@ Arcu non sodales neque sodales. Suspendisse in est ante in nibh mauris cursus ma
       filename: "vicotrybuurs",
       uri: Rails.application.routes.url_helpers.url_for(cj1.blog_images[5]),
       type: "image",
+      localUri: "none",
       aspectRatio: 1,
       caption: "WHATS DONE"
     }
