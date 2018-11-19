@@ -18,6 +18,8 @@
 
 class Chapter < ActiveRecord::Base
   include ApplicationHelper
+  
+  default_scope { order(created_at: :desc) }
   validates_presence_of :journal
   belongs_to :journal
   has_one_attached :banner_image

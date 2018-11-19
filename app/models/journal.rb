@@ -88,6 +88,10 @@ class Journal < ActiveRecord::Base
     chapters.map(&:distance).pluck(:amount).inject(0, &:+)
   end
 
+  def sorted_chapters
+    chapters.sort_by {|chapter| chapter.created_on }
+  end
+
   def gear_item_count
     gear_items.count
   end

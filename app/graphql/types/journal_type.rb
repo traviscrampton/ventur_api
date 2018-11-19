@@ -7,6 +7,7 @@ Types::JournalType = GraphQL::ObjectType.define do
   field :status, !types.String
   field :stage, !types.String
   field :chapters, types[Types::ChapterType]
+  field :sortedChapters, types[Types::ChapterType], property: :sorted_chapters
   field :gearItems, types[Types::GearItemType], property: :gear_items
   field :gearItemCount, types.Int, property: :gear_item_count
   field :webBannerImageUrl, types.String, property: :web_banner_image_url
