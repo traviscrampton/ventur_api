@@ -16,6 +16,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     if @chapter.update(non_image_chapter_params)
       @chapter.distance.update(amount: params[:distance]) if params[:distance]
+      @chapter.journal.calculate_total_distance
       handle_image_upload
       render json: chapter_json
     else
