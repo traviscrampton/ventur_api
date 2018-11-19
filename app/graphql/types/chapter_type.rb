@@ -9,7 +9,7 @@ Types::ChapterType = GraphQL::ObjectType.define do
   field :imageUrl, types.String, property: :image_url
   field :offline, types.Boolean
   field :bannerImageUrl, types.String, property: :banner_image_url
-  field :dateCreated, types.String, property: :readable_date
+  field :readableDate, types.String, property: :readable_date
   field :user, Types::UserType, property: :user
   field :journal, Types::JournalType, property: :journal
   field :content, types.String

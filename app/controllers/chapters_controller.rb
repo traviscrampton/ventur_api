@@ -36,7 +36,7 @@ class ChaptersController < ApplicationController
   private 
 
    def non_image_chapter_params
-     params.permit(:title, :description, :stage, :offline)
+     params.permit(:title, :description, :stage, :offline, :date)
    end
 
   def handle_image_upload
@@ -57,6 +57,8 @@ class ChaptersController < ApplicationController
       offline: @chapter.offline,
       distance: @chapter.distance.amount,
       stage: @chapter.stage,
+      date: @chapter.date.to_f * 1000,
+      readableDate: @chapter.readable_date,
       slug: @chapter.slug,
       journal: {
         id: @chapter.journal.id,
