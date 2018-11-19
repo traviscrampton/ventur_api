@@ -32,11 +32,11 @@ class Chapter < ActiveRecord::Base
   end
 
   def readable_date
-    if date
-      date.strftime("%B %d, %Y")
-    else
-      created_at.strftime("%B %d, %Y")
-    end
+    created_on.strftime("%B %d, %Y")
+  end
+
+  def created_on
+    date || created_at
   end
 
   def chapter_banner_size
