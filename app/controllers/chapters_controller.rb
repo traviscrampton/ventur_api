@@ -12,6 +12,19 @@ class ChaptersController < ApplicationController
     end
   end
 
+  def upload_offline_chapter
+    journal = Journal.find(params[:journalId])
+    @chapter = journal.chapters.new(non_image_chapter_params)
+    if @chapter.save
+      @chapter.create_distance(amount: params[:distance])
+      handle_image_upload
+      BlogImageCurator.new(@chapter, params[:files]).call
+      render json: chapter_json
+    else
+      render json: @chapter.errors
+    end
+  end
+
   def update
     @chapter = Chapter.find(params[:id])
     if @chapter.update(non_image_chapter_params)
@@ -34,10 +47,16 @@ class ChaptersController < ApplicationController
     end
   end
 
+  def delete
+    @chapter = Chapter.find(params[:id])
+    @chapter.destroy
+    render json: @chapter
+  end
+
   private 
 
    def non_image_chapter_params
-     params.permit(:title, :description, :stage, :offline, :date)
+     params.permit(:title, :description, :stage, :offline, :date, :content)
    end
 
   def handle_image_upload
