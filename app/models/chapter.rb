@@ -26,8 +26,6 @@ class Chapter < ActiveRecord::Base
   has_many_attached :blog_images
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
-  
-  enum stage: [:draft, :published]
 
   def distance_to_i
     distance.amount.to_i
@@ -47,6 +45,10 @@ class Chapter < ActiveRecord::Base
 
   def journal_thumbnail_chapter
     banner_image.variant(resize: "400x300").processed
+  end
+
+  def blog_image_count
+    blog_images.count
   end
 
   def image_url

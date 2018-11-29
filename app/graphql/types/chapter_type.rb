@@ -4,8 +4,9 @@ Types::ChapterType = GraphQL::ObjectType.define do
   field :title, types.String
   field :slug, types.String
   field :description, types.String
-  field :stage, types.String
+  field :published, types.Boolean
   field :distance, types.Int, property: :distance_to_i
+  field :blogImageCount, types.Int, property: :blog_image_count
   field :imageUrl, types.String, property: :image_url
   field :offline, types.Boolean
   field :bannerImageUrl, types.String, property: :banner_image_url

@@ -47,16 +47,20 @@ class ChaptersController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @chapter = Chapter.find(params[:id])
-    @chapter.destroy
-    render json: @chapter
+    if current_user.id == @chapter.journal.user_id
+      @chapter.delete
+      render json: @chapter
+    else
+      render json: { error: "you cannot delete this chapter" }
+    end
   end
 
   private 
 
    def non_image_chapter_params
-     params.permit(:title, :description, :stage, :offline, :date, :content)
+     params.permit(:title, :description, :published, :offline, :date, :content)
    end
 
   def handle_image_upload
@@ -76,7 +80,7 @@ class ChaptersController < ApplicationController
       bannerImageUrl: @chapter.banner_image_url,
       offline: @chapter.offline,
       distance: @chapter.distance.amount,
-      stage: @chapter.stage,
+      published: @chapter.published,
       date: @chapter.date.to_f * 1000,
       readableDate: @chapter.readable_date,
       slug: @chapter.slug,
