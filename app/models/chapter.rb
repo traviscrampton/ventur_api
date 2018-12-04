@@ -39,6 +39,10 @@ class Chapter < ActiveRecord::Base
     date || created_at
   end
 
+  def numbered_date
+    created_on.to_f * 1000
+  end
+
   def chapter_banner_size
     banner_image.variant(resize: "800x600").processed
   end

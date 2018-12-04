@@ -65,7 +65,7 @@ class ChaptersController < ApplicationController
 
   def handle_image_upload
     return if !params[:banner_image] 
-    
+
     @chapter.banner_image.purge if @chapter.banner_image.attached?
     @chapter.banner_image.attach(params[:banner_image]) 
   end
