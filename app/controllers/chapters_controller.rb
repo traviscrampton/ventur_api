@@ -8,7 +8,7 @@ class ChaptersController < ApplicationController
       handle_image_upload
       render json: chapter_json
     else
-      render json: @chapter.errors
+      render json: { errors: @chapter.errors.full_messages }, status: 422
     end
   end
 
@@ -21,19 +21,18 @@ class ChaptersController < ApplicationController
       BlogImageCurator.new(@chapter, params[:files]).call
       render json: chapter_json
     else
-      render json: @chapter.errors
+      render json: { errors: @chapter.errors.full_messages }, status: 422
     end
   end
 
   def update
     @chapter = Chapter.find(params[:id])
     if @chapter.update(non_image_chapter_params)
-      @chapter.distance.update(amount: params[:distance]) if params[:distance]
-      @chapter.journal.calculate_total_distance
+      handle_distance_update
       handle_image_upload
       render json: chapter_json
     else
-      render json: @chapter.errors
+      render json: { errors: @chapter.errors.full_messages }, status: 422
     end
   end
 
@@ -43,7 +42,7 @@ class ChaptersController < ApplicationController
       BlogImageCurator.new(@chapter, params[:files]).call
       render json: chapter_json
     else
-      render json: @chapter.errors
+      render json: { errors: @chapter.errors.full_messages }, status: 422
     end
   end
 
@@ -59,9 +58,16 @@ class ChaptersController < ApplicationController
 
   private 
 
-   def non_image_chapter_params
-     params.permit(:title, :description, :published, :offline, :date, :content)
-   end
+  def non_image_chapter_params
+    params.permit(:title, :description, :published, :offline, :date, :content)
+  end
+
+  def handle_distance_update
+    return if !params[:distance]
+    
+    @chapter.distance.update(amount: params[:distance])
+    @chapter.journal.distance.update(amount: @chapter.journal.calculate_total_distance)
+  end
 
   def handle_image_upload
     return if !params[:banner_image] 

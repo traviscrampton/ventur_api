@@ -18,9 +18,11 @@
 
 class Chapter < ActiveRecord::Base
   include ApplicationHelper
-  
-  default_scope { order(created_at: :desc) }
+
   validates_presence_of :journal
+  validate :published_validations
+
+
   belongs_to :journal
   has_one_attached :banner_image
   has_many_attached :blog_images
@@ -72,6 +74,12 @@ class Chapter < ActiveRecord::Base
       Rails.application.routes.url_helpers.url_for(chapter_banner_size)
     else
       ""
+    end
+  end
+
+  def published_validations
+    if published && title.blank?
+      errors.add(:title, "cannot be blank if chapter is published")
     end
   end
 end
