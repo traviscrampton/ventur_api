@@ -64,7 +64,7 @@ class ChaptersController < ApplicationController
 
   def handle_distance_update
     return if !params[:distance]
-    
+
     @chapter.distance.update(amount: params[:distance])
     @chapter.journal.distance.update(amount: @chapter.journal.calculate_total_distance)
   end
@@ -87,13 +87,15 @@ class ChaptersController < ApplicationController
       offline: @chapter.offline,
       distance: @chapter.distance.amount,
       published: @chapter.published,
-      date: @chapter.date.to_f * 1000,
+      blogImageCount: @chapter.blog_image_count,
+      date: @chapter.numbered_date,
       readableDate: @chapter.readable_date,
       slug: @chapter.slug,
       journal: {
         id: @chapter.journal.id,
         title: @chapter.journal.title,
-        miniBannerImageUrl: @chapter.journal.mini_banner_image_url
+        miniBannerImageUrl: @chapter.journal.mini_banner_image_url,
+        distance: @chapter.journal.distance.amount
       }, 
       user: {
         id: @chapter.journal.user.id,

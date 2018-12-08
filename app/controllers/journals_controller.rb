@@ -4,6 +4,7 @@ class JournalsController < ApplicationController
     @journal = current_user.journals.new(non_image_params)
 
     if @journal.save
+      @journal.create_distance(amount: 0) 
       @journal.banner_image.attach(params[:banner_image]) if params[:banner_image]
       render json: journal_json
     else
