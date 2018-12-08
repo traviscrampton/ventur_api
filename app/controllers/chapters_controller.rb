@@ -85,7 +85,7 @@ class ChaptersController < ApplicationController
       dateCreated: @chapter.readable_date,
       bannerImageUrl: @chapter.banner_image_url,
       offline: @chapter.offline,
-      distance: @chapter.distance.amount,
+      distance: @chapter.distance.amount.to_i,
       published: @chapter.published,
       blogImageCount: @chapter.blog_image_count,
       date: @chapter.numbered_date,
@@ -95,7 +95,7 @@ class ChaptersController < ApplicationController
         id: @chapter.journal.id,
         title: @chapter.journal.title,
         miniBannerImageUrl: @chapter.journal.mini_banner_image_url,
-        distance: @chapter.journal.distance.amount
+        distance: @chapter.journal.distance.amount.to_i
       }, 
       user: {
         id: @chapter.journal.user.id,
