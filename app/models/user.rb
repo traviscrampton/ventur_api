@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
 
   has_many :journals, dependent: :destroy
   has_one :profile_info, dependent: :destroy
+  has_one_attached :avatar
   has_many :gear_items
   has_many :followings, foreign_key: "follower_id", dependent: :destroy
   has_many :favorites
@@ -41,7 +42,7 @@ class User < ActiveRecord::Base
   end
 
   def profile_image_avatar
-    return self.profile_info.avatar.variant(resize: "100x100").processed
+    return self.avatar.variant(resize: "100x100").processed
   end
 
   def banner_image_url

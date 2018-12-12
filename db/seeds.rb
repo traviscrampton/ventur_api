@@ -7,8 +7,8 @@ profile_info_u1 = u1.build_profile_info( bio:'here is a bio for user 1')
 profile_info_u2 = u2.build_profile_info( bio:'here is a bio for user 2')
 profile_info_u1.save!
 profile_info_u2.save!
-profile_info_u1.avatar.attach(io: File.open("#{Rails.root}/public/images/travis_image.png"), filename: "travis_image.png")
-profile_info_u2.avatar.attach(io: File.open("#{Rails.root}/public/images/gabe_image.jpg"), filename: "gabe_image.jpg")
+u1.avatar.attach(io: File.open("#{Rails.root}/public/images/travis_image.png"), filename: "travis_image.png")
+u2.avatar.attach(io: File.open("#{Rails.root}/public/images/gabe_image.jpg"), filename: "gabe_image.jpg")
 
 # Journals
 ju1 = u1.journals.new( title: "Ol Zealand",
