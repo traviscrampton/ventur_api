@@ -56,7 +56,7 @@ class GearItemsController < ApplicationController
   private 
 
   def non_image_gear_item_params
-    params.permit(:title, :description, :published, :offline, :date, :content)
+    params.permit(:title, :published, :content)
   end
 
   def handle_image_upload
