@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.new(non_image_params)
     if @user.save
       upload_avatar_image
-      render json: user_json
+      render json: create_user_json
     else
       render json: { errors: @user.errors.full_messages }, status: 422
     end
@@ -32,6 +32,14 @@ class UsersController < ApplicationController
 
     @user.avatar.purge if @user.avatar.attached?
     @user.avatar.attach(params[:avatar]) 
+  end
+
+  def create_user_json
+    user_json.merge({
+      Login: {
+        token: @user.generate_jwt
+      }
+    })
   end
 
   def user_json 
