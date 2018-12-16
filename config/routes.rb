@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gear_items do 
+    member do 
+      put "update_gear_content"
+    end
+  end
+
   resources :users
 
   post "/chapters/upload_offline_chapter" => "chapters#upload_offline_chapter", :as => :upload_offline_chapter
