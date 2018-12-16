@@ -73,15 +73,27 @@ class Journal < ActiveRecord::Base
   end
 
   def card_banner_image_url
-    Rails.application.routes.url_helpers.url_for(card_size)
+    if banner_image.attached?
+      Rails.application.routes.url_helpers.url_for(card_size)
+    else
+      ""
+    end
   end
 
   def mini_banner_image_url
-    Rails.application.routes.url_helpers.url_for(mini_size)
+    if banner_image.attached?
+      Rails.application.routes.url_helpers.url_for(mini_size)
+    else
+      ""
+    end
   end
 
   def web_banner_image_url
-    Rails.application.routes.url_helpers.url_for(web_banner_size)
+    if banner_image.attached?
+      Rails.application.routes.url_helpers.url_for(web_banner_size)
+    else
+      ""
+    end
   end
 
   def calculate_total_distance
