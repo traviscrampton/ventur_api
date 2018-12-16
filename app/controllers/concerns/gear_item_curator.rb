@@ -1,4 +1,4 @@
-class BlogImageCurator
+class GearItemCurator
 
   attr_accessor :gear_item,  :images
 

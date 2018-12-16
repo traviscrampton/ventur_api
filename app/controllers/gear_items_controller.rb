@@ -16,7 +16,7 @@ class GearItemsController < ApplicationController
     @gear_item = journal.gear_items.new(non_image_gear_item_params)
     if @gear_item.save      
       handle_image_upload
-      BlogImageCurator.new(@gear_item, params[:files]).call
+      GearItemCurator.new(@gear_item, params[:files]).call
       render json: gear_item_json
     else
       render json: { errors: @gear_item.errors.full_messages }, status: 422
