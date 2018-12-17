@@ -6,7 +6,11 @@ Types::JournalType = GraphQL::ObjectType.define do
   field :description, !types.String
   field :status, !types.String
   field :stage, !types.String
-  field :chapters, types[Types::ChapterType], property: :sorted_chapters
+  field :chapters, types[Types::ChapterType] do 
+    resolve ->(obj, args, context) {
+      obj.user_id == context[:current_user].id ? obj.all_chapters : obj.published_chapters
+    }
+  end
   field :gearItems, types[Types::GearItemType], property: :gear_items
   field :gearItemCount, types.Int, property: :gear_item_count
   field :webBannerImageUrl, types.String, property: :web_banner_image_url

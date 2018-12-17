@@ -6,7 +6,6 @@ Types::UserType = GraphQL::ObjectType.define do
   field :lastName, !types.String, property: :last_name
   field :fullName, !types.String, property: :full_name
   field :journals, types[Types::JournalType]
-  field :bio, !types.String
   field :journalCount, types.Int, property: :journal_count
   field :totalDistance, types.Int, property: :total_distance
   field :avatarImageUrl, types.String, property: :avatar_image_url
