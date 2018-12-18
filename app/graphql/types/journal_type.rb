@@ -8,7 +8,7 @@ Types::JournalType = GraphQL::ObjectType.define do
   field :stage, !types.String
   field :chapters, types[Types::ChapterType] do 
     resolve ->(obj, args, context) {
-      obj.user_id == context[:current_user].id ? obj.all_chapters : obj.published_chapters
+      current_user && obj.user_id == context[:current_user].id ? obj.all_chapters : obj.published_chapters
     }
   end
   field :gearItems, types[Types::GearItemType], property: :gear_items
