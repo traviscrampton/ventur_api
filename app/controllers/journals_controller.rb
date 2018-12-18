@@ -1,4 +1,5 @@
 class JournalsController < ApplicationController
+  before_action :check_current_user
 
   def create
     @journal = current_user.journals.new(non_image_params)
@@ -14,6 +15,7 @@ class JournalsController < ApplicationController
 
   def update
     @journal = Journal.find(params[:id])
+    check_journal_user
     if @journal.update(non_image_params)
       handle_image_upload
       render json: journal_json
@@ -26,6 +28,12 @@ class JournalsController < ApplicationController
 
   def non_image_params
    params.permit(:title, :description, :stage, :status)
+  end
+
+  def check_journal_user
+    return if current_user.id == @journal.user_id
+
+    return_unauthorized_error
   end
 
   def handle_image_upload

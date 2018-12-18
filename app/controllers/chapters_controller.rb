@@ -1,8 +1,10 @@
 class ChaptersController < ApplicationController
+  before_action :check_current_user
 
   def create
     journal = Journal.find(params[:journalId])
     @chapter = journal.chapters.new(non_image_chapter_params)
+    validate_journal_user
     if @chapter.save
       @chapter.create_distance(amount: 0) 
       handle_image_upload
@@ -15,6 +17,7 @@ class ChaptersController < ApplicationController
   def upload_offline_chapter
     journal = Journal.find(params[:journalId])
     @chapter = journal.chapters.new(non_image_chapter_params)
+    validate_journal_user
     if @chapter.save
       @chapter.create_distance(amount: params[:distance])
       handle_image_upload
@@ -27,6 +30,7 @@ class ChaptersController < ApplicationController
 
   def update
     @chapter = Chapter.find(params[:id])
+    validate_journal_user
     if @chapter.update(non_image_chapter_params)
       handle_distance_update
       handle_image_upload
@@ -38,6 +42,7 @@ class ChaptersController < ApplicationController
 
   def update_blog_content
     @chapter = Chapter.find(params[:id])
+    validate_journal_user
     if @chapter.update(content: params[:content])
       BlogImageCurator.new(@chapter, params[:files]).call
       render json: chapter_json
@@ -48,6 +53,7 @@ class ChaptersController < ApplicationController
 
   def destroy
     @chapter = Chapter.find(params[:id])
+    validate_journal_user
     if current_user.id == @chapter.journal.user_id
       @chapter.delete
       render json: @chapter
@@ -57,6 +63,13 @@ class ChaptersController < ApplicationController
   end
 
   private 
+
+  def validate_journal_user
+    return if current_user.id == @chapter.journal.user_id
+
+    return_unauthorized_error
+  end
+
 
   def non_image_chapter_params
     params.permit(:title, :description, :published, :offline, :date, :content)

@@ -3,6 +3,7 @@ class GearItemsController < ApplicationController
   def create
     journal = Journal.find(params[:journalId])
     @gear_item = journal.gear_items.new(non_image_gear_item_params)
+    validate_journal_user
     if @gear_item.save
       handle_image_upload
       render json: gear_item_json
@@ -14,6 +15,7 @@ class GearItemsController < ApplicationController
   def upload_offline_gear_item
     journal = Journal.find(params[:journalId])
     @gear_item = journal.gear_items.new(non_image_gear_item_params)
+    validate_journal_user
     if @gear_item.save      
       handle_image_upload
       GearItemCurator.new(@gear_item, params[:files]).call
@@ -25,6 +27,7 @@ class GearItemsController < ApplicationController
 
   def update
     @gear_item = gear_item.find(params[:id])
+    validate_journal_user
     if @gear_item.update(non_image_gear_item_params)
       handle_image_upload
       render json: gear_item_json
@@ -35,6 +38,7 @@ class GearItemsController < ApplicationController
 
   def update_blog_content
     @gear_item = GearItem.find(params[:id])
+    validate_journal_user
     if @gear_item.update(content: params[:content])
       BlogImageCurator.new(@gear_item, params[:files]).call
       render json: gear_item_json
@@ -45,6 +49,7 @@ class GearItemsController < ApplicationController
 
   def destroy
     @gear_item = GearItem.find(params[:id])
+    validate_journal_user
     if current_user.id == @gear_item.journal.user_id
       @gear_item.delete
       render json: @gear_item
@@ -54,6 +59,12 @@ class GearItemsController < ApplicationController
   end
 
   private 
+
+  def validate_journal_user
+    return if current_user.id == @gear_item.journal.user_id
+
+    return_unauthorized_error
+  end
 
   def non_image_gear_item_params
     params.permit(:title, :published, :content)

@@ -20,4 +20,14 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user = @current_user_id ? User.find(@current_user_id) : nil
   end
+
+  def check_current_user
+    return if current_user
+
+    return_unauthorized_error
+  end
+
+  def return_unauthorized_error
+    render json: { errors: "You are not authorized to do this"}, status: 401
+  end
 end
