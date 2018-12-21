@@ -15,6 +15,6 @@ gem 'rubocop'
 gem 'jwt'
 gem 'annotate', group: :development
 gem 'graphql'
-gem 'spring',        group: :development
+gem 'spring',        group: :developmentgit 
 
 gem 'graphiql-rails', group: :development
