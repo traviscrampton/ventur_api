@@ -38,7 +38,11 @@ class User < ActiveRecord::Base
   end
 
   def avatar_image_url
-    Rails.application.routes.url_helpers.url_for(profile_image_avatar)
+    if avatar.attached?
+      Rails.application.routes.url_helpers.url_for(profile_image_avatar)
+    else 
+      ""
+    end
   end
 
   def profile_image_avatar
