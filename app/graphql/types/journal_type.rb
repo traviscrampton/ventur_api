@@ -1,11 +1,11 @@
 Types::JournalType = GraphQL::ObjectType.define do
   name "Journal"
-  field :id, !types.ID
-  field :title, !types.String
-  field :slug, !types.String
-  field :description, !types.String
-  field :status, !types.String
-  field :stage, !types.String
+  field :id, types.ID
+  field :title, types.String
+  field :slug, types.String
+  field :description, types.String
+  field :status, types.String
+  field :stage, types.String
   field :chapters, types[Types::ChapterType] do 
     resolve ->(obj, args, context) {
       context[:current_user] && obj.user_id == context[:current_user].id ? obj.all_chapters : obj.published_chapters
