@@ -2,11 +2,7 @@
 u1 = User.create(email: "crampton.travis@gmail.com", first_name: "Travis", last_name: "Crampton", password: "travis12")
 u2 = User.create(email: "gabeleoni@gmail.com", first_name: 'Gabe', last_name: 'Leoni', password: "travis12")
 
-# profile infos
-profile_info_u1 = u1.build_profile_info( bio:'here is a bio for user 1')
-profile_info_u2 = u2.build_profile_info( bio:'here is a bio for user 2')
-profile_info_u1.save!
-profile_info_u2.save!
+# profile info
 u1.avatar.attach(io: File.open("#{Rails.root}/public/images/travis_image.png"), filename: "travis_image.png")
 u2.avatar.attach(io: File.open("#{Rails.root}/public/images/gabe_image.jpg"), filename: "gabe_image.jpg")
 

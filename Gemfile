@@ -9,11 +9,12 @@ gem 'devise'
 gem 'rspec'
 gem 'pg'
 gem "mini_magick"
+gem "paperclip"
 gem 'rubocop'
 gem 'jwt'
 gem 'annotate', group: :development
 gem 'graphql'
 gem 'spring',        group: :development
-gem 'sqlite3',        group: :development
+gem 'pg'
 
 gem 'graphiql-rails', group: :development

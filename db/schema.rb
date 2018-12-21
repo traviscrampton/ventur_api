@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_235509) do
+ActiveRecord::Schema.define(version: 2018_12_21_012849) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,10 +38,6 @@ ActiveRecord::Schema.define(version: 2018_12_16_235509) do
     t.string "title"
     t.string "slug"
     t.text "description"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.json "content"
@@ -102,25 +98,6 @@ ActiveRecord::Schema.define(version: 2018_12_16_235509) do
     t.text "description"
     t.integer "status", default: 0
     t.integer "stage", default: 0
-    t.string "banner_image_file_name"
-    t.string "banner_image_content_type"
-    t.integer "banner_image_file_size"
-    t.datetime "banner_image_updated_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "profile_infos", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.string "background_image_file_name"
-    t.string "background_image_content_type"
-    t.integer "background_image_file_size"
-    t.datetime "background_image_updated_at"
-    t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
