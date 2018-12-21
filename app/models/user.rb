@@ -25,7 +25,6 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :journals, dependent: :destroy
-  has_one :profile_info, dependent: :destroy
   has_one_attached :avatar
   has_many :gear_items
   has_many :followings, foreign_key: "follower_id", dependent: :destroy
@@ -51,10 +50,6 @@ class User < ActiveRecord::Base
 
   def banner_image_url
     return ""
-  end
-
-  def bio
-    profile_info.bio
   end
 
   def total_distance
