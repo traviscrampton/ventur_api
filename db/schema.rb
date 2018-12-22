@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2018_12_21_012849) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_12_21_012849) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "content"
+    t.jsonb "content"
     t.boolean "offline", default: false
     t.datetime "date"
     t.boolean "published", default: false
@@ -73,13 +76,9 @@ ActiveRecord::Schema.define(version: 2018_12_21_012849) do
     t.string "title"
     t.decimal "price", precision: 8, scale: 2
     t.decimal "donated", precision: 8, scale: 2
-    t.string "product_image_file_name"
-    t.string "product_image_content_type"
-    t.integer "product_image_file_size"
-    t.datetime "product_image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "content"
+    t.jsonb "content"
     t.integer "user_id"
     t.boolean "published", default: false
   end

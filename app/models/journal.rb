@@ -73,11 +73,11 @@ class Journal < ActiveRecord::Base
   end
 
   def card_banner_image_url
-    if banner_image.attached?
-      Rails.application.routes.url_helpers.url_for(card_size)
-    else
-      ""
-    end
+    banner_image.attached? ? env_card_banner_image_url : ""
+  end
+
+  def env_card_banner_image_url
+    Rails.env.production? ? card_size.service_url : Rails.application.routes.url_helpers.url_for(card_size) 
   end
 
   def mini_banner_image_url
