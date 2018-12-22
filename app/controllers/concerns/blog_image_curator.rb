@@ -45,11 +45,16 @@ class BlogImageCurator
       if entry["type"] == "image" && entry["id"].nil?
         persisted_image = blobs.find { |img|  img.filename == entry["filename"] }
         entry["id"] = persisted_image.id
-        entry["uri"] = Rails.application.routes.url_helpers.url_for(persisted_image.variant(resize: "800x600").processed)
+        entry["uri"] = get_persisted_image_url(persisted_image)
       end
       entry
     end
 
     @chapter.update(content: new_entries_blob.to_json)
+  end
+
+  def get_persisted_image_url(persisted_image)
+    img_size = persisted_image.variant(resize: "800x600").processed
+    Rails.env.production? ? img_size.service_url : Rails.application.routes.url_helpers.url_for(img_size)
   end
 end

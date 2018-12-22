@@ -58,11 +58,7 @@ class Chapter < ActiveRecord::Base
   end
 
   def image_url
-    if banner_image.attached?
-      Rails.application.routes.url_helpers.url_for(journal_thumbnail_chapter)
-    else
-      ""
-    end
+    banner_image.attached? ? get_env_image_url(journal_thumbnail_chapter) : ""    
   end
 
   def user
@@ -70,11 +66,11 @@ class Chapter < ActiveRecord::Base
   end
 
   def banner_image_url
-    if banner_image.attached?
-      Rails.application.routes.url_helpers.url_for(chapter_banner_size)
-    else
-      ""
-    end
+    banner_image.attached? ? get_env_image_url(chapter_banner_size) : ""
+  end
+
+  def get_env_image_url(img_size)
+    Rails.env.production? ? img_size.service_url : Rails.application.routes.url_helpers.url_for(img_size)
   end
 
   def published_validations

@@ -73,27 +73,19 @@ class Journal < ActiveRecord::Base
   end
 
   def card_banner_image_url
-    banner_image.attached? ? env_card_banner_image_url : ""
-  end
-
-  def env_card_banner_image_url
-    Rails.env.production? ? card_size.service_url : Rails.application.routes.url_helpers.url_for(card_size) 
+    banner_image.attached? ? get_env_banner_image_url(card_size) : ""
   end
 
   def mini_banner_image_url
-    if banner_image.attached?
-      Rails.application.routes.url_helpers.url_for(mini_size)
-    else
-      ""
-    end
+    banner_image.attached? ? get_env_banner_image_url(mini_size) : ""
   end
 
   def web_banner_image_url
-    if banner_image.attached?
-      Rails.application.routes.url_helpers.url_for(web_banner_size)
-    else
-      ""
-    end
+    banner_image.attached? ? get_env_banner_image_url(web_banner_size) : ""
+  end
+
+  def get_env_banner_image_url(img_size)
+    Rails.env.production? ? img_size.service_url : Rails.application.routes.url_helpers.url_for(img_size)
   end
 
   def calculate_total_distance
