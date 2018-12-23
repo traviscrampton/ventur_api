@@ -12,4 +12,5 @@ Types::UserType = GraphQL::ObjectType.define do
   field :bannerImageUrl, types.String, property: :banner_image_url
   field :gearItems, types[Types::GearItemType], property: :gear_items
   field :admin, types.Boolean
+  field :canCreate, types.Boolean, property: :can_create
 end
