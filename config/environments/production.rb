@@ -10,13 +10,6 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins '*'
-      resource '*', :headers => :any, :methods => [:get, :post, :delete, :options, :put]
-    end
-  end
-
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
