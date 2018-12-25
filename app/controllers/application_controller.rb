@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_token
 
   def authenticate_token
+    Rails.logger.debug("WHAT AUTHORIZATION#{request.headers['Authorization']}")
     if request.headers['Authorization'].present?
+      Rails.logger.debug("HERE ARE THEY CLAIM IT's PRESENT")
       authenticate_or_request_with_http_token do |token|
         begin
           jwt_payload = JWT.decode(token, Rails.application.secrets.secret_key_base).first

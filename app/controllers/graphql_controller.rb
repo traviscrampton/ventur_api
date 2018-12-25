@@ -3,6 +3,7 @@ class GraphqlController < ApplicationController
   protect_from_forgery with: :null_session
 
   def execute
+    Rails.logger.debug("WHERE WE AT")
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
@@ -10,8 +11,8 @@ class GraphqlController < ApplicationController
       current_user: current_user,
     }
     
-    result = VenturApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     Rails.logger.debug("HERE IS THE RESULT #{result.inspect}")
+    result = VenturApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   end
 
