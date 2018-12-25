@@ -13,6 +13,7 @@ class BlogImageCurator
     purge_deleted_images
     persist_new_images
     insert_new_image_urls
+    garbage_collection_call
   end
 
   def purge_deleted_images
@@ -56,5 +57,11 @@ class BlogImageCurator
   def get_persisted_image_url(persisted_image)
     img_size = persisted_image.variant(resize: "800x600").processed
     Rails.env.production? ? img_size.service_url : Rails.application.routes.url_helpers.url_for(img_size)
+  end
+
+  def garbage_collection_call
+    return unless Rails.env.production?
+    
+    GC.start
   end
 end

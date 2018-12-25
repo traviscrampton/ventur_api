@@ -10,7 +10,6 @@ gem 'rspec'
 gem 'pg'
 gem "mini_magick"
 gem "aws-sdk-s3"
-gem "paperclip"
 gem 'rubocop'
 gem 'jwt'
 gem 'annotate', group: :development
