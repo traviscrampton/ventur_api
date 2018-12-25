@@ -12,6 +12,7 @@ gem "mini_magick"
 gem "aws-sdk-s3"
 gem 'rubocop'
 gem 'jwt'
+gem 'paperclip'
 gem 'annotate', group: :development
 gem 'graphql'
 gem 'spring',        group: :developmentgit 
