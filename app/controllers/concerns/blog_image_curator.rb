@@ -56,7 +56,7 @@ class BlogImageCurator
 
   def get_persisted_image_url(persisted_image)
     img_size = persisted_image.variant(resize: "800x600").processed
-    Rails.env.production? ? img_size.service_url : Rails.application.routes.url_helpers.url_for(img_size)
+    Rails.application.routes.url_helpers.url_for(img_size)
   end
 
   def garbage_collection_call
