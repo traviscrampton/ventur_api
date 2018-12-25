@@ -1,0 +1,1 @@
+ActiveStorage::Service.url_expires_in = 10.year
