@@ -11,6 +11,7 @@ class GraphqlController < ApplicationController
     }
     
     result = VenturApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+    Rails.logger.debug("|= #{result.inspect}")
     render json: result
   end
 
