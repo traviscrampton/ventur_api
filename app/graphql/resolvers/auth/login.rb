@@ -10,11 +10,8 @@ class Resolvers::Auth::Login < GraphQL::Function
 
 
   def call(obj, args, ctx)
-    Rails.logger.debug("HITTIN IS IT?")
     user = User.find_by_email(args[:email])
-    Rails.logger.debug("HITTIN IS IT? 2")
     if user && user.valid_password?(args[:password])
-      Rails.logger.debug("HITTIN IS IT? 3")
       OpenStruct.new({
         user: user,
         token: user.generate_jwt
