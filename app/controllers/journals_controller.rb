@@ -24,6 +24,13 @@ class JournalsController < ApplicationController
     end
   end
 
+  def destroy
+    @journal = Journal.find(params[:id])
+    check_journal_user
+    @journal.delete
+    render json: @journal
+  end
+
   private 
 
   def non_image_params
