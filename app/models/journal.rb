@@ -38,6 +38,8 @@ class Journal < ActiveRecord::Base
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
+  has_many :journal_follows
+  has_many :following_users, source: :user, through: :journal_follows
 
 
   def published?

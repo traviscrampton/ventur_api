@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   has_many :gear_items
   has_many :followings, foreign_key: "follower_id", dependent: :destroy
   has_many :favorites
+  has_many :journal_follows
+  has_many :followed_journals, source: :journal, through: :journal_follows
 
   def generate_jwt
     JWT.encode({  id: id,
