@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :journal_follows
+
   resources :gear_items do 
     member do 
       put "update_gear_content"
