@@ -35,7 +35,7 @@ class JournalFollowsController < ApplicationController
     @chapter.update(email_sent: true)
 
     follower_emails.each do |email|
-      ChapterMailer.new_chapter(@chapter, email).deliver_later
+      ChapterMailer.new_chapter(@chapter, email).deliver_now
     end
 
     render json: chapter_json
