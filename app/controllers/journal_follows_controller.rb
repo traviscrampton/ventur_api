@@ -38,10 +38,39 @@ class JournalFollowsController < ApplicationController
       ChapterMailer.new_chapter(@chapter, email).deliver_now
     end
 
-    render json: { emailSent: @chapter.email_sent }
+    render json: chapter_json
   end
 
   private
+
+    def chapter_json 
+    {
+      id: @chapter.id,
+      title: @chapter.title,
+      description: @chapter.description,
+      content: @chapter.content,
+      dateCreated: @chapter.readable_date,
+      bannerImageUrl: @chapter.banner_image_url,
+      offline: @chapter.offline,
+      distance: @chapter.distance.amount.to_i,
+      published: @chapter.published,
+      blogImageCount: @chapter.blog_image_count,
+      date: @chapter.numbered_date,
+      readableDate: @chapter.readable_date,
+      emailSent: @chapter.email_sent,
+      slug: @chapter.slug,
+      journal: {
+        id: @chapter.journal.id,
+        title: @chapter.journal.title,
+        miniBannerImageUrl: @chapter.journal.mini_banner_image_url,
+        distance: @chapter.journal.distance.amount.to_i
+      }, 
+      user: {
+        id: @chapter.journal.user.id,
+        fullName: @chapter.user.full_name
+      }
+    }
+  end
 
   def check_for_email_follow_and_update
     journal_follow = JournalFollow.find_by(email: current_user.email)
