@@ -9,6 +9,7 @@ gem 'devise'
 gem 'rspec'
 gem 'pg'
 gem "mini_magick"
+gem "sidekiq"
 gem "aws-sdk-s3"
 gem 'rubocop'
 gem 'jwt'
