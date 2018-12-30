@@ -29,6 +29,18 @@ class JournalFollowsController < ApplicationController
     end
   end
 
+  def send_chapter_emails
+    @chapter = Chapter.find(params[:id])
+    follower_emails = @chapter.journal.journal_follows.map(&:user_email)
+    @chapter.update(email_sent: true)
+
+    follower_emails.each do |email|
+      ChapterMailer.new_chapter(@chapter, email).deliver_now
+    end
+
+    render json: { emailSent: @chapter.email_sent }
+  end
+
   private
 
   def check_for_email_follow_and_update

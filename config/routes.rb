@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :journal_follows
+  resources :journal_follows do
+    member do
+      post "send_chapter_emails"
+    end
+  end
 
   resources :gear_items do 
     member do 

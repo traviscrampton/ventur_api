@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_28_233506) do
+ActiveRecord::Schema.define(version: 2018_12_29_182123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_12_28_233506) do
     t.boolean "offline", default: false
     t.datetime "date"
     t.boolean "published", default: false
+    t.boolean "email_sent", default: false
   end
 
   create_table "distances", force: :cascade do |t|

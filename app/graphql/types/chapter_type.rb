@@ -10,6 +10,7 @@ Types::ChapterType = GraphQL::ObjectType.define do
   field :blogImageCount, types.Int, property: :blog_image_count
   field :imageUrl, types.String, property: :image_url
   field :offline, types.Boolean
+  field :emailSent, types.Boolean, property: :email_sent
   field :bannerImageUrl, types.String, property: :banner_image_url
   field :readableDate, types.String, property: :readable_date
   field :user, Types::UserType, property: :user
