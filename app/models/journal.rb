@@ -38,6 +38,8 @@ class Journal < ActiveRecord::Base
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
+  has_many :journal_follows
+  has_many :following_users, source: :user, through: :journal_follows
 
 
   def published?
@@ -72,20 +74,20 @@ class Journal < ActiveRecord::Base
     banner_image.variant(resize: "1000x800").processed
   end
 
+  def follower_count
+    journal_follows.count
+  end
+
   def card_banner_image_url
-    banner_image.attached? ? get_env_banner_image_url(card_size) : ""
+    banner_image.attached? ? Rails.application.routes.url_helpers.url_for(card_size) : ""
   end
 
   def mini_banner_image_url
-    banner_image.attached? ? get_env_banner_image_url(mini_size) : ""
+    banner_image.attached? ? Rails.application.routes.url_helpers.url_for(mini_size) : ""
   end
 
   def web_banner_image_url
-    banner_image.attached? ? get_env_banner_image_url(web_banner_size) : ""
-  end
-
-  def get_env_banner_image_url(img_size)
-    Rails.env.production? ? img_size.service_url : Rails.application.routes.url_helpers.url_for(img_size)
+    banner_image.attached? ? Rails.application.routes.url_helpers.url_for(web_banner_size) : ""
   end
 
   def calculate_total_distance
