@@ -73,7 +73,7 @@ class JournalFollowsController < ApplicationController
   end
 
   def check_for_email_follow_and_update
-    journal_follow = JournalFollow.find_by(email: current_user.email)
+    journal_follow = JournalFollow.find_by(user_email: current_user.email)
     if journal_follow.present? && journal_follow.user_id.nil?
       journal_follow.update(user_id: current_user.id)
       return true
