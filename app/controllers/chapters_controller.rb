@@ -49,6 +49,7 @@ class ChaptersController < ApplicationController
       GC.start if Rails.env.production?
       render json: chapter_json
     else
+      GC.start if Rails.env.production?
       render json: { errors: @chapter.errors.full_messages }, status: 422
     end
   end

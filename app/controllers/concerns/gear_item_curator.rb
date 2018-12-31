@@ -10,9 +10,11 @@ class GearItemCurator
   end
 
   def call
+    garbage_collection_call
     purge_deleted_images
     persist_new_images
     insert_new_image_urls
+    garbage_collection_call
   end
 
   def purge_deleted_images
@@ -51,5 +53,10 @@ class GearItemCurator
     end
 
     @gear_item.update(content: new_entries_blob.to_json)
+  end
+
+  def garbage_collection_call
+    return unless Rails.env.production?
+    GC.start
   end
 end

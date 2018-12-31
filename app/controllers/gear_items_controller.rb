@@ -19,6 +19,7 @@ class GearItemsController < ApplicationController
     if @gear_item.save      
       handle_image_upload
       GearItemCurator.new(@gear_item, params[:files]).call
+      GC.start if Rails.env.production?
       render json: gear_item_json
     else
       render json: { errors: @gear_item.errors.full_messages }, status: 422
@@ -40,7 +41,7 @@ class GearItemsController < ApplicationController
     @gear_item = GearItem.find(params[:id])
     validate_journal_user
     if @gear_item.update(content: params[:content])
-      BlogImageCurator.new(@gear_item, params[:files]).call
+      GearItemCurator.new(@gear_item, params[:files]).call
       render json: gear_item_json
     else
       render json: { errors: @gear_item.errors.full_messages }, status: 422
