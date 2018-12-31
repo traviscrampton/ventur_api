@@ -43,13 +43,12 @@ class ChaptersController < ApplicationController
   def update_blog_content
     @chapter = Chapter.find(params[:id])
     validate_journal_user
-    check_chapters_images
     if @chapter.update(content: params[:content])
-      BlogImageCurator.new(@chapter, params[:files]).call if @need_to_update_blog_images
+      BlogImageCurator.new(@chapter, params[:files]).call
       GC.start if Rails.env.production?
       render json: chapter_json
     else
-      GC.start if Rails.env.production?
+      GC.start if Rails.env.production? 
       render json: { errors: @chapter.errors.full_messages }, status: 422
     end
   end
@@ -90,18 +89,6 @@ class ChaptersController < ApplicationController
 
     @chapter.banner_image.purge if @chapter.banner_image.attached?
     @chapter.banner_image.attach(params[:banner_image]) 
-  end
-
-  def check_chapters_images
-    if @chapter.content.nil?
-      @need_to_update_blog_images = true
-      return
-    end
-
-    old_content_count = JSON.parse(@chapter.content).count { |cont| cont["type"] == "image" }
-    new_content_count = JSON.parse(params[:content]).count { |cont| cont["type"] == "image" }
-
-    @need_to_update_blog_images = old_content_count != new_content_count || params[:files].present?
   end
 
   def chapter_json 
