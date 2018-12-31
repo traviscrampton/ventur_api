@@ -32,11 +32,12 @@ class JournalFollowsController < ApplicationController
 
   def send_chapter_emails
     @chapter = Chapter.find(params[:id])
+    full_name = @chapter.journal.user.full_name
     follower_emails = @chapter.journal.journal_follows.map(&:user_email)
     @chapter.update(email_sent: true)
 
     follower_emails.each do |email|
-      ChapterMailer.new_chapter(@chapter, email).deliver_later
+      ChapterMailer.new_chapter(@chapter, full_name, email).deliver_later
     end
 
     render json: chapter_json

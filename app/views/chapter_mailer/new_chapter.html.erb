@@ -1,8 +1,9 @@
-<h1>New Post from <%= @chapter.journal.title %></h1>
+<h2><%= @full_name %> wrote a new post in <%= @chapter.journal.title %></h2>
 
 <h3>
   <%= @chapter.title %>
   <%= link_to "Read Now!", "https://www.ventur.co/chapter/#{@chapter.id}" %>
 </h3>
+
 
 <p>If you would like to unsubscribe from these emails write heyitsus@ventur.co</p>
