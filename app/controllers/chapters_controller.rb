@@ -46,6 +46,7 @@ class ChaptersController < ApplicationController
     check_chapters_images
     if @chapter.update(content: params[:content])
       BlogImageCurator.new(@chapter, params[:files]).call if @need_to_update_blog_images
+      GC.start if Rails.env.production?
       render json: chapter_json
     else
       render json: { errors: @chapter.errors.full_messages }, status: 422
