@@ -10,6 +10,7 @@ class BlogImageCurator
   end
 
   def call
+    garbage_collection_call
     purge_deleted_images
     persist_new_images
     insert_new_image_urls
