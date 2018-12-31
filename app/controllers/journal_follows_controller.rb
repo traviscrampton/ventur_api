@@ -5,6 +5,7 @@ class JournalFollowsController < ApplicationController
     if current_user
       if check_for_email_follow_and_update
         render json: { isFollowing: true }
+        return
       end
 
       journal_follow = JournalFollow.new(journal_id: params[:journalId], user_id: current_user.id, user_email: current_user.email)
