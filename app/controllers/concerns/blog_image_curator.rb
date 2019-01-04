@@ -56,7 +56,7 @@ class BlogImageCurator
   end
 
   def get_persisted_image_url(persisted_image)
-    img_size = persisted_image.variant(resize: "800x600").processed
+    img_size = persisted_image.variant(resize: "1000x800").processed
     Rails.application.routes.url_helpers.url_for(img_size)
   end
 

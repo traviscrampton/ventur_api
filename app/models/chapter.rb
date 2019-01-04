@@ -46,7 +46,7 @@ class Chapter < ActiveRecord::Base
   end
 
   def chapter_banner_size
-    banner_image.variant(resize: "1000x800").processed
+    banner_image.variant(resize: "800x600").processed
   end
 
   def journal_thumbnail_chapter
