@@ -13,6 +13,7 @@ gem "sidekiq"
 gem "aws-sdk-s3"
 gem 'rubocop'
 gem 'jwt'
+gem 'yajl-ruby', require: 'yajl'
 gem 'paperclip'
 gem 'annotate', group: :development
 gem 'graphql'
