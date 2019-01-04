@@ -1,10 +1,11 @@
 class BlogImageCurator
-
+  require 'yajl'
   attr_accessor :chapter,  :images
 
   def initialize(chapter, images)
     @chapter = chapter
-    @parsed_entries = JSON.parse(chapter.content)
+    parser = Yajl::Parser.new
+    @parsed_entries = parser.parse(chapter.content)
     @images = images
     @current_image_ids = chapter.blog_images_blobs.pluck(:id)
   end
