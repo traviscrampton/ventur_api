@@ -58,6 +58,7 @@ class JournalsController < ApplicationController
       title: @journal.title,
       description: @journal.description,
       cardBannerImageUrl: @journal.banner_image.attached? ? @journal.card_banner_image_url : "",
+      webBannerImageUrl: @journal.banner_image.attached? ? @journal.web_banner_image_url : "",
       status: @journal.status,
       distance: 0,
       user: {
