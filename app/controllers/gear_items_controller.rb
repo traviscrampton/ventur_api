@@ -1,9 +1,11 @@
 class GearItemsController < ApplicationController
 
-  def create
-    journal = Journal.find(params[:journalId])
-    @gear_item = journal.gear_items.new(non_image_gear_item_params)
-    validate_journal_user
+	def create
+    @journal = Journal.find(params[:journalId])
+    @gear_item = @journal.gear_items.new(non_image_gear_item_params)
+		validate_journal_user
+		# binding.pry
+
     if @gear_item.save
       handle_image_upload
       render json: gear_item_json
@@ -59,16 +61,21 @@ class GearItemsController < ApplicationController
     end
   end
 
+	def show
+    @gear_item = GearItem.find(params[:id])
+    render json: @gear_item
+  end
+
   private 
 
   def validate_journal_user
-    return if current_user.id == @gear_item.journal.user_id
+    return if current_user.id == @journal.user_id
 
     return_unauthorized_error
   end
 
   def non_image_gear_item_params
-    params.permit(:title, :published, :content)
+    params.permit(:title, :published, :content, :price)
   end
 
   def handle_image_upload
@@ -85,9 +92,9 @@ class GearItemsController < ApplicationController
       productImageUrl: @gear_item.product_image_url,
       published: @gear_item.published,
       journal: {
-        id: @gear_item.journal.id,
-        title: @gear_item.journal.title,
-        distance: @gear_item.journal.distance.amount.to_i
+        id: @journal.id,
+        title: @journal.title,
+        distance: @journal.distance.amount.to_i
       }
     }
   end
