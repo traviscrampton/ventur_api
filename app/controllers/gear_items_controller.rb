@@ -4,7 +4,6 @@ class GearItemsController < ApplicationController
     @journal = Journal.find(params[:journalId])
     @gear_item = @journal.gear_items.new(non_image_gear_item_params)
 		validate_journal_user
-		# binding.pry
 
     if @gear_item.save
       handle_image_upload
@@ -28,7 +27,7 @@ class GearItemsController < ApplicationController
     end
   end
 
-  def update
+	def update
     @gear_item = gear_item.find(params[:id])
     validate_journal_user
     if @gear_item.update(non_image_gear_item_params)

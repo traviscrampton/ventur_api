@@ -38,6 +38,14 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
+	field :gearItem, Types::GearItemType do 
+    description "A single gear item by ID"
+    argument :id, types.ID
+    resolve -> (obj, args, context) {
+      GearItem.find_by_id(args[:id])
+    }
+  end
+
   field :currentUser, Types::UserType do 
     description "gets user information for a single user"
     resolve -> (obj, args, context) {

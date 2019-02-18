@@ -109,6 +109,7 @@ class ChaptersController < ApplicationController
       journal: {
         id: @chapter.journal.id,
         title: @chapter.journal.title,
+        chapters: @chapter.journal.chapters,
         miniBannerImageUrl: @chapter.journal.mini_banner_image_url,
         distance: @chapter.journal.distance.amount.to_i
       }, 
