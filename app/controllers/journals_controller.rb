@@ -1,5 +1,12 @@
 class JournalsController < ApplicationController
-  before_action :check_current_user
+  before_action :check_current_user, except: [:index]
+  def index
+    @journals = Journal.includes(:distance,
+                                 banner_image_attachment: [:blob],
+                                 user: [avatar_attachment: :blob])
+                       .where.not(status: 0)
+    render 'journals/index.json'
+  end
 
   def create
     @journal = current_user.journals.new(non_image_params)
