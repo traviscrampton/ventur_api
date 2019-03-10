@@ -1,5 +1,13 @@
 class ChaptersController < ApplicationController
-  before_action :check_current_user
+  before_action :check_current_user, except: [:show]
+
+  def show
+    @chapter = Chapter.with_attached_banner_image
+                      .includes(:distance, journal: [:chapters, :user])
+                      .find(params[:id])
+
+    render 'chapters/show.json'                  
+  end
 
   def create
     journal = Journal.find(params[:journalId])

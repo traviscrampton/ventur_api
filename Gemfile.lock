@@ -88,6 +88,8 @@ GEM
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.1)
+    jb (0.6.1)
+      multi_json
     jmespath (1.4.0)
     json (1.8.6)
     jwt (2.1.0)
@@ -107,6 +109,7 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    multi_json (1.13.1)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -240,6 +243,7 @@ DEPENDENCIES
   devise
   graphiql-rails
   graphql
+  jb
   jwt
   mini_magick
   paperclip

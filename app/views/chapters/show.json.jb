@@ -1,0 +1,29 @@
+json = {
+  chapter: {
+    id: @chapter.id,
+    title: @chapter.title,
+    description: @chapter.description,
+    distance: @chapter.distance_to_i,
+    imageUrl: @chapter.image_url,
+    content: @chapter.content,
+    readableDate: @chapter.readable_date,
+    date: @chapter.numbered_date,
+    slug: @chapter.slug,
+    published: @chapter.published,
+    user: {
+      id: @chapter.user
+    },
+    journal: {
+      id: @chapter.journal_id,
+      title: @chapter.journal.title,
+      chapters: @chapter.journal.chapters.map do |journal_chapter|
+                  {
+                    id: journal_chapter.id,
+                    title: journal_chapter.title
+                  }
+                end
+    }
+  }
+}
+
+json
