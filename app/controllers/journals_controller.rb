@@ -1,5 +1,20 @@
 class JournalsController < ApplicationController
-  before_action :check_current_user
+  before_action :check_current_user, except: [:index, :show]
+  def index
+    @journals = Journal.with_attached_banner_image
+                       .includes(:distance, user: [avatar_attachment: :blob])
+                       .where.not(status: 0).limit(10)
+    render 'journals/index.json'
+  end
+
+  def show
+    @journal = Journal.with_attached_banner_image
+                      .includes(:distance, user: [avatar_attachment: :blob],
+                                chapters: [banner_image_attachment: :blob],
+                                gear_items: [product_image_attachment: :blob])
+                      .find(params[:id])
+    render 'journals/show.json', locals: { current_user: current_user }
+  end
 
   def create
     @journal = current_user.journals.new(non_image_params)

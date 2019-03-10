@@ -6,6 +6,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'pry'
 gem 'rack-cors'
 gem 'devise'
+gem 'jb'
 gem 'rspec'
 gem 'pg'
 gem "mini_magick"

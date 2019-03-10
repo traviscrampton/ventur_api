@@ -1,0 +1,34 @@
+json = {
+  journal: {
+    id: @journal.title,
+    title: @journal.title,
+    description: @journal.description,
+    cardBannerImageUrl: @journal.card_banner_image_url,
+    webBannerImageUrl: @journal.web_banner_image_url,
+    distance: @journal.total_distance,
+    gearItemCount: @journal.gear_item_count,
+    status: @journal.status,
+    stage: @journal.stage,
+    isFollowing: @journal.is_following(current_user.try(:id)),
+    user: {
+      id: @journal.user.id,
+      firstName: @journal.user.first_name,
+      lastName: @journal.user.last_name,
+      fullName: @journal.user.full_name,
+      avatarImageUrl: @journal.user.avatar_image_url
+    },
+    chapters: @journal.chapters.map do |chapter|
+                {
+                  id: chapter.id,
+                  title: chapter.title,
+                  description: chapter.description,
+                  readableDate: chapter.readable_date,
+                  published: chapter.published,
+                  distance: chapter.distance_to_i,
+                  imageUrl: chapter.image_url
+                }
+              end
+  }
+}
+
+json
