@@ -1,21 +1,21 @@
 json = {
-    journals: @journals.map do |journal|
-        {
-            id: journal.id,
-            slug: journal.slug,
-            title: journal.title,
-            description: journal.description,
-            cardImageUrl: journal.card_banner_image_url,
-            status: journal.status,
-            distance: journal.total_distance,
-            user: {
-                id: journal.user.id,
-                firstName: journal.user.first_name, 
-                lastName: journal.user.last_name,
-                avatarImageUrl: journal.user.avatar_image_url
-            }
-        }
-    end
+  journals: @journals.map do |journal|
+    {
+      id: journal.id,
+      slug: journal.slug,
+      title: journal.title,
+      description: journal.description,
+      cardImageUrl: journal.card_banner_image_url,
+      status: journal.status,
+      distance: journal.total_distance,
+      user: {
+        id: journal.user.id,
+        firstName: journal.user.first_name,
+        lastName: journal.user.last_name,
+        avatarImageUrl: journal.user.avatar_image_url
+      }
+    }
+  end
 }
 
 json
