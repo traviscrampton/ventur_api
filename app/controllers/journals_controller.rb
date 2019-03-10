@@ -13,7 +13,7 @@ class JournalsController < ApplicationController
                                 chapters: [banner_image_attachment: :blob],
                                 gear_items: [product_image_attachment: :blob])
                       .find(params[:id])
-    render 'journals/show.json'
+    render 'journals/show.json', locals: { current_user: current_user }
   end
 
   def create

@@ -94,6 +94,11 @@ class Journal < ActiveRecord::Base
     chapters.map(&:distance).pluck(:amount).inject(0, &:+)
   end
 
+  def is_following(user_id)
+    return false unless user_id
+    journal_follows.map(&:user_id).include?(user_id)
+  end
+
   def all_chapters
     chapters.sort_by {|chapter| chapter.created_on }
   end

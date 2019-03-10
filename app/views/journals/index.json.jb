@@ -12,6 +12,7 @@ json = {
         id: journal.user.id,
         firstName: journal.user.first_name,
         lastName: journal.user.last_name,
+        fullName: journal.user.full_name,
         avatarImageUrl: journal.user.avatar_image_url
       }
     }
