@@ -28,6 +28,7 @@ class Chapter < ActiveRecord::Base
   has_many_attached :blog_images
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
+  has_one :editor_blob, as: :blobable, dependent: :destroy
 
   def distance_to_i
     distance.amount.to_i
