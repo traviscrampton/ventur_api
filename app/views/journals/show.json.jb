@@ -1,3 +1,9 @@
+journal_chapters = if current_user && current_user.id == @journal.user.id
+                     @journal.all_chapters
+                   else
+                     @journal.published_chapters
+                   end
+
 json = {
   journal: {
     id: @journal.title,
@@ -17,7 +23,7 @@ json = {
       fullName: @journal.user.full_name,
       avatarImageUrl: @journal.user.avatar_image_url
     },
-    chapters: @journal.chapters.map do |chapter|
+    chapters: journal_chapters.map do |chapter|
                 {
                   id: chapter.id,
                   title: chapter.title,

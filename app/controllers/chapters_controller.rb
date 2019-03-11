@@ -5,7 +5,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.with_attached_banner_image
                       .includes(:distance, journal: [:chapters, :user])
                       .find(params[:id])
-    render 'chapters/show.json'                  
+    render 'chapters/show.json', locals: { current_user: current_user }
   end
 
   def create
