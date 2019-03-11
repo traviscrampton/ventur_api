@@ -9,7 +9,8 @@ class JournalsController < ApplicationController
 
   def show
     @journal = Journal.with_attached_banner_image
-                      .includes(:distance, user: [avatar_attachment: :blob],
+                      .includes(:distance, :journal_follows,
+                                user: [avatar_attachment: :blob],
                                 chapters: [banner_image_attachment: :blob],
                                 gear_items: [product_image_attachment: :blob])
                       .find(params[:id])

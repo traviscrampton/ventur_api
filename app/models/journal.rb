@@ -96,6 +96,7 @@ class Journal < ActiveRecord::Base
 
   def is_following(user_id)
     return false unless user_id
+    
     journal_follows.map(&:user_id).include?(user_id)
   end
 
