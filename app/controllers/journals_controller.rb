@@ -3,7 +3,9 @@ class JournalsController < ApplicationController
   def index
     @journals = Journal.with_attached_banner_image
                        .includes(:distance, user: [avatar_attachment: :blob])
-                       .where.not(status: 0).limit(10)
+                       .where.not(status: 0)
+                       .limit(10)
+                       .order('created_at DESC')
     render 'journals/index.json'
   end
 
