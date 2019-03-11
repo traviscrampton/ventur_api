@@ -5,7 +5,6 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.with_attached_banner_image
                       .includes(:distance, journal: [:chapters, :user])
                       .find(params[:id])
-
     render 'chapters/show.json'                  
   end
 

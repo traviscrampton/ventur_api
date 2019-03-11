@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_token  
+  skip_before_action :authenticate_token
+
+  def show
+    @user = User.with_attached_avatar
+                .includes(journals: [:distance, banner_image_attachment: :blob])
+                .find(params[:id])
+    render 'users/show.json'
+  end
 
   def create
     @user = User.new(non_image_params)
@@ -21,33 +28,33 @@ class UsersController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def non_image_params
     params.permit(:email, :password, :first_name, :last_name)
   end
 
   def upload_avatar_image
-    return if !params[:avatar]
+    return unless params[:avatar]
 
     @user.avatar.purge if @user.avatar.attached?
-    @user.avatar.attach(params[:avatar]) 
+    @user.avatar.attach(params[:avatar])
   end
 
   def create_user_json
-    user_json.merge({
+    user_json.merge(
       Login: {
         token: @user.generate_jwt
       }
-    })
+    )
   end
 
-  def user_json 
+  def user_json
     {
       id: @user.id,
       email: @user.email,
       firstName: @user.first_name,
-      lastName: @user.last_name,
+      lastName: @user.last_name
     }
   end
 end

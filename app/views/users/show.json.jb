@@ -1,0 +1,33 @@
+avatar_image_url = @user.avatar_image_url
+first_name = @user.first_name
+last_name = @user.last_name
+full_name = @user.full_name
+user_id = @user.id
+
+json = {
+  user: {
+    id: user_id,
+    firstName: first_name,
+    lastName: last_name,
+    fullName: full_name,
+    bannerImageUrl: avatar_image_url,
+    journals: @user.journals.map do |journal|
+      {
+        id: journal.id,
+        title: journal.title,
+        description: journal.description,
+        status: journal.status,
+        distance: journal.total_distance,
+        cardBannerImageUrl: journal.card_banner_image_url,
+        user: {
+          id: user_id,
+          firstName: first_name,
+          lastName: last_name,
+          avatarImageUrl: avatar_image_url
+        }
+      }
+    end
+  }
+}
+
+json
