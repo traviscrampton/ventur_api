@@ -23,7 +23,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do 
+    collection do 
+      post "login"
+    end
+  end
 
   post "/chapters/upload_offline_chapter" => "chapters#upload_offline_chapter", :as => :upload_offline_chapter
 end
