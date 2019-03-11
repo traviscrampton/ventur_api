@@ -13,7 +13,7 @@ class JournalsController < ApplicationController
     @journal = Journal.with_attached_banner_image
                       .includes(:distance, :journal_follows,
                                 user: [avatar_attachment: :blob],
-                                chapters: [banner_image_attachment: :blob],
+                                chapters: [:distance, banner_image_attachment: :blob],
                                 gear_items: [product_image_attachment: :blob])
                       .find(params[:id])
     render 'journals/show.json', locals: { current_user: current_user }
