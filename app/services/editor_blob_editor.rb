@@ -52,7 +52,7 @@ class EditorBlobEditor
     draft_content = updated_editor_content.to_json
   end
 
-  def img_entry_needs_update(entry)
+  def img_entry_needs_update?(entry)
     entry['type'] == 'image' && entry['id'].nil?
   end
 
