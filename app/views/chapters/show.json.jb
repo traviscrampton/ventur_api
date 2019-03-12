@@ -17,7 +17,8 @@ json = {
     slug: @chapter.slug,
     published: @chapter.published,
     user: {
-      id: @chapter.user
+      id: @chapter.user.id,
+      fullName: @chapter.user.full_name
     },
     journal: {
       id: @chapter.journal_id,

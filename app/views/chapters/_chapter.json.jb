@@ -7,7 +7,7 @@ json = {
     description: @chapter.description,
     content: @chapter.editor_blob.final_content,
     dateCreated: @chapter.readable_date,
-    bannerImageUrl: @chapter.banner_image_url,
+    imageUrl: @chapter.banner_image_url,
     offline: @chapter.offline,
     distance: @chapter.distance_to_i,
     published: @chapter.published,
@@ -22,7 +22,7 @@ json = {
       distance: journal.total_distance
     },
     user: {
-      id: journal.user.id,
+      id: @chapter.user.id,
       fullName: @chapter.user.full_name
     }
   }
