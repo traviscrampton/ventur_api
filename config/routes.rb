@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :editor_blobs do 
+    member do
+      put :update_to_final_content
+    end
+  end
+
   resources :journal_follows do
     member do
       post "send_chapter_emails"
