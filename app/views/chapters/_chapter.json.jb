@@ -1,0 +1,31 @@
+journal = @chapter.journal
+
+json = {
+  chapter: {
+    id: @chapter.id,
+    title: @chapter.title,
+    description: @chapter.description,
+    content: @chapter.editor_blob.final_content,
+    dateCreated: @chapter.readable_date,
+    bannerImageUrl: @chapter.banner_image_url,
+    offline: @chapter.offline,
+    distance: @chapter.distance_to_i,
+    published: @chapter.published,
+    blogImageCount: @chapter.blog_image_count,
+    date: @chapter.numbered_date,
+    readableDate: @chapter.readable_date,
+    slug: @chapter.slug,
+    journal: {
+      id: journal.id,
+      title: journal.title,
+      miniBannerImageUrl: journal.mini_banner_image_url,
+      distance: journal.total_distance
+    },
+    user: {
+      id: journal.user.id,
+      fullName: @chapter.user.full_name
+    }
+  }
+}
+
+json
