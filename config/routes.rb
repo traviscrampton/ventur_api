@@ -5,15 +5,16 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
   resources :journals
-  resources :chapters do 
-    member do 
+  resources :chapters do
+    member do
       put "update_blog_content"
     end
   end
 
-  resources :editor_blobs do 
+  resources :editor_blobs do
     member do
-      put :update_to_final_content
+      put :update_final_to_draft
+      put :update_draft_to_final
     end
   end
 
@@ -23,14 +24,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :gear_items do 
-    member do 
+  resources :gear_items do
+    member do
       put "update_gear_content"
     end
   end
 
-  resources :users do 
-    collection do 
+  resources :users do
+    collection do
       post "login"
     end
   end

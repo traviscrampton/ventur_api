@@ -8,9 +8,9 @@ class EditorBlobEditor
     :draft_content
   )
 
-  def initialize(editor_blob, params)
+  def initialize(editor_blob, params, files)
     @editor_blob = editor_blob
-    @new_images = params[:newImages]
+    @new_images = files
     @deleted_ids = params[:deletedIds]
     @draft_content = params[:content]
   end
@@ -27,22 +27,21 @@ class EditorBlobEditor
   def upload_new_images
     return unless new_images
 
-    uploaded_images = new_images.map do |img|
-      editor_blob.images.attach(img)
-      # may have to return the actual blob
+    uploaded_blobs = new_images.map do |img|
+      uploaded = editor_blob.images.attach(img)
+      uploaded.first.blob
     end
 
-    uploaded_images_to_draft_content(uploaded_images)
+    uploaded_images_to_draft_content(uploaded_blobs)
   end
 
-  def uploaded_images_to_draft_content(uploaded_images)
+  def uploaded_images_to_draft_content(uploaded_blobs)
     parser = Yajl::Parser.new
     parsed_content = parser.parse(draft_content)
 
     updated_editor_content = parsed_content.map do |entry|
-      return entry unless img_entry_needs_update?
-      
-      image = uploaded_images.find { |img| img.filename == entry["filename"] }
+      return entry unless img_entry_needs_update?(entry)
+      image = uploaded_blobs.find { |blob| blob.filename == entry["filename"] }
       entry['id'] = image.id
       entry['uri'] = large_img_uri(image)
       entry['lowResUri'] = small_img_uri(image)
@@ -73,6 +72,6 @@ class EditorBlobEditor
   end
 
   def update_editor_blob
-    blob_editor.update(draft_content: draft_content)
+    editor_blob.update(draft_content: draft_content)
   end
 end

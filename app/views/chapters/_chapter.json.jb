@@ -5,7 +5,10 @@ json = {
     id: @chapter.id,
     title: @chapter.title,
     description: @chapter.description,
-    content: @chapter.editor_blob.final_content,
+    editorBlob: {
+      id: @chapter.editor_blob.id,
+      content: @chapter.editor_blob.final_content
+    },
     dateCreated: @chapter.readable_date,
     imageUrl: @chapter.banner_image_url,
     offline: @chapter.offline,

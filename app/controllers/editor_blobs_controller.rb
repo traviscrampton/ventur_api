@@ -10,7 +10,7 @@ class EditorBlobsController < ApplicationController
   end
 
   def update
-    updated_blob = EditorBlobEditor.new(editor_blob, editor_params).call
+    updated_blob = EditorBlobEditor.new(editor_blob, editor_params, params[:files]).call
 
     if updated_blob.valid?
       render 'editor_blobs/show.json',
@@ -21,7 +21,7 @@ class EditorBlobsController < ApplicationController
     end
   end
 
-  def update_to_final_content
+  def update_draft_to_final
     draft_content = editor_blob.draft_content
     editor_blob.update(final_content: draft_content)
 
@@ -29,10 +29,16 @@ class EditorBlobsController < ApplicationController
            locals: { id: editor_blob.id, content: editor_blob.final_content }
   end
 
+  def update_final_to_draft
+    final_to_draft
+
+    render 'editor_blobs/show.json',
+           locals: { id: editor_blob.id, content: editor_blob.draft_content }
+  end
+
   def destroy
     # there will need to be something in this method that deletes the old images
-    final_content = editor_blob.final_content
-    editor_blob.update(draft_content: final_content)
+    final_to_draft
 
     render 'editor_blobs/show.json',
            locals: { id: editor_blob.id, content: editor_blob.final_content }
@@ -44,6 +50,11 @@ class EditorBlobsController < ApplicationController
     @editor_blob ||= EditorBlob.find(params[:id])
   end
 
+  def final_to_draft
+    final_content = editor_blob.final_content
+    editor_blob.update(draft_content: final_content)
+  end
+
   def validate_editor_blob_owner
     return if current_user.id == editor_blob.blobable.user.id
 
@@ -51,6 +62,6 @@ class EditorBlobsController < ApplicationController
   end
 
   def editor_params
-    params.permit(:newImages, :deletedIds, :draft_content)
+    params.permit(:deletedIds, :content)
   end
 end
