@@ -67,10 +67,10 @@ class ChaptersController < ApplicationController
   end
 
   def validate_journal_user
-    chapter_user_id = if params[:id]
-                        Chapter.find(params[:id]).user.id
-                      elsif params[:journalId]
+    chapter_user_id = if params[:journalId]
                         Journal.find(params[:journalId]).user.id
+                      elsif params[:id]
+                        Chapter.find(params[:id]).user.id
                       end
 
     return if chapter_user_id == current_user.id

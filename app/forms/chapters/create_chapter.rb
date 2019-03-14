@@ -28,7 +28,7 @@ class CreateChapter < ChapterForm
   end
 
   def create_chapter_distance
-    chapter.create_distance(params[:distance])
+    chapter.create_distance(amount: params[:distance])
   end
 
   def create_editor_blob

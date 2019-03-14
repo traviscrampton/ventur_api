@@ -22,6 +22,7 @@ class EditorBlobsController < ApplicationController
   end
 
   def update_draft_to_final
+    purge_images
     draft_content = editor_blob.draft_content
     editor_blob.update(final_content: draft_content)
 
@@ -37,7 +38,7 @@ class EditorBlobsController < ApplicationController
   end
 
   def destroy
-    # there will need to be something in this method that deletes the old images
+    purge_images
     final_to_draft
 
     render 'editor_blobs/show.json',
@@ -48,6 +49,12 @@ class EditorBlobsController < ApplicationController
 
   def editor_blob
     @editor_blob ||= EditorBlob.find(params[:id])
+  end
+
+  def purge_images
+    return unless params[:deletedIds]
+
+    params[:deletedIds].each { |id| editor_blob.images.find(id).purge_later }
   end
 
   def final_to_draft

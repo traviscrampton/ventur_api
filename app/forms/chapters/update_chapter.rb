@@ -24,6 +24,6 @@ class UpdateChapter < ChapterForm
     return unless params[:distance]
 
     chapter.distance.update(amount: params[:distance])
-    chapter.journal.distance.update(amount: @chapter.update_total_distance)
+    chapter.update_total_distance
   end
 end

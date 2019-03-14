@@ -6,7 +6,7 @@ journal_chapters = if current_user && current_user.id == @journal.user.id
 
 json = {
   journal: {
-    id: @journal.title,
+    id: @journal.id,
     title: @journal.title,
     description: @journal.description,
     cardBannerImageUrl: @journal.card_banner_image_url,
@@ -30,6 +30,7 @@ json = {
                   description: chapter.description,
                   readableDate: chapter.readable_date,
                   published: chapter.published,
+                  blogImageCount: chapter.blog_image_count,
                   distance: chapter.distance_to_i,
                   imageUrl: chapter.image_url
                 }
