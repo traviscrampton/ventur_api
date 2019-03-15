@@ -205,3 +205,8 @@ ActiveRecord::Base.transaction do
 end
 
 
+
+comment_1 = Comment.create(commentable_type: "Chapter", commentable_id: cj1.id, user_id: User.last.id, content: "Wow looks like an awesome trip, where else are you going to go")
+comment_2 = Comment.create(commentable_type: "Comment", commentable_id: comment_1.id, user_id: User.first.id, content: "We are headed to Europe after this should be a good time!")
+comment_3 = Comment.create(commentable_type: "Chapter", commentable_id: cj1.id, user_id: User.first.id, content: "Anybody want to donate to my go fund me!?")
+

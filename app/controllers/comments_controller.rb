@@ -1,11 +1,16 @@
 class CommentsController < ApplicationController
   before_action :check_current_user, except: [:index]
-  before_action :check_for_commentable, only: [:index, :create, :destroy]
+  before_action :check_for_commentable, only: [:create, :destroy]
   before_action :comment, only: [:update, :destroy]
   before_action :validate_comment_user, only: [:update]
 
   def index
-    # will write this later
+    @comments = commentable_klass.includes(
+                  comments: [user: [avatar_attachment: :blob],
+                             comments: [user: [avatar_attachment: :blob]]]
+                ).find(params[:commentableId]).comments
+
+    render 'comments/index.json'
   end
 
   def create

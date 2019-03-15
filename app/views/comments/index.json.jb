@@ -1,0 +1,28 @@
+json = {
+  comments: @comments.map do |comment|
+    {
+      id: comment.id,
+      content: comment.content,
+      readableDate: comment.readable_created_date,
+      user: {
+        id: comment.user.id,
+        fullName: comment.user.full_name,
+        avatarImageUrl: comment.user.avatar_image_url
+      },
+      subComments: comment.comments.map do |sub_comment|
+        {
+          id: sub_comment.id,
+          content: sub_comment.content,
+          readableDate: sub_comment.readable_created_date,
+          user: {
+            id: sub_comment.user.id,
+            fullName: sub_comment.user.full_name,
+            avatarImageUrl: sub_comment.user.avatar_image_url
+          }
+        }
+      end
+    }
+  end
+}
+
+json
