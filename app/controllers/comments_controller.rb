@@ -14,11 +14,23 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # will write later
+    @comment = CreateComment.new(comment.params).call
+
+    if @comment.valid?
+      render 'comments/_comment.json'
+    else
+      render json: { errors: @comment.errors.full_messages }, status: 422
+    end
   end
 
   def update
-    # todo: write
+    @comment.update(comment_params)
+
+    if @comment.valid?
+      render 'comments/_comment.json'
+    else
+      render json: { errors: @comment.errors.full_messages }, status: 422
+    end
   end
 
   def destroy
@@ -32,6 +44,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def comment_params
+    params.permit(:content)
+  end
 
   def check_for_commentable
     if params[:commentableType] &&
