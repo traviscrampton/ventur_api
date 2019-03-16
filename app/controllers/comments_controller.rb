@@ -24,9 +24,9 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment.update(comment_params)
+    can_update_comment?
 
-    if @comment.valid?
+    if @comment.update(comment_params)
       render 'comments/_comment.json'
     else
       render json: { errors: @comment.errors.full_messages }, status: 422
@@ -101,6 +101,12 @@ class CommentsController < ApplicationController
 
   def can_delete_comment?
     return if is_resource_owner? || is_comment_owner?
+
+    return_unauthorized_error
+  end
+
+  def can_update_comment?
+    return if current_user == comment.user_id
 
     return_unauthorized_error
   end
