@@ -24,8 +24,6 @@ class CommentsController < ApplicationController
   end
 
   def update
-    can_update_comment?
-
     if @comment.update(comment_params)
       render 'comments/_comment.json'
     else
@@ -105,12 +103,6 @@ class CommentsController < ApplicationController
 
   def can_delete_comment?
     return if is_resource_owner? || is_comment_owner?
-
-    return_unauthorized_error
-  end
-
-  def can_update_comment?
-    return if current_user == comment.user
 
     return_unauthorized_error
   end
