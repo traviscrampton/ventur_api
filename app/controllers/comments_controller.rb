@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = CreateComment.new(commentable, comment_params).call
+    @comment = CreateComment.new(commentable, create_comment_params).call
 
     if @comment.valid?
       render 'comments/_comment.json'
@@ -46,7 +46,11 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:content).merge(user_id: current_user.id)
+    params.permit(:content)
+  end
+
+  def create_comment_params
+    comment_params.merge(user_id: current_user.id)
   end
 
   def check_for_commentable
@@ -106,7 +110,7 @@ class CommentsController < ApplicationController
   end
 
   def can_update_comment?
-    return if current_user == comment.user_id
+    return if current_user == comment.user
 
     return_unauthorized_error
   end
