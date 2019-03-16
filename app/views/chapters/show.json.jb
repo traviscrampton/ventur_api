@@ -10,6 +10,7 @@ json = {
     description: @chapter.description,
     distance: @chapter.distance_to_i,
     imageUrl: @chapter.image_url,
+    commentCount: @chapter.comments.count,
     editorBlob: {
       id: @chapter.editor_blob.id,
       content: @chapter.editor_blob.final_content

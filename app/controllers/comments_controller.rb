@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :check_current_user, except: [:index]
-  before_action :check_for_commentable, only: [:create, :destroy]
   before_action :comment, only: [:update, :destroy]
+  before_action :check_for_commentable, only: [:create]
   before_action :validate_comment_user, only: [:update]
 
   def index
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = CreateComment.new(comment.params).call
+    @comment = CreateComment.new(commentable, comment_params).call
 
     if @comment.valid?
       render 'comments/_comment.json'
@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:content)
+    params.permit(:content).merge(user_id: current_user.id)
   end
 
   def check_for_commentable
@@ -63,7 +63,11 @@ class CommentsController < ApplicationController
   end
 
   def commentable
-    @commentable ||= commentable_klass.find(params[:commentableId])
+    @commentable ||= if @comment
+                       @comment.commentable
+                     else  
+                       commentable_klass.find(params[:commentableId])
+                     end
   end
 
   def commentable_klass
