@@ -4,7 +4,6 @@ class EditorBlobEditor
   attr_accessor(
     :editor_blob,
     :new_images,
-    :deleted_ids,
     :draft_content,
     :parser
   )
@@ -12,13 +11,11 @@ class EditorBlobEditor
   def initialize(editor_blob, params, files)
     @editor_blob = editor_blob
     @new_images = files
-    @deleted_ids = params[:deletedIds]
     @draft_content = params[:content]
   end
 
   def call
     upload_new_images
-    delete_images
     update_editor_blob
     editor_blob
   end
@@ -66,14 +63,7 @@ class EditorBlobEditor
     img_size = img.variant(resize: '1000x800').processed
     Rails.application.routes.url_helpers.url_for(img_size)
   end
-
-  def delete_images
-    # this could be removed completely
-    return unless deleted_ids
-
-    @deleted_ids.each { |id| editor_blob.images.find(id).purge_later }
-  end
-
+  
   def update_editor_blob
     editor_blob.update(draft_content: @draft_content)
   end

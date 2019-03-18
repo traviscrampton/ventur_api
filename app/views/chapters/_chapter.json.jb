@@ -12,6 +12,7 @@ json = {
     dateCreated: @chapter.readable_date,
     imageUrl: @chapter.banner_image_url,
     offline: @chapter.offline,
+    commentCount: @chapter.comments.count,
     distance: @chapter.distance_to_i,
     published: @chapter.published,
     blogImageCount: @chapter.blog_image_count,
