@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by_email(params[:email])
     if @user && @user.valid_password?(params[:password])
-      render json: create_user_json
+      render json: login_user_json
     else
       render json: { errors: ['Email or password is invalid']}, status: 422
     end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(non_image_params)
     if @user.save
       upload_avatar_image
-      render json: create_user_json
+      render json: login_user_json
     else
       render json: { errors: @user.errors.full_messages }, status: 422
     end
@@ -50,20 +50,16 @@ class UsersController < ApplicationController
     @user.avatar.attach(params[:avatar])
   end
 
-  def create_user_json
-    user_json.merge(
-      Login: {
-        token: @user.generate_jwt
-      }
-    )
-  end
-
-  def user_json
+  def login_user_json
     {
-      id: @user.id,
-      email: @user.email,
-      firstName: @user.first_name,
-      lastName: @user.last_name
+      user: {
+        id: @user.id,
+        email: @user.email,
+        firstName: @user.first_name,
+        lastName: @user.last_name,
+        avatarImageUrl: @user.avatar_image_url,
+      },
+      token: @user.generate_jwt
     }
   end
 end
