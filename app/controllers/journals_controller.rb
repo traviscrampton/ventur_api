@@ -3,14 +3,17 @@ class JournalsController < ApplicationController
   def index
     @journals = Journal.with_attached_banner_image
                        .includes(:distance, user: [avatar_attachment: :blob])
-                       .where.not(status: 0).limit(10)
+                       .where.not(status: 0)
+                       .limit(10)
+                       .order('created_at DESC')
     render 'journals/index.json'
   end
 
   def show
     @journal = Journal.with_attached_banner_image
-                      .includes(:distance, user: [avatar_attachment: :blob],
-                                chapters: [banner_image_attachment: :blob],
+                      .includes(:distance, :journal_follows,
+                                user: [avatar_attachment: :blob],
+                                chapters: [:distance, banner_image_attachment: :blob],
                                 gear_items: [product_image_attachment: :blob])
                       .find(params[:id])
     render 'journals/show.json', locals: { current_user: current_user }
