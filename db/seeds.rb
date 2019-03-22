@@ -1,3 +1,4 @@
+require 'csv'
 # users
 u1 = User.create(email: "crampton.travis@gmail.com", first_name: "Travis", last_name: "Crampton", password: "travis12")
 u2 = User.create(email: "gabeleoni@gmail.com", first_name: 'Gabe', last_name: 'Leoni', password: "travis12")
@@ -177,36 +178,40 @@ ju1.taggings.create(tag: tag1 )
 
 Journal.all.each { |j| j.update_total_distance}
 
-# ActiveRecord::Base.transaction do
-#   p 'begin creating the editor blobs'
-#   Chapter.all.each do |chapter|
-#     EditorBlob.create(blobable_type: chapter.class.to_s,
-#                       blobable_id: chapter.id,
-#                       draft_content: chapter.content,
-#                       final_content: chapter.content)
-#     p "success creating chaper #{chapter.id}'s blob"
-#   end
-#   p 'all done porting editor_blobs'
-# end
+ActiveRecord::Base.transaction do
+  p 'begin creating the editor blobs'
+  Chapter.all.each do |chapter|
+    EditorBlob.create(blobable_type: chapter.class.to_s,
+                      blobable_id: chapter.id,
+                      draft_content: chapter.content,
+                      final_content: chapter.content)
+    p "success creating chaper #{chapter.id}'s blob"
+  end
+  p 'all done porting editor_blobs'
+end
 
-# ActiveRecord::Base.transaction do
-#   p 'begin porting over the images'
-#   Chapter.all.each do |chapter|
-#     p "looking for images for chapter #{chapter.id}"
-#     chapter.blog_images.each do |blog_image|
-#       blog_image.update(name: 'images',
-#                         record_type: chapter.editor_blob.class.to_s,
-#                         record_id: chapter.editor_blob.id)
-#       p "blob image #{blog_image.id}
-#         now beings to #{blog_image.record_type}"
-#     end
-#   end
-#   p 'all done porting images'
-# end
-
-
+ActiveRecord::Base.transaction do
+  p 'begin porting over the images'
+  Chapter.all.each do |chapter|
+    p "looking for images for chapter #{chapter.id}"
+    chapter.blog_images.each do |blog_image|
+      blog_image.update(name: 'images',
+                        record_type: chapter.editor_blob.class.to_s,
+                        record_id: chapter.editor_blob.id)
+      p "blob image #{blog_image.id}
+        now beings to #{blog_image.record_type}"
+    end
+  end
+  p 'all done porting images'
+end
 
 comment_1 = Comment.create(commentable_type: "Chapter", commentable_id: c2j1.id, user_id: User.last.id, content: "Wow looks like an awesome trip, where else are you going to go")
 comment_2 = Comment.create(commentable_type: "Comment", commentable_id: comment_1.id, user_id: User.first.id, content: "We are headed to Europe after this should be a good time!")
 comment_3 = Comment.create(commentable_type: "Chapter", commentable_id: c2j1.id, user_id: User.first.id, content: "Anybody want to donate to my go fund me!?")
 
+ActiveRecord::Base.transaction do
+  CSV.foreach('db/data/countries.csv', headers: true) do |row|
+    country = Country.create(country_code: row[0], latitude: row[1], longitude: row[2], name: row[3].lstrip)
+    p "created #{country.name} #{country.country_code}"
+  end
+end 
