@@ -29,6 +29,7 @@ class Chapter < ActiveRecord::Base
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
   has_one :editor_blob, as: :blobable, dependent: :destroy
+  has_one :cycle_route, as: :routable, dependent: :destroy
   has_many :comments, as: :commentable
 
   def distance_to_i

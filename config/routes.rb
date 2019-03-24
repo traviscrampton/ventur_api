@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :cycle_routes
+
   resources :editor_blobs do
     member do
       put :update_final_to_draft
