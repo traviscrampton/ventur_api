@@ -25,10 +25,15 @@ class CreateChapter < ChapterForm
   def create_additional_records
     create_chapter_distance
     create_editor_blob
+    create_cycle_route
   end
 
   def create_chapter_distance
-    chapter.create_distance(amount: params[:distance])
+    chapter.create_distance(amount: params[:distance] || 0)
+  end
+
+  def create_cycle_route
+    chapter.create_cycle_route
   end
 
   def create_editor_blob
