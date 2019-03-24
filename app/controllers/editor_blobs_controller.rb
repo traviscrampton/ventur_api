@@ -37,6 +37,21 @@ class EditorBlobsController < ApplicationController
            locals: { id: editor_blob.id, content: editor_blob.draft_content }
   end
 
+  def update_blob_done
+    updated_blob = EditorBlobEditor.new(editor_blob, editor_params, params[:files]).call
+
+    if updated_blob.valid?
+      purge_images
+      draft_content = updated_blob.draft_content
+      editor_blob.update(final_content: draft_content)
+
+      render 'editor_blobs/show.json',
+           locals: { id: editor_blob.id, content: editor_blob.final_content }
+    else
+      render json: { errors: updated_blob.errors.full_messages }, status: 422
+    end
+  end
+
   def destroy
     purge_images
     final_to_draft
