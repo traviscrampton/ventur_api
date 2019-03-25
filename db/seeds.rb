@@ -66,6 +66,10 @@ cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/facebooker7.jp
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/westcoastal.jpg"), filename: "westcoastal")
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/victorybuurs18.jpg"), filename: "victorybuurs")
 
+cj1.create_cycle_route
+c2j1.create_cycle_route
+cj2.create_cycle_route
+
 chapter_1_blog_entries = [
     {
       content: "We took the initial path far from where we had ever thought I didn't think it was going to be an adventure worth sticking around for but here we are anyway",

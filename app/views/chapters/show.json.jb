@@ -19,6 +19,7 @@ json = {
     readableDate: @chapter.readable_date,
     date: @chapter.numbered_date,
     slug: @chapter.slug,
+    cycleRouteId: @chapter.cycle_route.id,
     published: @chapter.published,
     user: {
       id: @chapter.user.id,
