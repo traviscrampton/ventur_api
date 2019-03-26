@@ -1,4 +1,6 @@
 class EditorBlobsController < ApplicationController
+  require 'yajl'
+
   before_action :check_current_user, except: [:show]
   before_action :editor_blob
   before_action :validate_editor_blob_owner, except: [:show]
@@ -37,6 +39,21 @@ class EditorBlobsController < ApplicationController
            locals: { id: editor_blob.id, content: editor_blob.draft_content }
   end
 
+  def update_blob_done
+    updated_blob = EditorBlobEditor.new(editor_blob, editor_params, params[:files]).call
+
+    if updated_blob.valid?
+      purge_images
+      draft_content = updated_blob.draft_content
+      editor_blob.update(final_content: draft_content)
+
+      render 'editor_blobs/show.json',
+           locals: { id: editor_blob.id, content: editor_blob.final_content }
+    else
+      render json: { errors: updated_blob.errors.full_messages }, status: 422
+    end
+  end
+
   def destroy
     purge_images
     final_to_draft
@@ -53,8 +70,11 @@ class EditorBlobsController < ApplicationController
 
   def purge_images
     return unless params[:deletedIds]
+    
+    parser = Yajl::Parser.new
+    deleted_ids = parser.parse(params[:deletedIds])
 
-    params[:deletedIds].each { |id| editor_blob.images.find(id).purge_later }
+    deleted_ids.each { |id| editor_blob.images.find(id).purge_later }
   end
 
   def final_to_draft

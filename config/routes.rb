@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     member do
       put :update_final_to_draft
       put :update_draft_to_final
+      put :update_blob_done
     end
   end
 
