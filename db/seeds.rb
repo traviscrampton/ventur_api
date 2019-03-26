@@ -39,9 +39,9 @@ ju12.save!
 
 
 # Chapters
-cj1 = ju1.chapters.new( title: "The Initial Push-Off", slug: "chapter-1", description: "On the open road")
+cj1 = ju1.chapters.new( title: "The Initial Push-Off", slug: "chapter-1", description: "On the open road", published: true)
 c2j1 = ju1.chapters.new( title: "Undeniable Wind", slug: "chapter-1", description: "Second day out in argentina")
-cj2 = ju2.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out on the silk road")
+cj2 = ju2.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out on the silk road", published: true)
 cj1.save!
 c2j1.save!
 cj2.save!
@@ -65,10 +65,6 @@ cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/crownrange4.jp
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/facebooker7.jpg"), filename: "facebooker7")
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/westcoastal.jpg"), filename: "westcoastal")
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/victorybuurs18.jpg"), filename: "victorybuurs")
-
-cj1.create_cycle_route(latitude: 40.9006, longitude: 174.8860, latitude_delta: 0.3, longitude_delta: 0.3 )
-c2j1.create_cycle_route()
-cj2.create_cycle_route()
 
 chapter_1_blog_entries = [
     {
@@ -219,3 +215,26 @@ ActiveRecord::Base.transaction do
     p "created #{country.name} #{country.country_code}"
   end
 end 
+
+nepal = Country.find_by_name("Nepal")
+new_zealand = Country.find_by_name("New Zealand")
+japan = Country.find_by_name("Japan")
+
+p "#{nepal.name} , #{new_zealand.name}, #{japan.name}"
+
+IncludedCountry.create(journal_id: Journal.first.id, country_id: new_zealand.id)
+IncludedCountry.create(journal_id: Journal.second.id, country_id: japan.id)
+IncludedCountry.create(journal_id: Journal.third.id, country_id: nepal.id)
+
+Journal.all.each do |journal|
+  country = journal.countries.first
+  journal.chapters.each do |chapter|
+    chapter.create_cycle_route(latitude: country.latitude, longitude: country.longitude, longitude_delta: 20.0, latitude_delta: 20.0)
+  end
+end
+
+
+
+
+
+

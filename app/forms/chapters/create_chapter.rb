@@ -5,6 +5,13 @@ class CreateChapter < ChapterForm
     :params
   )
 
+  DEFAULT_MAP_INITIAL_REGION = {
+     latitude: 37.680806933177,
+     longitude: -122.441652216916,
+     longitude_delta: 0.428847994931687,
+     latitude_delta: 0.514117272451202
+  }
+
   def initialize(params)
     super
     @journal = Journal.find(params[:journalId])
@@ -33,7 +40,32 @@ class CreateChapter < ChapterForm
   end
 
   def create_cycle_route
-    chapter.create_cycle_route
+    # chapter.create_cycle_route
+    journal = chapter.journal
+
+    if journal.chapters.count > 1
+      all_chapters = journal.all_chapters
+      created_chapter_index = all_chapters.index(chapter)
+      prev_route = journal.all_chapters[created_chapter_index - 1].cycle_route
+      cycle_route_params = {
+        latitude: prev_route.latitude,
+        longitude: prev_route.longitude,
+        longitude_delta: prev_route.longitude_delta,
+        latitude_delta: prev_route.latitude_delta
+      }
+    elsif journal.countries.any?
+      country = journal.countries.first
+      cycle_route_params = {
+        latitude: country.latitude,
+        longitude: country.longitude,
+        longitude_delta: 9.97896199383848,
+        latitude_delta: 15.1292631087431
+      }
+    else 
+      cycle_route_params = DEFAULT_MAP_INITIAL_REGION 
+    end
+
+    chapter.create_cycle_route(cycle_route_params)
   end
 
   def create_editor_blob

@@ -17,6 +17,7 @@ json = {
     published: @chapter.published,
     blogImageCount: @chapter.blog_image_count,
     date: @chapter.numbered_date,
+    cycleRouteId: @chapter.cycle_route.id,
     readableDate: @chapter.readable_date,
     slug: @chapter.slug,
     journal: {
