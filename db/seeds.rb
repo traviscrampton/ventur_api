@@ -1,3 +1,4 @@
+require 'csv'
 # users
 u1 = User.create(email: "crampton.travis@gmail.com", first_name: "Travis", last_name: "Crampton", password: "travis12")
 u2 = User.create(email: "gabeleoni@gmail.com", first_name: 'Gabe', last_name: 'Leoni', password: "travis12")
@@ -64,6 +65,10 @@ cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/crownrange4.jp
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/facebooker7.jpg"), filename: "facebooker7")
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/westcoastal.jpg"), filename: "westcoastal")
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/victorybuurs18.jpg"), filename: "victorybuurs")
+
+cj1.create_cycle_route(latitude: 40.9006, longitude: 174.8860, latitude_delta: 0.3, longitude_delta: 0.3 )
+c2j1.create_cycle_route()
+cj2.create_cycle_route()
 
 chapter_1_blog_entries = [
     {
@@ -204,9 +209,13 @@ ActiveRecord::Base.transaction do
   p 'all done porting images'
 end
 
-
-
 comment_1 = Comment.create(commentable_type: "Chapter", commentable_id: c2j1.id, user_id: User.last.id, content: "Wow looks like an awesome trip, where else are you going to go")
 comment_2 = Comment.create(commentable_type: "Comment", commentable_id: comment_1.id, user_id: User.first.id, content: "We are headed to Europe after this should be a good time!")
 comment_3 = Comment.create(commentable_type: "Chapter", commentable_id: c2j1.id, user_id: User.first.id, content: "Anybody want to donate to my go fund me!?")
 
+ActiveRecord::Base.transaction do
+  CSV.foreach('db/data/countries.csv', headers: true) do |row|
+    country = Country.create(country_code: row[0], latitude: row[1], longitude: row[2], name: row[3].lstrip)
+    p "created #{country.name} #{country.country_code}"
+  end
+end 
