@@ -223,15 +223,15 @@ japan = Country.find_by_name("Japan")
 p "#{nepal.name} , #{new_zealand.name}, #{japan.name}"
 
 IncludedCountry.create(journal_id: Journal.first.id, country_id: new_zealand.id)
-IncludedCountry.create(journal_id: Journal.second.id, country_id: japan.id)
+# IncludedCountry.create(journal_id: Journal.second.id, country_id: japan.id)
 IncludedCountry.create(journal_id: Journal.third.id, country_id: nepal.id)
 
-Journal.all.each do |journal|
-  country = journal.countries.first
-  journal.chapters.each do |chapter|
-    chapter.create_cycle_route(latitude: country.latitude, longitude: country.longitude, longitude_delta: 20.0, latitude_delta: 20.0)
-  end
-end
+# Journal.all.each do |journal|
+#   country = journal.countries.first
+#   journal.chapters.each do |chapter|
+#     chapter.create_cycle_route(latitude: country.latitude, longitude: country.longitude, longitude_delta: 20.0, latitude_delta: 20.0)
+#   end
+# end
 
 
 
