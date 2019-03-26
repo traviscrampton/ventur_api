@@ -13,6 +13,7 @@ namespace :create_cycle_routes do
             chapter.create_cycle_route(latitude: 37.680806933177, longitude: -122.441652216916, longitude_delta: 20.0, latitude_delta: 20.0 )
           end
         end
+        p "finished porting cycle routes"
       end
     end 
   end
