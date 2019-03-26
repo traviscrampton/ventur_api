@@ -66,9 +66,9 @@ cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/facebooker7.jp
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/westcoastal.jpg"), filename: "westcoastal")
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/victorybuurs18.jpg"), filename: "victorybuurs")
 
-cj1.create_cycle_route
-c2j1.create_cycle_route
-cj2.create_cycle_route
+cj1.create_cycle_route(latitude: 40.9006, longitude: 174.8860, latitude_delta: 0.3, longitude_delta: 0.3 )
+c2j1.create_cycle_route()
+cj2.create_cycle_route()
 
 chapter_1_blog_entries = [
     {
