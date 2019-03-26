@@ -1,4 +1,6 @@
 class EditorBlobsController < ApplicationController
+  require 'yajl'
+
   before_action :check_current_user, except: [:show]
   before_action :editor_blob
   before_action :validate_editor_blob_owner, except: [:show]
@@ -68,8 +70,11 @@ class EditorBlobsController < ApplicationController
 
   def purge_images
     return unless params[:deletedIds]
+    
+    parser = Yajl::Parser.new
+    deleted_ids = parser.parse(params[:deletedIds])
 
-    params[:deletedIds].each { |id| editor_blob.images.find(id).purge_later }
+    deleted_ids.each { |id| editor_blob.images.find(id).purge_later }
   end
 
   def final_to_draft
