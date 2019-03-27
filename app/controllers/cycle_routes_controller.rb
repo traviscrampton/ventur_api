@@ -1,12 +1,25 @@
 class CycleRoutesController < ApplicationController
-  before_action :cycle_route
+  before_action :cycle_route, except: [:index]
 
-  def create
-    # these should be created on create of a chapter
+  def index
+    @journal = Journal.includes(:cycle_route, chapters: [:cycle_route])
+                      .find(params[:journalId])
+
+    polylines = @journal.all_chapters.map do |chapter|
+                  chapter.cycle_route.polylines
+                end
+
+    render "cycle_routes/index.json", locals: { polylines: polylines }
   end
 
   def show
     render 'cycle_routes/show.json'
+  end
+
+  def editor_show
+    previous_polylines = set_previous_polylines
+
+    render 'cycle_routes/editor_show.json', locals: { previous_polylines: previous_polylines }
   end
 
   def update
@@ -30,6 +43,18 @@ class CycleRoutesController < ApplicationController
   
   def cycle_route
     @cycle_route ||= CycleRoute.find(params[:id])
+  end
+
+  def set_previous_polylines
+    chapter = cycle_route.routable
+    all_chapters = chapter.journal.all_chapters
+
+    if all_chapters.length > 1
+      previous_chapter_index = all_chapters.index(chapter) - 1 
+      all_chapters[previous_chapter_index].cycle_route.polylines
+    else
+      return ""
+    end
   end
 
   def cycle_route_params

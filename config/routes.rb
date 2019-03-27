@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cycle_routes
+  resources :cycle_routes do 
+    member do 
+      get :editor_show
+    end
+  end
 
   resources :editor_blobs do
     member do

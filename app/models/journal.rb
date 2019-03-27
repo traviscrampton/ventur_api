@@ -34,6 +34,7 @@ class Journal < ActiveRecord::Base
   has_one :distance, as: :distanceable, dependent: :destroy
   has_many :chapters, dependent: :destroy
   has_many :gear_lists
+  has_one :cycle_route, as: :routable
   has_many :gear_items, through: :gear_lists
   has_many :included_countries
   has_many :countries, through: :included_countries
