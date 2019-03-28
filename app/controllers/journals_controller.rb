@@ -89,6 +89,7 @@ class JournalsController < ApplicationController
       cardBannerImageUrl: @journal.banner_image.attached? ? @journal.card_banner_image_url : "",
       webBannerImageUrl: @journal.banner_image.attached? ? @journal.web_banner_image_url : "",
       status: @journal.status,
+      countries: @journal.countries.map(&:name),
       distance: 0,
       user: {
         id: @journal.user.id,

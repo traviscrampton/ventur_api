@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(non_image_params)
     if @user.save
+      update_journal_follows
       upload_avatar_image
       render json: login_user_json
     else
@@ -48,6 +49,11 @@ class UsersController < ApplicationController
 
     @user.avatar.purge if @user.avatar.attached?
     @user.avatar.attach(params[:avatar])
+  end
+
+  def update_journal_follows
+    JournalFollow.where(user_email: @user.email)
+                 .update_all(user_id: @user.id)
   end
 
   def login_user_json

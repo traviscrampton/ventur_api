@@ -5,6 +5,7 @@ json = {
       slug: journal.slug,
       title: journal.title,
       countries: journal.countries.map(&:name),
+      journalFollowsCount: journal.journal_follows.count,
       description: journal.description,
       cardImageUrl: journal.card_banner_image_url,
       status: journal.status,

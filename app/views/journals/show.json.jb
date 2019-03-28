@@ -13,6 +13,7 @@ json = {
     webBannerImageUrl: @journal.web_banner_image_url,
     distance: @journal.total_distance,
     countries: @journal.countries.map(&:name),
+    journalFollowsCount: @journal.journal_follows.count,
     gearItemCount: @journal.gear_item_count,
     status: @journal.status,
     stage: @journal.stage,
@@ -32,6 +33,7 @@ json = {
                   readableDate: chapter.readable_date,
                   published: chapter.published,
                   blogImageCount: chapter.blog_image_count,
+                  date: chapter.numbered_date,
                   distance: chapter.distance_to_i,
                   imageUrl: chapter.image_url
                 }

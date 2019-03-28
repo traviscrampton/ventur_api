@@ -48,9 +48,10 @@ class CycleRoutesController < ApplicationController
   def set_previous_polylines
     chapter = cycle_route.routable
     all_chapters = chapter.journal.all_chapters
+    current_chapter_index = all_chapters.index(chapter)
 
-    if all_chapters.length > 1
-      previous_chapter_index = all_chapters.index(chapter) - 1 
+    if all_chapters.length > 1 && current_chapter_index != 0
+      previous_chapter_index = current_chapter_index - 1 
       all_chapters[previous_chapter_index].cycle_route.polylines
     else
       return ""
