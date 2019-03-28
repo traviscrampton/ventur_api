@@ -15,7 +15,7 @@ json = {
     countries: @journal.countries.map(&:name),
     journalFollowsCount: @journal.journal_follows.count,
     gearItemCount: @journal.gear_item_count,
-    status: @journal.status,
+    status: @journal.status.split("_").join(" "),
     stage: @journal.stage,
     isFollowing: @journal.is_following(current_user.try(:id)),
     user: {

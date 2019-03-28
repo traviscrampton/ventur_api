@@ -56,7 +56,7 @@ class UsersController < ApplicationController
                  .update_all(user_id: @user.id)
   end
 
-  def login_user_json
+  def user_json
     {
       user: {
         id: @user.id,
@@ -64,8 +64,11 @@ class UsersController < ApplicationController
         firstName: @user.first_name,
         lastName: @user.last_name,
         avatarImageUrl: @user.avatar_image_url,
-      },
-      token: @user.generate_jwt
+      }
     }
+  end
+
+  def login_user_json
+    user_json.merge(token: @user.generate_jwt)
   end
 end
