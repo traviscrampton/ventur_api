@@ -1,0 +1,6 @@
+json = {
+  id: id,
+  content: content
+}
+
+json

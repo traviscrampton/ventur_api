@@ -10,7 +10,7 @@ json = {
     firstName: first_name,
     lastName: last_name,
     fullName: full_name,
-    bannerImageUrl: avatar_image_url,
+    avatarImageUrl: avatar_image_url,
     journals: @user.journals.map do |journal|
       {
         id: journal.id,

@@ -1,30 +1,24 @@
 class ChaptersController < ApplicationController
   before_action :check_current_user, except: [:show]
+  before_action :validate_journal_user, except: [:show]
 
   def show
     @chapter = Chapter.with_attached_banner_image
-                      .includes(:distance, journal: [:chapters, :user])
+                      .includes(:distance, :cycle_route,
+                                :editor_blob, journal: [:chapters, :user])
                       .find(params[:id])
     render 'chapters/show.json', locals: { current_user: current_user }
   end
 
   def create
-    journal = Journal.find(params[:journalId])
-    @chapter = journal.chapters.new(non_image_chapter_params)
-    validate_journal_user
-    if @chapter.save
-      @chapter.create_distance(amount: 0) 
-      handle_image_upload
-      render json: chapter_json
-    else
-      render json: { errors: @chapter.errors.full_messages }, status: 422
-    end
+    @chapter = CreateChapter.new(params).call
+
+    render_chapter
   end
 
-  def upload_offline_chapter
+  def upload_offline_chapter # TODO: Port over to EditorBlob
     journal = Journal.find(params[:journalId])
     @chapter = journal.chapters.new(non_image_chapter_params)
-    validate_journal_user
     if @chapter.save
       @chapter.create_distance(amount: params[:distance])
       handle_image_upload
@@ -36,20 +30,13 @@ class ChaptersController < ApplicationController
   end
 
   def update
-    @chapter = Chapter.find(params[:id])
-    validate_journal_user
-    if @chapter.update(non_image_chapter_params)
-      handle_distance_update
-      handle_image_upload
-      render json: chapter_json
-    else
-      render json: { errors: @chapter.errors.full_messages }, status: 422
-    end
+    @chapter = UpdateChapter.new(params).call
+
+    render_chapter
   end
 
-  def update_blog_content
+  def update_blog_content # port over to EditorBlob
     @chapter = Chapter.find(params[:id])
-    validate_journal_user
     if @chapter.update(content: params[:content])
       BlogImageCurator.new(@chapter, params[:files]).call
       GC.start if Rails.env.production?
@@ -62,9 +49,7 @@ class ChaptersController < ApplicationController
 
   def destroy
     @chapter = Chapter.find(params[:id])
-    validate_journal_user
-    if current_user.id == @chapter.journal.user_id
-      @chapter.delete
+    if @chapter.delete
       render json: @chapter
     else
       render json: { error: "you cannot delete this chapter" }
@@ -73,32 +58,46 @@ class ChaptersController < ApplicationController
 
   private 
 
+  def render_chapter
+    if @chapter.valid?
+      render 'chapters/_chapter.json'
+    else
+      render json: { errors: @chapter.errors.full_messages }, status: 422
+    end
+  end
+
   def validate_journal_user
-    return if current_user.id == @chapter.journal.user_id
+    chapter_user_id = if params[:journalId]
+                        Journal.find(params[:journalId]).user.id
+                      elsif params[:id]
+                        Chapter.find(params[:id]).user.id
+                      end
+
+    return if chapter_user_id == current_user.id
 
     return_unauthorized_error
   end
 
 
-  def non_image_chapter_params
+  def non_image_chapter_params # TODO: remove
     params.permit(:title, :description, :published, :offline, :date, :content)
   end
 
-  def handle_distance_update
+  def handle_distance_update # TODO: remove
     return if !params[:distance]
 
     @chapter.distance.update(amount: params[:distance])
     @chapter.journal.distance.update(amount: @chapter.journal.calculate_total_distance)
   end
 
-  def handle_image_upload
+  def handle_image_upload # TODO: remove
     return if !params[:banner_image] 
 
     @chapter.banner_image.purge if @chapter.banner_image.attached?
     @chapter.banner_image.attach(params[:banner_image]) 
   end
 
-  def chapter_json 
+  def chapter_json # TODO: remove
     {
       id: @chapter.id,
       title: @chapter.title,

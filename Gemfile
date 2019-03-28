@@ -19,5 +19,6 @@ gem 'paperclip'
 gem 'annotate', group: :development
 gem 'graphql'
 gem 'spring',        group: :developmentgit 
+gem 'geocoder'
 
 gem 'graphiql-rails', group: :development

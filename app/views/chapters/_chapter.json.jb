@@ -1,0 +1,36 @@
+journal = @chapter.journal
+
+json = {
+  chapter: {
+    id: @chapter.id,
+    title: @chapter.title,
+    description: @chapter.description,
+    editorBlob: {
+      id: @chapter.editor_blob.id,
+      content: @chapter.editor_blob.final_content
+    },
+    dateCreated: @chapter.readable_date,
+    imageUrl: @chapter.banner_image_url,
+    offline: @chapter.offline,
+    commentCount: @chapter.comments.count,
+    distance: @chapter.distance_to_i,
+    published: @chapter.published,
+    blogImageCount: @chapter.blog_image_count,
+    date: @chapter.numbered_date,
+    cycleRouteId: @chapter.cycle_route.id,
+    readableDate: @chapter.readable_date,
+    slug: @chapter.slug,
+    journal: {
+      id: journal.id,
+      title: journal.title,
+      miniBannerImageUrl: journal.mini_banner_image_url,
+      distance: journal.total_distance
+    },
+    user: {
+      id: @chapter.user.id,
+      fullName: @chapter.user.full_name
+    }
+  }
+}
+
+json
