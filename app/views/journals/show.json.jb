@@ -6,14 +6,17 @@ journal_chapters = if current_user && current_user.id == @journal.user.id
 
 json = {
   journal: {
-    id: @journal.title,
+    id: @journal.id,
     title: @journal.title,
     description: @journal.description,
     cardBannerImageUrl: @journal.card_banner_image_url,
     webBannerImageUrl: @journal.web_banner_image_url,
     distance: @journal.total_distance,
+    countries: @journal.countries.map(&:name),
+    editorBlobId: @journal.editor_blob.id,
+    journalFollowsCount: @journal.journal_follows.count,
     gearItemCount: @journal.gear_item_count,
-    status: @journal.status,
+    status: @journal.status.split("_").join(" "),
     stage: @journal.stage,
     isFollowing: @journal.is_following(current_user.try(:id)),
     user: {
@@ -30,6 +33,8 @@ json = {
                   description: chapter.description,
                   readableDate: chapter.readable_date,
                   published: chapter.published,
+                  blogImageCount: chapter.blog_image_count,
+                  date: chapter.numbered_date,
                   distance: chapter.distance_to_i,
                   imageUrl: chapter.image_url
                 }

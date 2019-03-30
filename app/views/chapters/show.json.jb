@@ -10,13 +10,20 @@ json = {
     description: @chapter.description,
     distance: @chapter.distance_to_i,
     imageUrl: @chapter.image_url,
-    content: @chapter.content,
+    commentCount: @chapter.comments.count,
+    editorBlob: {
+      id: @chapter.editor_blob.id,
+      content: @chapter.editor_blob.final_content
+    },
+    contentId: @chapter.editor_blob.id,
     readableDate: @chapter.readable_date,
     date: @chapter.numbered_date,
     slug: @chapter.slug,
+    cycleRouteId: @chapter.cycle_route.id,
     published: @chapter.published,
     user: {
-      id: @chapter.user
+      id: @chapter.user.id,
+      fullName: @chapter.user.full_name
     },
     journal: {
       id: @chapter.journal_id,

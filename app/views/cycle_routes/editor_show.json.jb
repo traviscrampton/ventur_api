@@ -1,0 +1,15 @@
+json = {
+  cycleRoute: {
+    id: @cycle_route.id,
+    initialRegion: {
+      latitude: @cycle_route.latitude,
+      longitude: @cycle_route.longitude,
+      longitudeDelta: @cycle_route.longitude_delta,
+      latitudeDelta: @cycle_route.longitude_delta
+    },
+    polylines: @cycle_route.polylines,
+    previousPolylines: previous_polylines
+  }
+}
+
+json

@@ -1,0 +1,10 @@
+json = {
+  id: @journal.cycle_route.id,
+  polylines: polylines,
+  initialRegion: {
+    latitude: @journal.cycle_route.latitude,
+    longitude: @journal.cycle_route.longitude,
+    latitudeDelta: @journal.cycle_route.latitude_delta,
+    longitudeDelta: @journal.cycle_route.longitude_delta
+  }
+}

@@ -28,6 +28,9 @@ class Chapter < ActiveRecord::Base
   has_many_attached :blog_images
   has_many :favorites, as: :favoriteable, dependent: :destroy
   has_one :distance, as: :distanceable, dependent: :destroy
+  has_one :editor_blob, as: :blobable, dependent: :destroy
+  has_one :cycle_route, as: :routable, dependent: :destroy
+  has_many :comments, as: :commentable
 
   def distance_to_i
     distance.amount.to_i
@@ -54,7 +57,7 @@ class Chapter < ActiveRecord::Base
   end
 
   def blog_image_count
-    blog_images.count
+    editor_blob.images.count
   end
 
   def image_url
@@ -67,6 +70,10 @@ class Chapter < ActiveRecord::Base
 
   def banner_image_url
     banner_image.attached? ? get_env_image_url(chapter_banner_size) : ""
+  end
+
+  def update_total_distance
+    journal.update_total_distance
   end
 
   def get_env_image_url(img_size)

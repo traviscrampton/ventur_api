@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :journal_follows
   has_many :followed_journals, source: :journal, through: :journal_follows
+  has_many :comments
 
   def generate_jwt
     JWT.encode({  id: id,

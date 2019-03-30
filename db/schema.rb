@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_29_182123) do
+ActiveRecord::Schema.define(version: 2019_03_24_165002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,10 +50,47 @@ ActiveRecord::Schema.define(version: 2018_12_29_182123) do
     t.boolean "email_sent", default: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "commentable_id"
+    t.string "commentable_type"
+    t.integer "user_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "country_code"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cycle_routes", force: :cascade do |t|
+    t.integer "routable_id"
+    t.string "routable_type"
+    t.text "polylines", default: ""
+    t.float "latitude"
+    t.float "longitude"
+    t.float "longitude_delta"
+    t.float "latitude_delta"
+  end
+
   create_table "distances", force: :cascade do |t|
     t.integer "distanceable_id"
     t.string "distanceable_type"
     t.decimal "amount", precision: 8, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "editor_blobs", force: :cascade do |t|
+    t.string "blobable_type"
+    t.integer "blobable_id"
+    t.jsonb "draft_content", default: {}
+    t.jsonb "final_content", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,6 +124,13 @@ ActiveRecord::Schema.define(version: 2018_12_29_182123) do
   create_table "gear_lists", force: :cascade do |t|
     t.integer "journal_id"
     t.integer "gear_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "included_countries", force: :cascade do |t|
+    t.integer "journal_id"
+    t.integer "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

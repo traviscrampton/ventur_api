@@ -1,8 +1,17 @@
 class JournalsController < ApplicationController
   before_action :check_current_user, except: [:index, :show]
+
+  DEFAULT_MAP_INITIAL_REGION = {
+     latitude: 37.680806933177,
+     longitude: -122.441652216916,
+     longitude_delta: 0.428847994931687,
+     latitude_delta: 0.514117272451202
+  }
+  
   def index
     @journals = Journal.with_attached_banner_image
-                       .includes(:distance, user: [avatar_attachment: :blob])
+                       .includes(:distance, :countries,
+                                 user: [avatar_attachment: :blob])
                        .where.not(status: 0)
                        .limit(10)
                        .order('created_at DESC')
@@ -12,6 +21,7 @@ class JournalsController < ApplicationController
   def show
     @journal = Journal.with_attached_banner_image
                       .includes(:distance, :journal_follows,
+                                :countries,
                                 user: [avatar_attachment: :blob],
                                 chapters: [:distance, banner_image_attachment: :blob],
                                 gear_items: [product_image_attachment: :blob])
@@ -24,6 +34,8 @@ class JournalsController < ApplicationController
 
     if @journal.save
       @journal.create_distance(amount: 0) 
+      @journal.create_cycle_route(DEFAULT_MAP_INITIAL_REGION)
+      @journal.create_editor_blob
       @journal.banner_image.attach(params[:banner_image]) if params[:banner_image]
       render json: journal_json
     else
@@ -78,6 +90,7 @@ class JournalsController < ApplicationController
       cardBannerImageUrl: @journal.banner_image.attached? ? @journal.card_banner_image_url : "",
       webBannerImageUrl: @journal.banner_image.attached? ? @journal.web_banner_image_url : "",
       status: @journal.status,
+      countries: @journal.countries.map(&:name),
       distance: 0,
       user: {
         id: @journal.user.id,
