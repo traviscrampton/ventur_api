@@ -15,7 +15,6 @@ class JournalsController < ApplicationController
                        .where.not(status: 0)
                        .limit(10)
                        .order('created_at DESC')
-                       .select { |j| j.total_distance > 0 }
     render 'journals/index.json'
   end
 
@@ -36,6 +35,7 @@ class JournalsController < ApplicationController
     if @journal.save
       @journal.create_distance(amount: 0) 
       @journal.create_cycle_route(DEFAULT_MAP_INITIAL_REGION)
+      @journal.create_editor_blob
       @journal.banner_image.attach(params[:banner_image]) if params[:banner_image]
       render json: journal_json
     else

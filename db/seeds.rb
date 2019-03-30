@@ -227,6 +227,7 @@ IncludedCountry.create(journal_id: Journal.second.id, country_id: japan.id)
 IncludedCountry.create(journal_id: Journal.third.id, country_id: nepal.id)
 
 Journal.all.each do |journal|
+  journal.create_editor_blob
   country = journal.countries.first
   journal.create_cycle_route(latitude: country.latitude, longitude: country.longitude, longitude_delta: 20.0, latitude_delta: 20.0)
   journal.chapters.each do |chapter|
