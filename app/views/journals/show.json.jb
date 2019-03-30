@@ -13,6 +13,7 @@ json = {
     webBannerImageUrl: @journal.web_banner_image_url,
     distance: @journal.total_distance,
     countries: @journal.countries.map(&:name),
+    editorBlobId: @journal.editor_blob.id,
     journalFollowsCount: @journal.journal_follows.count,
     gearItemCount: @journal.gear_item_count,
     status: @journal.status.split("_").join(" "),

@@ -32,4 +32,15 @@ namespace :port_over do
       p 'all done porting images'
     end
   end
+
+  desc "create editor_blobs for journals" 
+  task journal_editor_blobs: :environment do 
+    ActiveRecord::Base.transaction do 
+      p "begin adding blobs"
+      Journal.all.each do |journal|
+        journal.create_editor_blob
+      end
+      p "end adding blobs"
+    end
+  end
 end

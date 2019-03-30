@@ -15,6 +15,7 @@ class JournalsController < ApplicationController
                        .where.not(status: 0)
                        .limit(10)
                        .order('created_at DESC')
+                       .select { |j| j.total_distance > 0 }
     render 'journals/index.json'
   end
 

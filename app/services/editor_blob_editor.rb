@@ -17,6 +17,7 @@ class EditorBlobEditor
   def call
     upload_new_images
     update_editor_blob
+    garbage_collection_call
     editor_blob
   end
 
@@ -66,5 +67,10 @@ class EditorBlobEditor
   
   def update_editor_blob
     editor_blob.update(draft_content: @draft_content)
+  end
+
+  def garbage_collection_call
+    return unless Rails.env.production? && new_images
+    GC.start
   end
 end
