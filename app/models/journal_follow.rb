@@ -4,5 +4,6 @@ class JournalFollow < ActiveRecord::Base
   belongs_to :journal
 
   validates_presence_of :user_email
-  validates :user_email, uniqueness: { case_sensitive: false }
+  validates_uniqueness_of :user_name, scope: :journal_id
+
 end
