@@ -1,7 +1,7 @@
 class CycleRoutesController < ApplicationController
   before_action :cycle_route, except: [:index]
   before_action :check_current_user, except: [:show, :index]
-  before_action :check_routable, except: [:show, :index]
+
 
   def index
     @journal = Journal.includes(:cycle_route, chapters: [:cycle_route])
@@ -45,12 +45,6 @@ class CycleRoutesController < ApplicationController
   
   def cycle_route
     @cycle_route ||= CycleRoute.find(params[:id])
-  end
-
-  def check_routable
-    return unless cycle_route.routable.user == current_user
-
-    return_unauthorized_error
   end
 
   def set_previous_polylines
