@@ -30,9 +30,9 @@ class JournalsController < ApplicationController
   end
 
   def create
-    @journal = CreateJournal.call(non_image_params, current_user, params[:banner_image])
+    @journal = CreateJournal.new(non_image_params, current_user, params[:banner_image]).call
 
-    if @journal.save 
+    if @journal.valid?
       render json: journal_json
     else
       render json: @journal.errors
@@ -40,10 +40,9 @@ class JournalsController < ApplicationController
   end
 
   def update
-    @journal = Journal.find(params[:id])
     check_journal_user
-    if @journal.update(non_image_params)
-      handle_image_upload
+    @journal = UpdateJournal.new(params[:id], non_image_params, params[:banner_image])
+    if @journal.valid?
       render json: journal_json
     else
       render json: @journal.errors
@@ -64,7 +63,8 @@ class JournalsController < ApplicationController
   end
 
   def check_journal_user
-    return if current_user.id == @journal.user_id
+    journal = Journal.find(params[:id])
+    return if current_user.id == journal.user_id
 
     return_unauthorized_error
   end
