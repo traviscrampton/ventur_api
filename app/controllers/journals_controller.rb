@@ -1,12 +1,12 @@
 class JournalsController < ApplicationController
   before_action :check_current_user, except: [:index, :show]
 
-  DEFAULT_MAP_INITIAL_REGION = {
-     latitude: 37.680806933177,
-     longitude: -122.441652216916,
-     longitude_delta: 0.428847994931687,
-     latitude_delta: 0.514117272451202
-  }
+  # DEFAULT_MAP_INITIAL_REGION = {
+  #    latitude: 37.680806933177,
+  #    longitude: -122.441652216916,
+  #    longitude_delta: 0.428847994931687,
+  #    latitude_delta: 0.514117272451202
+  # }
   
   def index
     @journals = Journal.with_attached_banner_image
@@ -30,13 +30,9 @@ class JournalsController < ApplicationController
   end
 
   def create
-    @journal = current_user.journals.new(non_image_params)
+    @journal = CreateJournalForm.call(non_image_params, current_user, params[:banner_image])
 
-    if @journal.save
-      @journal.create_distance(amount: 0) 
-      @journal.create_cycle_route(DEFAULT_MAP_INITIAL_REGION)
-      @journal.create_editor_blob
-      @journal.banner_image.attach(params[:banner_image]) if params[:banner_image]
+    if @journal.save 
       render json: journal_json
     else
       render json: @journal.errors
@@ -63,8 +59,8 @@ class JournalsController < ApplicationController
 
   private 
 
-  def non_image_params
-   params.permit(:title, :description, :stage, :status)
+  def params
+   params.permit(:title, :description, :stage, :status, :banner_image)
   end
 
   def check_journal_user

@@ -12,7 +12,12 @@ json = {
     cardBannerImageUrl: @journal.card_banner_image_url,
     webBannerImageUrl: @journal.web_banner_image_url,
     distance: @journal.total_distance,
-    countries: @journal.countries.map(&:name),
+    countries: @journal.countries.map do |country|
+      {
+        id: country.id,
+        name: country.name 
+      }
+    end,
     editorBlobId: @journal.editor_blob.id,
     journalFollowsCount: @journal.journal_follows.count,
     gearItemCount: @journal.gear_item_count,

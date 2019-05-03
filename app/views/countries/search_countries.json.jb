@@ -1,0 +1,11 @@
+json = {
+  countries: @countries.map do |country|
+    {
+      id: country.id,
+      name: country.name
+    }
+  end
+}
+
+
+return json
