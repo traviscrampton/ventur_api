@@ -36,11 +36,10 @@ class CreateChapter < ChapterForm
   end
 
   def create_chapter_distance
-    chapter.create_distance(amount: params[:distance] || 0)
+    chapter.create_new_distance(params[:distance] || 0)
   end
 
   def create_cycle_route
-    # chapter.create_cycle_route
     journal = chapter.journal
 
     if journal.chapters.count > 1

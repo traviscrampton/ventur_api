@@ -76,6 +76,13 @@ class Chapter < ActiveRecord::Base
     journal.update_total_distance
   end
 
+  def create_new_distance(amount)
+    distance_type = journal.distance.distance_type
+    params = { distance_type: distance_type }.merge(Distance.new_distance_params(distance_type, amount))
+
+    create_distance(params)
+  end
+
   def get_env_image_url(img_size)
     Rails.env.production? ? img_size.service_url : Rails.application.routes.url_helpers.url_for(img_size)
   end

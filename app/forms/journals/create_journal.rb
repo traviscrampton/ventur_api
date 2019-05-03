@@ -39,7 +39,7 @@ class CreateJournal
   end
 
   def create_journal_distance
-    # journal.create_distance(amount: 0, jou)
+    journal.create_distance(distance_type: non_image_params[:distanceType])
   end
 
   def create_cycle_route

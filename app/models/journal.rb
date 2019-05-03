@@ -51,7 +51,7 @@ class Journal < ActiveRecord::Base
   end
 
   def update_total_distance
-    distance.update(amount: calculate_total_distance)
+    distance.save_distance_amount(calculate_total_distance)
   end
 
   def total_distance
@@ -95,7 +95,9 @@ class Journal < ActiveRecord::Base
   end
 
   def calculate_total_distance
-    chapters.map(&:distance).pluck(:amount).inject(0, &:+)
+    pluck_attribute = (distance.distance_type + "_amount").to_sym
+
+    chapters.map(&:distance).pluck(pluck_attribute).inject(0, &:+)
   end
 
   def is_following(user_id)

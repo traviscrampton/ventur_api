@@ -30,7 +30,7 @@ class JournalsController < ApplicationController
   end
 
   def create
-    @journal = CreateJournalForm.call(non_image_params, current_user, params[:banner_image])
+    @journal = CreateJournal.call(non_image_params, current_user, params[:banner_image])
 
     if @journal.save 
       render json: journal_json

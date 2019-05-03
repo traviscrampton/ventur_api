@@ -23,7 +23,7 @@ class UpdateChapter < ChapterForm
   def handle_distance_update
     return unless params[:distance]
 
-    chapter.distance.update(amount: params[:distance])
+    chapter.distance.persist_distance_amount(params[:distance])
     chapter.update_total_distance
   end
 end

@@ -27,7 +27,15 @@ class UpdateJournal
   def update_distance_metrics
     return unless non_image_params[:distanceType]
 
-    journal.distance.update(distance_type: non_image_params[:distanceType])
+    if journal.distance.update(distance_type: non_image_params[:distanceType])
+      update_all_chapters_distance
+    end
+  end
+
+  def update_all_chapters_distance
+    journal.chapters.map(&:distance).each do |chapter_distance|
+      chapter_distance.update(distance_type: non_image_params[:distanceType])
+    end
   end
 
   def handle_image_upload
