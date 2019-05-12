@@ -51,7 +51,7 @@ class Journal < ActiveRecord::Base
   end
 
   def update_total_distance
-    distance.save_distance_amount(calculate_total_distance)
+    distance.persist_distance_amount(calculate_total_distance)
   end
 
   def total_distance

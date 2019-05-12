@@ -43,13 +43,13 @@ class Distance < ActiveRecord::Base
     end
   end
 
-  def self.kilometer_primary_params(amount)
+  def kilometer_primary_params(amount)
     miles = amount / 1.6
 
     { kilometer_amount: amount, mile_amount: miles }
   end
 
-  def self.mile_primary_params(amount)
+  def mile_primary_params(amount)
     kilometers = amount * 1.6
 
     { mile_amount: amount, kilometer_amount: kilometers }
@@ -58,13 +58,13 @@ class Distance < ActiveRecord::Base
   private
 
   def persist_kilometer_primary(amount)
-    params = kilometer_primary_params(amount)
+    params = self.kilometer_primary_params(amount)
 
     self.update(params)
   end
 
   def persist_mile_primary(amount)
-    params = mile_primary_params(amount)
+    params = self.mile_primary_params(amount)
 
     self.update(params)
   end

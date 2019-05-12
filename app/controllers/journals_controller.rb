@@ -1,12 +1,5 @@
 class JournalsController < ApplicationController
   before_action :check_current_user, except: [:index, :show]
-
-  # DEFAULT_MAP_INITIAL_REGION = {
-  #    latitude: 37.680806933177,
-  #    longitude: -122.441652216916,
-  #    longitude_delta: 0.428847994931687,
-  #    latitude_delta: 0.514117272451202
-  # }
   
   def index
     @journals = Journal.with_attached_banner_image
@@ -30,7 +23,7 @@ class JournalsController < ApplicationController
   end
 
   def create
-    @journal = CreateJournal.new(non_image_params, current_user, params[:banner_image]).call
+    @journal = CreateJournal.new(params, current_user).call
 
     if @journal.valid?
       render json: journal_json
@@ -41,7 +34,8 @@ class JournalsController < ApplicationController
 
   def update
     check_journal_user
-    @journal = UpdateJournal.new(params[:id], non_image_params, params[:banner_image])
+    @journal = UpdateJournal.new(params).call
+
     if @journal.valid?
       render json: journal_json
     else
@@ -58,8 +52,8 @@ class JournalsController < ApplicationController
 
   private 
 
-  def params
-   params.permit(:title, :description, :stage, :status, :banner_image)
+  def non_image_params
+   params.permit(:title, :description, :stage, :status, :distanceType)
   end
 
   def check_journal_user

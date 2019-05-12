@@ -33,7 +33,7 @@ class Chapter < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   def distance_to_i
-    distance.amount.to_i
+    distance.amount
   end
 
   def readable_date

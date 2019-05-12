@@ -1,19 +1,18 @@
 class UpdateJournal
 
     attr_accessor(
-    :journal,
-    :non_image_params,
-    :banner_image
-  )
+      :journal,
+      :params
+    )
 
-  def initialize(id, non_image_params, banner_image)
-    @non_image_params = non_image_params
-    @banner_image = banner_image
-    @journal = Journal.find(id)
+  def initialize(params)
+    @params = params
+    @banner_image = params[:banner_image]
+    @journal = Journal.find(params[:id])
   end
 
   def call
-    if journal.update
+    if journal.update(journal_params)
       update_distance_metrics
     end
 
@@ -24,24 +23,32 @@ class UpdateJournal
 
   private
 
-  def update_distance_metrics
-    return unless non_image_params[:distanceType]
+  def journal_params
+    {
+      title: params[:title],
+      status: params[:status],
+      description: params[:description]
+    }
+  end
 
-    if journal.distance.update(distance_type: non_image_params[:distanceType])
+  def update_distance_metrics
+    return unless params[:distanceType]
+
+    if journal.distance.update(distance_type: params[:distanceType].try(:singularize))
       update_all_chapters_distance
     end
   end
 
   def update_all_chapters_distance
     journal.chapters.map(&:distance).each do |chapter_distance|
-      chapter_distance.update(distance_type: non_image_params[:distanceType])
+      chapter_distance.update(distance_type: params[:distanceType].try(:singularize))
     end
   end
 
   def handle_image_upload
-    return if banner_image
+    return unless banner_image
     
     @journal.banner_image.purge if @journal.banner_image.attached?
-    @journal.banner_image.attach(params[:banner_image]) 
+    @journal.banner_image.attach(banner_image) 
   end
 end
