@@ -9,7 +9,12 @@ json = {
       description: journal.description,
       cardImageUrl: journal.card_banner_image_url,
       status: journal.status,
-      distance: journal.total_distance,
+      distance: {
+        distanceType: journal.distance.distance_type,
+        kilometerAmount: journal.distance.kilometer_amount.to_i,
+        mileAmount: journal.distance.mile_amount.to_i,
+        readableDistanceType: journal.distance.distance_type.pluralize(journal.distance.amount)
+      },
       user: {
         id: journal.user.id,
         firstName: journal.user.first_name,

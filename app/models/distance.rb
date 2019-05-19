@@ -24,9 +24,9 @@ class Distance < ActiveRecord::Base
   def self.new_distance_params(type, amount)
     case type
     when "kilometer"
-      self.kilometer_primary_params(amount)
+      kilometer_primary_params(amount)
     when "mile"
-      self.mile_primary_params(amount)
+      mile_primary_params(amount)
     else
       {}
     end
@@ -43,28 +43,26 @@ class Distance < ActiveRecord::Base
     end
   end
 
-  def kilometer_primary_params(amount)
+  def self.kilometer_primary_params(amount)
     miles = amount / 1.6
 
     { kilometer_amount: amount, mile_amount: miles }
   end
 
-  def mile_primary_params(amount)
+  def self.mile_primary_params(amount)
     kilometers = amount * 1.6
 
     { mile_amount: amount, kilometer_amount: kilometers }
   end
 
-  private
-
   def persist_kilometer_primary(amount)
-    params = self.kilometer_primary_params(amount)
+    params = Distance.kilometer_primary_params(amount)
 
     self.update(params)
   end
 
   def persist_mile_primary(amount)
-    params = self.mile_primary_params(amount)
+    params = Distance.mile_primary_params(amount)
 
     self.update(params)
   end

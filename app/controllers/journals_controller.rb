@@ -80,14 +80,8 @@ class JournalsController < ApplicationController
       cardBannerImageUrl: @journal.banner_image.attached? ? @journal.card_banner_image_url : "",
       webBannerImageUrl: @journal.banner_image.attached? ? @journal.web_banner_image_url : "",
       status: @journal.status,
-      countries: @journal.countries.map(&:name),
-      distance: 0,
-      user: {
-        id: @journal.user.id,
-        fullName: @journal.user.full_name,
-        avatarImageUrl: @journal.user.avatar_image_url
-      },
-      chapters: []
+      countries: @journal.countries.map { |c| { id: c.id, name: c.name} },
+      distance: 0
     }
    end
 end

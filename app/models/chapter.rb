@@ -78,8 +78,8 @@ class Chapter < ActiveRecord::Base
 
   def create_new_distance(amount)
     distance_type = journal.distance.distance_type
-    params = { distance_type: distance_type }.merge(Distance.new_distance_params(distance_type, amount))
-
+    params = { distance_type: distance_type }.merge(Distance.new_distance_params(distance_type, amount.to_f))
+    
     create_distance(params)
   end
 

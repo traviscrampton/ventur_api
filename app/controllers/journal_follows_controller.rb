@@ -42,7 +42,7 @@ class JournalFollowsController < ApplicationController
       ChapterMailer.new_chapter(@chapter, full_name, email).deliver_later
     end
 
-    render json: chapter_json
+    render 'chapters/show.json', locals: { current_user: current_user }
   end
 
   private

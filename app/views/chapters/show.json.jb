@@ -8,8 +8,14 @@ json = {
     id: @chapter.id,
     title: @chapter.title,
     description: @chapter.description,
-    distance: @chapter.distance_to_i,
+    distance: {
+      distanceType: @chapter.distance.distance_type,
+      kilometerAmount: @chapter.distance.kilometer_amount.to_i,
+      mileAmount: @chapter.distance.mile_amount.to_i,
+      readableDistanceType: @chapter.distance.distance_type.pluralize(@chapter.distance.amount)
+    },
     imageUrl: @chapter.image_url,
+    emailSent: @chapter.email_sent,
     commentCount: @chapter.comments.count,
     editorBlob: {
       id: @chapter.editor_blob.id,
