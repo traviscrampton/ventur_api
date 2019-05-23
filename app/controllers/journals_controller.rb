@@ -81,7 +81,12 @@ class JournalsController < ApplicationController
       webBannerImageUrl: @journal.banner_image.attached? ? @journal.web_banner_image_url : "",
       status: @journal.status,
       countries: @journal.countries.map { |c| { id: c.id, name: c.name} },
-      distance: 0
+      distance: {
+        distanceType: @journal.distance.distance_type,
+        kilometerAmount: @journal.distance.kilometer_amount.to_i,
+        mileAmount: @journal.distance.mile_amount.to_i,
+        readableDistanceType: @journal.distance.distance_type.pluralize(@journal.distance.amount)
+      }
     }
    end
 end

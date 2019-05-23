@@ -50,13 +50,13 @@ c2j1.banner_image.attach(io: File.open("#{Rails.root}/public/images/journal_2_im
 cj2.banner_image.attach(io: File.open("#{Rails.root}/public/images/journal_1_image.png"), filename: "journal_1_image.png")
 
 # Chapter Distance
-cj1d = cj1.build_distance(kilometer_amount: 78, mile_amount: 78 * 1.6)
+cj1d = cj1.build_distance(kilometer_amount: 78, mile_amount: 78 * 0.6)
 cj1d.save!
 
-c2j1d = c2j1.build_distance(kilometer_amount: 45,  mile_amount: 45 * 1.6)
+c2j1d = c2j1.build_distance(kilometer_amount: 45,  mile_amount: 45 * 0.6)
 c2j1d.save!
 
-cj2d = cj2.build_distance(kilometer_amount: 108,  mile_amount: 108 * 1.6)
+cj2d = cj2.build_distance(kilometer_amount: 108,  mile_amount: 108 * 0.6)
 cj2d.save!
 
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/abel_tasman.jpg"), filename: "abel_tasman")

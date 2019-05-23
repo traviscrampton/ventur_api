@@ -49,6 +49,8 @@ class UpdateJournal
   end
 
   def update_included_countries
+    return unless params[:includedCountries]
+
     current_ids = journal.countries.map { |c| c.id }
     params_ids = params[:includedCountries].map {|c| c[:id]}
 
