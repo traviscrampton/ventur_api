@@ -19,6 +19,7 @@ json = {
         status: journal.status,
         distance: journal.total_distance,
         cardBannerImageUrl: journal.card_banner_image_url,
+        thumbnailSource: journal.thumbnail_image_url,
         user: {
           id: user_id,
           firstName: first_name,

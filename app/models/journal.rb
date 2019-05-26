@@ -51,12 +51,12 @@ class Journal < ActiveRecord::Base
   end
 
   def update_total_distance
-    distance.update(amount: calculate_total_distance)
+    distance.persist_distance_amount(calculate_total_distance)
   end
 
   def total_distance
     if distance
-      distance.amount.to_i
+      distance.amount
     else
       0 
     end
@@ -78,6 +78,10 @@ class Journal < ActiveRecord::Base
     banner_image.variant(resize: "1000x800").processed
   end
 
+  def thumbnail_image_size
+    banner_image.variant(resize: "50x33").processed
+  end
+
   def follower_count
     journal_follows.count
   end
@@ -94,8 +98,14 @@ class Journal < ActiveRecord::Base
     banner_image.attached? ? Rails.application.routes.url_helpers.url_for(web_banner_size) : ""
   end
 
+  def thumbnail_image_url
+    banner_image.attached? ? Rails.application.routes.url_helpers.url_for(thumbnail_image_size) : ""
+  end
+
   def calculate_total_distance
-    chapters.map(&:distance).pluck(:amount).inject(0, &:+)
+    pluck_attribute = (distance.distance_type + "_amount").to_sym
+
+    chapters.map(&:distance).pluck(pluck_attribute).inject(0, &:+)
   end
 
   def is_following(user_id)
