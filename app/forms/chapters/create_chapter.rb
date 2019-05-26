@@ -37,6 +37,7 @@ class CreateChapter < ChapterForm
 
   def create_chapter_distance
     chapter.create_new_distance(params[:distance] || 0)
+    chapter.update_total_distance
   end
 
   def create_cycle_route

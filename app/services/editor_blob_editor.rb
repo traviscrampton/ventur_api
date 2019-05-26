@@ -28,6 +28,7 @@ class EditorBlobEditor
 
     uploaded_blobs = new_images.map do |img|
       uploaded = editor_blob.images.attach(img)
+      uploaded.first.blob.reload
       uploaded.first.blob
     end
 
@@ -44,6 +45,7 @@ class EditorBlobEditor
         entry['id'] = image.id
         entry['uri'] = large_img_uri(image)
         entry['lowResUri'] = small_img_uri(image)
+        entry['thumbnailSource'] = thumbnail_source_uri(image)
       end
       entry
     end
@@ -57,6 +59,11 @@ class EditorBlobEditor
 
   def small_img_uri(img)
     img_size = img.variant(resize: '600x450').processed
+    Rails.application.routes.url_helpers.url_for(img_size)
+  end
+
+  def thumbnail_source_uri(img)
+    img_size = img.variant(resize: '50x37').processed
     Rails.application.routes.url_helpers.url_for(img_size)
   end
 

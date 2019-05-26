@@ -78,6 +78,10 @@ class Journal < ActiveRecord::Base
     banner_image.variant(resize: "1000x800").processed
   end
 
+  def thumbnail_image_size
+    banner_image.variant(resize: "50x33").processed
+  end
+
   def follower_count
     journal_follows.count
   end
@@ -92,6 +96,10 @@ class Journal < ActiveRecord::Base
 
   def web_banner_image_url
     banner_image.attached? ? Rails.application.routes.url_helpers.url_for(web_banner_size) : ""
+  end
+
+  def thumbnail_image_url
+    banner_image.attached? ? Rails.application.routes.url_helpers.url_for(thumbnail_image_size) : ""
   end
 
   def calculate_total_distance

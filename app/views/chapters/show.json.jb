@@ -15,6 +15,7 @@ json = {
       readableDistanceType: @chapter.distance.distance_type.pluralize(@chapter.distance.amount)
     },
     imageUrl: @chapter.image_url,
+    thumbnailSource: @chapter.thumbnail_image_url,
     emailSent: @chapter.email_sent,
     commentCount: @chapter.comments.count,
     editorBlob: {

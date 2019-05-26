@@ -9,6 +9,7 @@ json = {
     id: @journal.id,
     title: @journal.title,
     description: @journal.description,
+    thumbnailSource: @journal.thumbnail_image_url,
     cardBannerImageUrl: @journal.card_banner_image_url,
     webBannerImageUrl: @journal.web_banner_image_url,
     distance: {
@@ -51,7 +52,8 @@ json = {
                         mileAmount: chapter.distance.mile_amount.to_i,
                         readableDistanceType: chapter.distance.distance_type.pluralize(@journal.distance.amount)
                       },
-                  imageUrl: chapter.image_url
+                  imageUrl: chapter.image_url,
+                  thumbnailSource: chapter.thumbnail_image_url
                 }
               end
   }

@@ -56,12 +56,20 @@ class Chapter < ActiveRecord::Base
     banner_image.variant(resize: "400x300").processed
   end
 
+  def journal_thumbnail_thumbnail
+    banner_image.variant(resize: "50x37").processed
+  end
+
   def blog_image_count
     editor_blob.images.count
   end
 
   def image_url
     banner_image.attached? ? get_env_image_url(journal_thumbnail_chapter) : ""    
+  end
+
+  def thumbnail_image_url
+    banner_image.attached? ? get_env_image_url(journal_thumbnail_thumbnail) : ""    
   end
 
   def user
