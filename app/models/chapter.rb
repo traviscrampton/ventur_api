@@ -33,7 +33,7 @@ class Chapter < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   def distance_to_i
-    distance.amount.to_i
+    distance.amount
   end
 
   def readable_date
@@ -56,12 +56,20 @@ class Chapter < ActiveRecord::Base
     banner_image.variant(resize: "400x300").processed
   end
 
+  def journal_thumbnail_thumbnail
+    banner_image.variant(resize: "50x37").processed
+  end
+
   def blog_image_count
     editor_blob.images.count
   end
 
   def image_url
     banner_image.attached? ? get_env_image_url(journal_thumbnail_chapter) : ""    
+  end
+
+  def thumbnail_image_url
+    banner_image.attached? ? get_env_image_url(journal_thumbnail_thumbnail) : ""    
   end
 
   def user
@@ -74,6 +82,13 @@ class Chapter < ActiveRecord::Base
 
   def update_total_distance
     journal.update_total_distance
+  end
+
+  def create_new_distance(amount)
+    distance_type = journal.distance.distance_type
+    params = { distance_type: distance_type }.merge(Distance.new_distance_params(distance_type, amount.to_f))
+    
+    create_distance(params)
   end
 
   def get_env_image_url(img_size)

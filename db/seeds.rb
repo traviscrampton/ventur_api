@@ -30,9 +30,9 @@ ju12.save!
 ju1.banner_image.attach(io: File.open("#{Rails.root}/public/images/patagonia.jpg"), filename: "patagonia.jpg" )
 ju12.banner_image.attach(io: File.open("#{Rails.root}/public/images/himalayas.jpg"), filename: "himalayas.jpg" )
 ju2.banner_image.attach(io: File.open("#{Rails.root}/public/images/japan.jpeg"), filename: "japan.jpeg" )
-ju1d = ju1.build_distance(amount: 0)
-ju2d = ju2.build_distance(amount: 0)
-ju12 = ju12.build_distance(amount: 0)
+ju1d = ju1.build_distance(kilometer_amount: 0, mile_amount: 0)
+ju2d = ju2.build_distance(kilometer_amount: 0, mile_amount: 0)
+ju12 = ju12.build_distance(kilometer_amount: 0, mile_amount: 0)
 ju1d.save!
 ju2d.save!
 ju12.save!
@@ -50,13 +50,13 @@ c2j1.banner_image.attach(io: File.open("#{Rails.root}/public/images/journal_2_im
 cj2.banner_image.attach(io: File.open("#{Rails.root}/public/images/journal_1_image.png"), filename: "journal_1_image.png")
 
 # Chapter Distance
-cj1d = cj1.build_distance(amount: 78)
+cj1d = cj1.build_distance(kilometer_amount: 78, mile_amount: 78 * 0.6)
 cj1d.save!
 
-c2j1d = c2j1.build_distance(amount: 45)
+c2j1d = c2j1.build_distance(kilometer_amount: 45,  mile_amount: 45 * 0.6)
 c2j1d.save!
 
-cj2d = cj2.build_distance(amount: 108)
+cj2d = cj2.build_distance(kilometer_amount: 108,  mile_amount: 108 * 0.6)
 cj2d.save!
 
 cj1.blog_images.attach(io: File.open("#{Rails.root}/public/images/abel_tasman.jpg"), filename: "abel_tasman")

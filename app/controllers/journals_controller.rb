@@ -1,12 +1,5 @@
 class JournalsController < ApplicationController
   before_action :check_current_user, except: [:index, :show]
-
-  DEFAULT_MAP_INITIAL_REGION = {
-     latitude: 37.680806933177,
-     longitude: -122.441652216916,
-     longitude_delta: 0.428847994931687,
-     latitude_delta: 0.514117272451202
-  }
   
   def index
     @journals = Journal.with_attached_banner_image
@@ -30,13 +23,9 @@ class JournalsController < ApplicationController
   end
 
   def create
-    @journal = current_user.journals.new(non_image_params)
+    @journal = CreateJournal.new(params, current_user).call
 
-    if @journal.save
-      @journal.create_distance(amount: 0) 
-      @journal.create_cycle_route(DEFAULT_MAP_INITIAL_REGION)
-      @journal.create_editor_blob
-      @journal.banner_image.attach(params[:banner_image]) if params[:banner_image]
+    if @journal.valid?
       render json: journal_json
     else
       render json: @journal.errors
@@ -44,10 +33,10 @@ class JournalsController < ApplicationController
   end
 
   def update
-    @journal = Journal.find(params[:id])
     check_journal_user
-    if @journal.update(non_image_params)
-      handle_image_upload
+    @journal = UpdateJournal.new(params).call
+
+    if @journal.valid?
       render json: journal_json
     else
       render json: @journal.errors
@@ -64,11 +53,12 @@ class JournalsController < ApplicationController
   private 
 
   def non_image_params
-   params.permit(:title, :description, :stage, :status)
+   params.permit(:title, :description, :stage, :status, :distanceType)
   end
 
   def check_journal_user
-    return if current_user.id == @journal.user_id
+    journal = Journal.find(params[:id])
+    return if current_user.id == journal.user_id
 
     return_unauthorized_error
   end
@@ -90,14 +80,13 @@ class JournalsController < ApplicationController
       cardBannerImageUrl: @journal.banner_image.attached? ? @journal.card_banner_image_url : "",
       webBannerImageUrl: @journal.banner_image.attached? ? @journal.web_banner_image_url : "",
       status: @journal.status,
-      countries: @journal.countries.map(&:name),
-      distance: 0,
-      user: {
-        id: @journal.user.id,
-        fullName: @journal.user.full_name,
-        avatarImageUrl: @journal.user.avatar_image_url
-      },
-      chapters: []
+      countries: @journal.countries.map { |c| { id: c.id, name: c.name} },
+      distance: {
+        distanceType: @journal.distance.distance_type,
+        kilometerAmount: @journal.distance.kilometer_amount.to_i,
+        mileAmount: @journal.distance.mile_amount.to_i,
+        readableDistanceType: @journal.distance.distance_type.pluralize(@journal.distance.amount)
+      }
     }
    end
 end

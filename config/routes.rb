@@ -47,5 +47,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :countries do 
+    collection do 
+      get "search_countries"
+    end
+  end
+
   post "/chapters/upload_offline_chapter" => "chapters#upload_offline_chapter", :as => :upload_offline_chapter
 end
