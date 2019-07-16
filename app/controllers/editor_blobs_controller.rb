@@ -74,7 +74,11 @@ class EditorBlobsController < ApplicationController
     parser = Yajl::Parser.new
     deleted_ids = parser.parse(params[:deletedIds])
 
-    deleted_ids.each { |id| editor_blob.images.find(id).purge_later }
+    deleted_ids.each { |id| 
+      if editor_blob.images.find(id)
+        editor_blob.images.find(id).purge_later
+      end
+    }
   end
 
   def final_to_draft

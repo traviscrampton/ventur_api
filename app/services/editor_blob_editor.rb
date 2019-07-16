@@ -28,7 +28,6 @@ class EditorBlobEditor
 
     uploaded_blobs = new_images.map do |img|
       uploaded = editor_blob.images.attach(img)
-      uploaded.first.blob.reload
       uploaded.first.blob
     end
 
