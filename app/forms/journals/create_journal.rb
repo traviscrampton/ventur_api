@@ -47,12 +47,15 @@ class CreateJournal
   end
 
   def create_journal_distance
+    distance_type = params[:distanceType] ? params[:distanceType] : "kilometer"
+    
     journal.create_distance(kilometer_amount: 0,
                             mile_amount: 0,
-                            distance_type: params[:distanceType].try(:singularize))
+                            distance_type: distance_type.try(:singularize))
   end
 
   def create_included_countries
+    return if params[:includedCountries].nil?
     return if params[:includedCountries].empty?
 
     params[:includedCountries].each do |included_country|
