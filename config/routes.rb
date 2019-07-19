@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :comments
 
+  resources :credentials, only: [:index]
+
   resources :chapters do
     member do
       put "update_blog_content"
