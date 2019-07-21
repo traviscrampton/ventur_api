@@ -8,6 +8,7 @@ json = {
       latitudeDelta: @cycle_route.longitude_delta
     },
     polylines: @cycle_route.polylines,
+    includedActivities: @cycle_route.included_activities,
     previousPolylines: previous_polylines
   }
 }

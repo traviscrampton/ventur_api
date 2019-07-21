@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :strava_auths, only: [:show, :create, :destroy]
+
   resources :users do
     collection do
       post "login"

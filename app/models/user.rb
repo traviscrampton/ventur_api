@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   has_many :journal_follows
   has_many :followed_journals, source: :journal, through: :journal_follows
   has_many :comments
+  has_one :strava_auth
 
   def generate_jwt
     JWT.encode({  id: id,
