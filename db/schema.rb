@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_154942) do
+ActiveRecord::Schema.define(version: 2019_07_21_114942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_05_03_154942) do
     t.float "longitude"
     t.float "longitude_delta"
     t.float "latitude_delta"
+    t.text "included_activities", default: ""
   end
 
   create_table "distances", force: :cascade do |t|
@@ -162,6 +163,13 @@ ActiveRecord::Schema.define(version: 2019_05_03_154942) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "strava_auths", force: :cascade do |t|
+    t.string "access_token", default: ""
+    t.string "refresh_token", default: ""
+    t.integer "user_id"
+    t.integer "expires_at"
   end
 
   create_table "taggings", force: :cascade do |t|

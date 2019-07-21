@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :comments
 
+  resources :credentials, only: [:index]
+
   resources :chapters do
     member do
       put "update_blog_content"
@@ -40,6 +42,8 @@ Rails.application.routes.draw do
       put "update_gear_content"
     end
   end
+
+  resources :strava_auths, only: [:show, :create, :destroy]
 
   resources :users do
     collection do

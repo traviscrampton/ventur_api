@@ -33,7 +33,7 @@ class CycleRoutesController < ApplicationController
   end
 
   def destroy
-    if cycle_route.update(polylines: "")
+    if cycle_route.update(polylines: "", included_activities: "")
       render 'cycle_routes/show.json'
     else
       render json: { errors: cycle_route.errors.full_messages }, status: 422
@@ -61,6 +61,6 @@ class CycleRoutesController < ApplicationController
   end
 
   def cycle_route_params
-    params.permit(:polylines, :longitude, :latitude, :latitude_delta, :longitude_delta)
+    params.permit(:polylines, :longitude, :latitude, :latitude_delta, :longitude_delta, :included_activities)
   end
 end
