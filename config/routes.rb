@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
 
-  resources :journals
+  resources :journals do 
+    member do 
+      get :journal_metadata
+    end
+
+    resources :chapters, only: [:index]
+  end
 
   resources :comments
 

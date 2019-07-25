@@ -1,0 +1,37 @@
+json = {
+  journal: {
+    id: @journal.id,
+    title: @journal.title,
+    description: @journal.description,
+    thumbnailSource: @journal.thumbnail_image_url,
+    cardBannerImageUrl: @journal.card_banner_image_url,
+    webBannerImageUrl: @journal.web_banner_image_url,
+    distance: {
+      distanceType: @journal.distance.distance_type,
+      kilometerAmount: @journal.distance.kilometer_amount.to_i,
+      mileAmount: @journal.distance.mile_amount.to_i,
+      readableDistanceType: @journal.distance.distance_type.pluralize(@journal.distance.amount)
+    },
+    countries: @journal.countries.map do |country|
+      {
+        id: country.id,
+        name: country.name 
+      }
+    end,
+    editorBlobId: @journal.editor_blob.id,
+    journalFollowsCount: @journal.journal_follows.count,
+    gearItemCount: @journal.gear_item_count,
+    status: @journal.status.split("_").join(" "),
+    stage: @journal.stage,
+    isFollowing: @journal.is_following(current_user.try(:id)),
+    user: {
+      id: @journal.user.id,
+      firstName: @journal.user.first_name,
+      lastName: @journal.user.last_name,
+      fullName: @journal.user.full_name,
+      avatarImageUrl: @journal.user.avatar_image_url
+    }
+  }
+}
+
+json
