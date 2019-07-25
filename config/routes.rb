@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :journals do 
     member do 
-      :journal_metadata
+      get :journal_metadata
     end
 
     resources :chapters, only: [:index]
