@@ -1,0 +1,21 @@
+json = {
+  chapters: @chapters.map do |chapter|
+              {
+                id: chapter.id,
+                title: chapter.title,
+                description: chapter.description,
+                readableDate: chapter.readable_date,
+                published: chapter.published,
+                blogImageCount: chapter.blog_image_count,
+                date: chapter.numbered_date,
+                    distance: {
+                      distanceType: chapter.distance.distance_type,
+                      kilometerAmount: chapter.distance.kilometer_amount.to_i,
+                      mileAmount: chapter.distance.mile_amount.to_i,
+                      readableDistanceType: chapter.distance.distance_type.pluralize(@journal.distance.amount)
+                    },
+                imageUrl: chapter.image_url,
+                thumbnailSource: chapter.thumbnail_image_url
+              }
+            end
+}

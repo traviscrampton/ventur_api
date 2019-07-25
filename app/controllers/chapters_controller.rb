@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
-  before_action :check_current_user, except: [:show]
-  before_action :validate_journal_user, except: [:show]
+  before_action :check_current_user, except: [:show, :index]
+  before_action :validate_journal_user, except: [:show, :index]
 
   def show
     @chapter = Chapter.with_attached_banner_image
@@ -8,6 +8,18 @@ class ChaptersController < ApplicationController
                                 :editor_blob, journal: [:chapters, :user])
                       .find(params[:id])
     render 'chapters/show.json', locals: { current_user: current_user }
+  end
+
+  def index
+    @journal = Journal.includes(chapters: :distance,
+                                banner_image_attachment: :blob)
+                      .find(params[:journal_id])
+
+    @chapters = @journal.send(chapters_based_on_user)
+
+
+
+    render "chapters/index.json"                   
   end
 
   def create
@@ -63,6 +75,14 @@ class ChaptersController < ApplicationController
       render 'chapters/_chapter.json'
     else
       render json: { errors: @chapter.errors.full_messages }, status: 422
+    end
+  end
+
+  def chapters_based_on_user
+    if current_user && current_user.id == @journal.user_id
+      :all_chapters
+    else
+      :published_chapters
     end
   end
 
