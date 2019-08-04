@@ -43,6 +43,38 @@ ju12.save!
 # Chapters
 cj1 = ju1.chapters.new( title: "The Initial Push-Off", slug: "chapter-1", description: "On the open road", published: true)
 c2j1 = ju1.chapters.new( title: "Undeniable Wind", slug: "chapter-1", description: "Second day out in argentina")
+ju1.chapters.create( title: "Chapter 3", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 4", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 5", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 6", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 7", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 8", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 9", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 10", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 11", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 12", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 13", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 14", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 15", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 16", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 17", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 18", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 19", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 20", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 21", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 22", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 23", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 24", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 25", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 26", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 27", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 28", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 29", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 30", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 31", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 32", slug: "chapter-1", description: "Second day out in argentina")
+# ju1.chapters.create( title: "Chapter 33", slug: "chapter-1", description: "Second day out in argentina")
+
 cj2 = ju2.chapters.new( title: "Chapter 1", slug: "chapter-1", description: "First day out on the silk road", published: true)
 cj1.save!
 c2j1.save!
@@ -178,8 +210,6 @@ tag2 = Tag.create(title: "Silk Road")
 #Taggings
 ju1.taggings.create(tag: tag1 )
 
-Journal.all.each { |j| j.update_total_distance}
-
 ActiveRecord::Base.transaction do
   p 'begin creating the editor blobs'
   Chapter.all.each do |chapter|
@@ -188,6 +218,8 @@ ActiveRecord::Base.transaction do
                       draft_content: chapter.content,
                       final_content: chapter.content)
     p "success creating chaper #{chapter.id}'s blob"
+    chapter.create_distance(kilometer_amount: 108,  mile_amount: 108 * 0.6)
+
   end
   p 'all done porting editor_blobs'
 end
@@ -229,11 +261,12 @@ IncludedCountry.create(journal_id: Journal.second.id, country_id: japan.id)
 IncludedCountry.create(journal_id: Journal.third.id, country_id: nepal.id)
 
 Journal.all.each do |journal|
+  journal.update_total_distance
   journal.create_editor_blob
   country = journal.countries.first
   journal.create_cycle_route(latitude: country.latitude, longitude: country.longitude, longitude_delta: 20.0, latitude_delta: 20.0)
   journal.chapters.each do |chapter|
-    chapter.create_cycle_route(latitude: country.latitude, longitude: country.longitude, longitude_delta: 20.0, latitude_delta: 20.0)
+    chapter.create_cycle_route(latitude: country.latitude, longitude: country.longitude, longitude_delta: 20.0, latitude_delta: 20.0, polylines: "[\"\",\"v{|_Fgiqi`@zgFwgA??htEwgAftEoo@|zFa`BvzF_`BhaHa`BxoPyiGdzFgxB`zFixBrfFwhDxyFqpCd`HopCvlGyhDrlGixBdyFgxBrrEqpCzxCwgApeC_`B`_Ba`BzkAwgAzkAoo@le@ygAxkAoo@le@gWxkAoo@px@oo@xkAoo@px@qo@px@wgArx@wgAdRgWdRoo@dRiW?gW?gW?gW?oo@?wgA?qo@?oo@ke@gWeR?sx@?qx@????vgA?hxB?vgA?xgA?vgA?vgA?no@je@no@dRhW?fW???????????????????????gW?iW?oo@?_`B?oo@?ixB?wgA?ixBfRgxBje@yhDje@_aEpx@aaEnx@aaEpx@aaEpx@iyEtkAiyEnx@_aEnx@yhDtkAyhDtkAwhDrkAyhDrkAqpCrkAgxBrkAqpClx@whDv~AyhDlx@yhDt~AwhDlx@yhDnkAyhDnkAwhDlx@aaEnkAaaEjx@yhDlkAopCjx@ixBbRopCde@ygAfe@_`Bde@gxBjx@ixBhx@_`Bde@qpChx@_`Bhx@a`Bhx@_`BjkAwgAfx@ygAfx@oo@jkAoo@hkAoo@l~Aoo@hkAiWh~AgWlqBgWldC?ldCgWjdCgWhdCgWhwC?fdC?ddC?djD?dpE?`pE?|uF?xhG?tuF?nhG?hhG?fuF?dbF?`bF?ztFvgAnzG``BhzGvgAdzGfxB|yG``BxyGfxBvfGhxBrfGfxB~mEppC|mEnpCxmEppC|zDxhDtmEpqFvzDxiGtzDhzHrzDhzHfmErrIlzDxjJx_FbcKfzDxjJdzDj{KbzDh{KtlErsLrlEj{KnlE`cKvyDrrItyD`cK|fDhzHftCziGd|A~`EriAhxBpiAno@fd@fW|v@?fd@?fd@?fd@?fd@?rQ?fd@???rQ?rQ?rQ?fd@?fd@gWfd@?fd@gWfd@?pQgWrQ?rQ??gW??rQ???????rQ???pQgW?fW??\",\"nqgrF_q}k`@tnBwgA??`|AixBliAwgA`|AgxBjiAa`B~{A_`B~{AixBbaC_`Bz{AgxB|{Aa`BlnBwgAz{AwgAjnBqo@x{Aoo@|`C?z`CgWjsC?zeD?hxD?vjE?reD?`xD?~wD?|wD?xwD?feDfWdjExgAbeDvgA|iEvgA~dD~_BjwD``BtiEfxBjrChxB`wDfxB`wDhxBjiEfxBxvDhxBxvDfxB`iEhxBrvDnpCddDxhDbdDppC`dDnpC|cDppC|cDnpCpqChxBnqCnpClqC``BjqCfxBvlBhxBtlB~_BvlB``BjzA~_BjzAvgAhzAvgArlBxgA`hAfWfzAno@fzAno@v~Bno@fzApo@tu@no@~gAno@lc@fW??fQ?????\",\"\"]")
   end
 end
 
