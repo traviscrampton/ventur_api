@@ -21,6 +21,7 @@ class Chapter < ActiveRecord::Base
 
   validates_presence_of :journal
   validate :published_validations
+  after_initialize :set_date
 
 
   belongs_to :journal
@@ -46,6 +47,10 @@ class Chapter < ActiveRecord::Base
 
   def numbered_date
     created_on.to_f * 1000
+  end
+
+  def set_date
+    self.date ||= DateTime.now
   end
 
   def chapter_banner_size
