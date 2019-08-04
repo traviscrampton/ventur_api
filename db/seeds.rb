@@ -2,6 +2,8 @@ require 'csv'
 # users
 u1 = User.create(email: "crampton.travis@gmail.com", first_name: "Travis", last_name: "Crampton", password: "travis12")
 u2 = User.create(email: "gabeleoni@gmail.com", first_name: 'Gabe', last_name: 'Leoni', password: "travis12")
+StravaAuth.create(user_id: u1.id)
+StravaAuth.create(user_id: u2.id)
 
 # profile info
 u1.avatar.attach(io: File.open("#{Rails.root}/public/images/travis_image.png"), filename: "travis_image.png")

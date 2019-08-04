@@ -1,5 +1,5 @@
 class JournalsController < ApplicationController
-  before_action :check_current_user, except: [:index, :show]
+  before_action :check_current_user, except: [:index, :show, :journal_metadata]
   
   def index
     @journals = Journal.with_attached_banner_image
@@ -20,6 +20,16 @@ class JournalsController < ApplicationController
                                 gear_items: [product_image_attachment: :blob])
                       .find(params[:id])
     render 'journals/show.json', locals: { current_user: current_user }
+  end
+
+  def journal_metadata
+    @journal = Journal.with_attached_banner_image
+                      .includes(:distance,
+                                :journal_follows, :countries,
+                                user: [avatar_attachment: :blob])
+                      .find(params[:id])
+                      
+    render 'journals/journal_metadata.json', locals: { current_user: current_user }
   end
 
   def create

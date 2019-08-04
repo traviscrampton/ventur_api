@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_token
+  skip_before_action :authenticate_token, except: [:update, :update_strava_token]
 
   def login
     @user = User.find_by_email(params[:email])
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     if @user.save
       update_journal_follows
       upload_avatar_image
+      create_strava_auth
       render json: login_user_json
     else
       render json: { errors: @user.errors.full_messages }, status: 422
@@ -32,6 +33,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(non_image_params)
       upload_avatar_image
+      render json: user_json
+    else
+      render json: { errors: @user.errors.full_messages }, status: 422
+    end
+  end
+
+  def update_strava_token
+    @user = current_user
+
+    if @user.update(strava_auth_token: params[:authToken])
       render json: user_json
     else
       render json: { errors: @user.errors.full_messages }, status: 422
@@ -56,6 +67,10 @@ class UsersController < ApplicationController
                  .update_all(user_id: @user.id)
   end
 
+  def create_strava_auth
+    StravaAuth.create(user_id: @user.id)
+  end
+
   def user_json
     {
       user: {
@@ -63,12 +78,12 @@ class UsersController < ApplicationController
         email: @user.email,
         firstName: @user.first_name,
         lastName: @user.last_name,
-        avatarImageUrl: @user.avatar_image_url,
+        avatarImageUrl: @user.avatar_image_url
       }
     }
   end
 
   def login_user_json
-    user_json.merge(token: @user.generate_jwt)
+    user_json.merge(token: @user.generate_jwt, stravaAccessToken: @user.strava_auth.access_token, stravaRefreshToken: @user.strava_auth.refresh_token, stravaExpiresAt: @user.strava_auth.expires_at)
   end
 end

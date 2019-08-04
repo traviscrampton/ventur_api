@@ -5,9 +5,17 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
 
-  resources :journals
+  resources :journals do 
+    member do 
+      get :journal_metadata
+    end
+
+    resources :chapters, only: [:index]
+  end
 
   resources :comments
+
+  resources :credentials, only: [:index]
 
   resources :chapters do
     member do
@@ -40,6 +48,8 @@ Rails.application.routes.draw do
       put "update_gear_content"
     end
   end
+
+  resources :strava_auths, only: [:show, :create, :destroy]
 
   resources :users do
     collection do
