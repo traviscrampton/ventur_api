@@ -1,6 +1,6 @@
 class GearItemReviewsController < ApplicationController
   skip_before_action :authenticate_token
-  before_action :gear_item_review, only: [:show, :update]
+  before_action :gear_item_review, only: [:show]
 
   def index
     @gear_item_reviews = Journal.includes(gear_item_reviews: [:gear_item, :pros_cons])
@@ -8,6 +8,18 @@ class GearItemReviewsController < ApplicationController
                                 .gear_item_reviews
 
     render 'gear_item_reviews/index.json'                               
+  end
+
+  def create
+    @gear_item_review = GearItemReviewForm.new(params).create
+
+    #render something
+  end
+
+  def update
+    @gear_item_review = GearItemReviewForm.new(params).update
+
+    # render something
   end
 
   def show
