@@ -1,0 +1,10 @@
+json = {
+  id: @gear_item_review.id,
+  name: @gear_item_review.gear_item.name,
+  review: @gear_item_review.review,
+  rating: @gear_item_review.rating,
+  pros: pros, 
+  cons: cons
+}
+
+json

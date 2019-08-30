@@ -1,0 +1,15 @@
+json = {
+  gear_item_reviews: @gear_item_reviews.map do |gear_review|
+    gear_item = gear_review.gear_item
+           
+    {
+      id: gear_review.id,
+      gear_item_id: gear_item.id,
+      name: gear_item.name,
+      image_url: gear_item.image_url,
+      rating: gear_review.rating
+    }
+  end
+}
+
+json

@@ -11,6 +11,15 @@ Rails.application.routes.draw do
     end
 
     resources :chapters, only: [:index]
+    resources :gear_item_reviews, only: [:index]
+  end
+
+  resources :gear_item_reviews, only: [:show, :create, :update]
+
+  resources :gear_items do 
+    collection do 
+      get :item_search
+    end
   end
 
   resources :comments
