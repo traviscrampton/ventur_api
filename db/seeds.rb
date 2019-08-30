@@ -189,11 +189,60 @@ cj1.update(content: chapter_1_blog_entries.to_json )
 
 
 
-# GearItems NOTE: This also creates a gear list
-ju1gi1 = ju1.gear_items.create(title: "Patagonia Sweater", user_id: u1.id, price: 10000)
-ju2gi2 = Journal.third.gear_items.create(title: "Ortlieb", user_id: u1.id, price: 1000 )
-ju1gi1.product_image.attach(io: File.open("#{Rails.root}/public/images/travis_image.png"), filename: "travsproduct")
-ju2gi2.product_image.attach(io: File.open("#{Rails.root}/public/images/gabe_image.jpg"), filename: 'patagucci') 
+# # GearItems NOTE: This also creates a gear list
+gear_item_1 = GearItem.create(name: "Ortlieb Back-Roller City Rear Pannier", 
+                              image_url: "https://images-na.ssl-images-amazon.com/images/I/81URKPDjO5L._SL1500_.jpg",
+                              description: "Classical rear pannier pair with a roll-top closure and the easy to use QL1 mounting system.FeaturesEasily mounted to racks with a diameter up to 16mm (reduction pieces for 8mm and 11mm rack diameters included) PVC-coated polyester fabric offers waterproof protection Edge protector with slots for mounting the ORTLIEB carrying system Top QL hooks and lower sliding hook adjustable with Allen key no. 3 Release handle for mounting and releasing the QL1 system Lateral 3M Scotchlite reflector on both sides for visibility Panniers sold as a pair",
+                              verified: true)
+
+gear_item_2 = GearItem.create(name: "Hydro Flask 12 oz Travel Coffee Mug - Stainless Steel & Vacuum Insulated - Press-In Lid - Olive",
+                              image_url: "https://images-na.ssl-images-amazon.com/images/I/61TWKzakDqL._SL1500_.jpg",
+                              description: "Our unique double wall vacuum insulation protects temperature for hours. Cold drinks stay icy cold and hot drinks stay piping hot so you can stay refreshed for any adventure.",
+                              verified: true)
+
+gear_item_3 = GearItem.create(name: "SCHWALBE Marathon Mondial Double Defence Tire with Folding Bead",
+                              image_url: "https://images-na.ssl-images-amazon.com/images/I/61RV3qhhJPL._SX679_.jpg",
+                              description: "Made for roads, tracks and trails of all continents. The tread pays homage to its legendary Marathon XR predecessor. Construction and compounding are naturally the very latest Schwalbe Evo technology. Travel Star compound for the best handling characteristic.",
+                              verified: true)
+
+gear_item_1_review = GearItemReview.create(journal_id: ju1.id,
+                                           gear_item_id: gear_item_1.id,
+                                           review: "What can be said about ortlieb back rollers that hasn't already been said?, I'll give you a hint not that much, honestly they are the most amazing piece of gear that I have owned on this whole tripe",
+                                           images: {},
+                                           rating: 5.0)
+
+gear_item_2_review = GearItemReview.create(journal_id: ju1.id,
+                                           gear_item_id: gear_item_2.id,
+                                           review: "These mugs are the mugs mugs",
+                                           images: {},
+                                           rating: 4.0)
+
+gear_item_3_review = GearItemReview.create(journal_id: ju1.id,
+                                           gear_item_id: gear_item_3.id,
+                                           review: "",
+                                           images: {},
+                                           rating: 1.0)
+
+gear_item_1_review_2 = GearItemReview.create(journal_id: ju2.id,
+                                             gear_item_id: gear_item_1.id,
+                                             review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu non odio euismod lacinia at quis risus sed vulputate. Aliquet nibh praesent tristique magna sit amet. Duis convallis convallis tellus id interdum velit laoreet. Nec nam aliquam sem et tortor consequat id. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Ipsum faucibus vitae aliquet nec ullamcorper sit amet. Faucibus interdum posuere lorem ipsum. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Diam vel quam elementum pulvinar. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Ultrices tincidunt arcu non sodales neque. Habitasse platea dictumst vestibulum rhoncus est pellentesque. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Tempor orci eu lobortis elementum nibh. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Viverra adipiscing at in tellus integer feugiat. Hendrerit gravida rutrum quisque non tellus orci ac auctor. Ut ornare lectus sit amet est placerat. Dictum sit amet justo donec enim diam vulputate ut pharetra. Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Nec nam aliquam sem et tortor consequat id. Eget duis at tellus at urna condimentum mattis. Nulla pellentesque dignissim enim sit.",
+                                             images: {},
+                                             rating: 3.0)
+
+ProsCon.create(gear_item_review_id: gear_item_1_review.id, is_pro: true, text: "100% waterproof")
+ProsCon.create(gear_item_review_id: gear_item_1_review.id, is_pro: true, text: "Very durable")
+ProsCon.create(gear_item_review_id: gear_item_1_review.id, is_pro: true, text: "Snappable")
+ProsCon.create(gear_item_review_id: gear_item_1_review.id, is_pro: false, text: "Bulky, but still not too bad")
+
+ProsCon.create(gear_item_review_id: gear_item_2_review.id, is_pro: true, text: "Stays super hot")
+ProsCon.create(gear_item_review_id: gear_item_2_review.id, is_pro: true, text: "Very durable")
+ProsCon.create(gear_item_review_id: gear_item_2_review.id, is_pro: false, text: "Pretty heavy for a mug")
+ProsCon.create(gear_item_review_id: gear_item_2_review.id, is_pro: false, text: "Bulky, but still not too bad")
+
+ProsCon.create(gear_item_review_id: gear_item_3_review.id, is_pro: true, text: "Durable Tires")
+ProsCon.create(gear_item_review_id: gear_item_3_review.id, is_pro: false, text: "bumpy ride when super heavy")
+ProsCon.create(gear_item_review_id: gear_item_3_review.id, is_pro: false, text: "overkill for touring in europe")
+ProsCon.create(gear_item_review_id: gear_item_3_review.id, is_pro: false, text: "better for dirt roads, not sealed")
 
 # Following
 u1.followings.create(followed: u2) # user 1 follows user 2
