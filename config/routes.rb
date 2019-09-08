@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       get :journal_metadata
     end
 
+    collection do
+      get :current_user_journals
+    end
+
     resources :chapters, only: [:index]
     resources :gear_item_reviews, only: [:index]
   end
@@ -49,12 +53,6 @@ Rails.application.routes.draw do
   resources :journal_follows do
     member do
       post "send_chapter_emails"
-    end
-  end
-
-  resources :gear_items do
-    member do
-      put "update_gear_content"
     end
   end
 

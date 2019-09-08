@@ -1,0 +1,11 @@
+json = {
+  gearItems: @gear_items.map do |gear_item|
+    {
+      id: gear_item.id,
+      name: gear_item.name,
+      imageUrl: gear_item.image_url
+    }
+  end
+}
+
+json

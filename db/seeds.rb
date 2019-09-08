@@ -205,29 +205,30 @@ gear_item_3 = GearItem.create(name: "SCHWALBE Marathon Mondial Double Defence Ti
                               description: "Made for roads, tracks and trails of all continents. The tread pays homage to its legendary Marathon XR predecessor. Construction and compounding are naturally the very latest Schwalbe Evo technology. Travel Star compound for the best handling characteristic.",
                               verified: true)
 
-gear_item_1_review = GearItemReview.create(journal_id: ju1.id,
+gear_item_1_review = GearItemReview.create(user_id: u1.id,
                                            gear_item_id: gear_item_1.id,
                                            review: "What can be said about ortlieb back rollers that hasn't already been said?, I'll give you a hint not that much, honestly they are the most amazing piece of gear that I have owned on this whole tripe",
-                                           images: {},
                                            rating: 5.0)
 
-gear_item_2_review = GearItemReview.create(journal_id: ju1.id,
+gear_item_2_review = GearItemReview.create(user_id: u1.id,
                                            gear_item_id: gear_item_2.id,
                                            review: "These mugs are the mugs mugs",
-                                           images: {},
                                            rating: 4.0)
 
-gear_item_3_review = GearItemReview.create(journal_id: ju1.id,
+gear_item_3_review = GearItemReview.create(user_id: u1.id,
                                            gear_item_id: gear_item_3.id,
                                            review: "",
-                                           images: {},
                                            rating: 1.0)
 
-gear_item_1_review_2 = GearItemReview.create(journal_id: ju2.id,
+gear_item_1_review_2 = GearItemReview.create(user_id: u2.id,
                                              gear_item_id: gear_item_1.id,
                                              review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu non odio euismod lacinia at quis risus sed vulputate. Aliquet nibh praesent tristique magna sit amet. Duis convallis convallis tellus id interdum velit laoreet. Nec nam aliquam sem et tortor consequat id. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Ipsum faucibus vitae aliquet nec ullamcorper sit amet. Faucibus interdum posuere lorem ipsum. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Diam vel quam elementum pulvinar. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Ultrices tincidunt arcu non sodales neque. Habitasse platea dictumst vestibulum rhoncus est pellentesque. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Tempor orci eu lobortis elementum nibh. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Viverra adipiscing at in tellus integer feugiat. Hendrerit gravida rutrum quisque non tellus orci ac auctor. Ut ornare lectus sit amet est placerat. Dictum sit amet justo donec enim diam vulputate ut pharetra. Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Nec nam aliquam sem et tortor consequat id. Eget duis at tellus at urna condimentum mattis. Nulla pellentesque dignissim enim sit.",
-                                             images: {},
                                              rating: 3.0)
+
+GearItemReviewsJournal.create(journal_id: ju1.id, gear_item_review_id: gear_item_1_review.id)
+GearItemReviewsJournal.create(journal_id: ju1.id, gear_item_review_id: gear_item_2_review.id)
+GearItemReviewsJournal.create(journal_id: ju1.id, gear_item_review_id: gear_item_3_review.id)
+GearItemReviewsJournal.create(journal_id: ju2.id, gear_item_review_id: gear_item_2_review.id)
 
 ProsCon.create(gear_item_review_id: gear_item_1_review.id, is_pro: true, text: "100% waterproof")
 ProsCon.create(gear_item_review_id: gear_item_1_review.id, is_pro: true, text: "Very durable")

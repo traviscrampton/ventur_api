@@ -33,7 +33,8 @@ class Journal < ActiveRecord::Base
   belongs_to :user
   has_one :distance, as: :distanceable, dependent: :destroy
   has_many :chapters, dependent: :destroy
-  has_many :gear_item_reviews
+  has_many :gear_item_reviews_journals
+  has_many :gear_item_reviews, through: :gear_item_reviews_journals
   has_many :gear_items, through: :gear_item_reviews
   has_one :editor_blob, as: :blobable, dependent: :destroy
   has_one :cycle_route, as: :routable

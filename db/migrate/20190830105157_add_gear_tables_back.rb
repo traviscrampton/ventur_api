@@ -10,11 +10,17 @@ class AddGearTablesBack < ActiveRecord::Migration[5.2]
     end
 
     create_table :gear_item_reviews do |t|
-      t.integer :journal_id
+      t.integer :user_id
       t.integer :gear_item_id
       t.text :review, default: ""
-      t.jsonb :images, default: {}
+      t.jsonb :images, default: []
       t.float :rating
+      t.timestamps
+    end
+
+    create_table :gear_item_reviews_journals do |t|
+      t.integer :gear_item_review_id
+      t.integer :journal_id
       t.timestamps
     end
 

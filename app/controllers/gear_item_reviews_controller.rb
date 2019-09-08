@@ -1,5 +1,4 @@
 class GearItemReviewsController < ApplicationController
-  skip_before_action :authenticate_token
   before_action :gear_item_review, only: [:show]
 
   def index
@@ -11,9 +10,9 @@ class GearItemReviewsController < ApplicationController
   end
 
   def create
-    @gear_item_review = GearItemReviewForm.new(params).create
+    @gear_item_review = GearItemReviewForm.new(gear_review_params, current_user).create
 
-    #render something
+    
   end
 
   def update
@@ -26,8 +25,8 @@ class GearItemReviewsController < ApplicationController
     # i'd like to find a better way of doing this but
     # using .select will take an extra query
     pros, cons = gear_item_review.pros_cons
-                                 .map { |pc| { id: pc.id, text: pc.text, is_pro: pc.is_pro }}
-                                 .partition { |pc| pc[:is_pro] }
+                                 .map { |pc| { id: pc.id, text: pc.text, isPro: pc.is_pro }}
+                                 .partition { |pc| pc[:isPro] }
 
     render 'gear_item_reviews/show.json', { locals: { pros: pros, cons: cons}}
   end
@@ -37,5 +36,9 @@ class GearItemReviewsController < ApplicationController
   def gear_item_review
     @gear_item_review ||= GearItemReview.includes(:gear_item, :pros_cons)
                                         .find(params[:id])
+  end
+
+  def gear_review_params
+    params.permit(:gearItemId, :name, :images, :cons, :pros, :journalIds, :rating, :review)
   end
 end

@@ -1,7 +1,9 @@
 class GearItemReview < ActiveRecord::Base
-  validates_presence_of :journal, :gear_item, :rating
+  validates_presence_of :gear_item, :rating, :user
 
-  belongs_to :journal
+  has_many :gear_item_reviews_journals
+  has_many :journals, through: :gear_item_reviews_journals
+  belongs_to :user
   belongs_to :gear_item
   has_many :pros_cons
 end
