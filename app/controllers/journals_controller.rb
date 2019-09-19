@@ -60,6 +60,13 @@ class JournalsController < ApplicationController
     render json: @journal
   end
 
+  def current_user_journals
+    @journals = current_user.journals
+
+    render 'journals/current_user_journals.json'
+  end
+
+
   private 
 
   def non_image_params

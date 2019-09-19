@@ -26,7 +26,8 @@ class User < ActiveRecord::Base
 
   has_many :journals, dependent: :destroy
   has_one_attached :avatar
-  has_many :gear_items
+  has_many :gear_item_reviews
+  has_many :gear_items, through: :gear_item_reviews
   has_many :followings, foreign_key: "follower_id", dependent: :destroy
   has_many :favorites
   has_many :journal_follows

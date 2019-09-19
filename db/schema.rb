@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_114942) do
+ActiveRecord::Schema.define(version: 2019_08_30_105157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,20 +113,29 @@ ActiveRecord::Schema.define(version: 2019_07_21_114942) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "gear_items", force: :cascade do |t|
-    t.string "title"
-    t.decimal "price", precision: 8, scale: 2
-    t.decimal "donated", precision: 8, scale: 2
+  create_table "gear_item_reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "gear_item_id"
+    t.text "review", default: ""
+    t.jsonb "images", default: []
+    t.float "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.jsonb "content"
-    t.integer "user_id"
-    t.boolean "published", default: false
   end
 
-  create_table "gear_lists", force: :cascade do |t|
+  create_table "gear_item_reviews_journals", force: :cascade do |t|
+    t.integer "gear_item_review_id"
     t.integer "journal_id"
-    t.integer "gear_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gear_items", force: :cascade do |t|
+    t.string "name", default: ""
+    t.text "description", default: ""
+    t.string "image_url", default: ""
+    t.string "affiliate_link", default: ""
+    t.boolean "verified", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -157,10 +166,10 @@ ActiveRecord::Schema.define(version: 2019_07_21_114942) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "gear_item_id"
-    t.text "content"
+  create_table "pros_cons", force: :cascade do |t|
+    t.integer "gear_item_review_id"
+    t.boolean "is_pro", default: true
+    t.text "text", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

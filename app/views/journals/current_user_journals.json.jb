@@ -1,0 +1,10 @@
+json = {
+  journals: @journals.map do |journal|
+    {
+      id: journal.id,
+      title: journal.title
+    }
+  end
+}
+
+json
