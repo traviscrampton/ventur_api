@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :gear_item_reviews, only: [:index]
   end
 
-  resources :gear_item_reviews, only: [:show, :create, :update]
+  resources :gear_item_reviews, only: [:show, :create, :update, :destroy]
 
   resources :gear_items do 
     collection do 

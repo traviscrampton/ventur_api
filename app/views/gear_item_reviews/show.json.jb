@@ -3,7 +3,9 @@ gear_item = @gear_item_review.gear_item
 json = {
   id: @gear_item_review.id,
   review: @gear_item_review.review,
+  userId: @gear_item_review.user_id,
   name: gear_item.name,
+  journalIds: @gear_item_review.journals.map(&:id),
   gearItem: {
     id: gear_item.id,
     name: gear_item.name,
