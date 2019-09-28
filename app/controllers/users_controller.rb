@@ -10,10 +10,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def journals
+    @user = User.includes(journals: [:distance, :banner_image_attachment])
+                .find(params[:id])
+
+    render "users/user_journals.json", locals: { journals: @user.journals }
+  end
+
   def show
     @user = User.with_attached_avatar
                 .includes(journals: [:distance, banner_image_attachment: :blob])
                 .find(params[:id])
+
     render 'users/show.json'
   end
 

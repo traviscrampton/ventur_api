@@ -1,0 +1,20 @@
+json = {
+  journals: journals.map do |journal|
+    {
+      id: journal.id,
+      title: journal.title,
+      description: journal.description,
+      status: journal.status,
+      distance: {
+        distanceType: journal.distance.distance_type,
+        kilometerAmount: journal.distance.kilometer_amount.to_i,
+        mileAmount: journal.distance.mile_amount.to_i,
+        readableDistanceType: journal.distance.distance_type.pluralize(journal.distance.amount)
+      },
+      cardBannerImageUrl: journal.card_banner_image_url,
+      thumbnailSource: journal.thumbnail_image_url,
+    }
+  end
+}
+
+return json
