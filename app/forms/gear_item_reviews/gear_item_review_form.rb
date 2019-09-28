@@ -27,7 +27,7 @@ class GearItemReviewForm
 
   def create
     create_gear_item
-    return @gear_item if @gear_item.errors
+    return @gear_item if @gear_item.errors.any?
 
     create_gear_item_review
     @gear_item_review
@@ -35,7 +35,7 @@ class GearItemReviewForm
 
   def update
     create_gear_item
-    return @gear_item if @gear_item.errors
+    return @gear_item if @gear_item.errors.any?
     
     update_gear_item_review
     @gear_item_review
@@ -86,6 +86,7 @@ class GearItemReviewForm
   def update_gear_item_review
     if @gear_item_review.update(images: images, rating: rating, review: review, gear_item_id: @gear_item.id)
       update_all_pros_cons
+      remove_journal_associations
       update_journal_ids
     else
     end
@@ -95,6 +96,23 @@ class GearItemReviewForm
     remove_pros_cons(@gear_item_review, pros, cons)
     update_pros_cons(@gear_item_review, pros, cons)
     create_pros_cons(@gear_item_review, pros, cons)
+  end
+
+  def remove_journal_associations
+    persisted_journal_ids = @gear_item_review.journals.map(&:id)
+    deleted_ids = []
+
+    persisted_journal_ids.each do |persisted_id|
+      next if journal_ids.include?(persisted_id)
+
+      deleted_ids.push(persisted_id)
+    end
+
+    return if deleted_ids.empty?
+
+    @gear_item_review.gear_item_reviews_journals.where(id: deleted_ids).each do |girj|
+      girj.delete
+    end
   end
 
   def update_journal_ids

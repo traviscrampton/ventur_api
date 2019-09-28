@@ -62,6 +62,13 @@ Rails.application.routes.draw do
     collection do
       post "login"
     end
+
+    member do 
+      get "journals"
+    end
+
+
+    resources :gear_item_reviews, only: [:index]
   end
 
   resources :countries do 

@@ -1,10 +1,9 @@
 class GearItemReviewsController < ApplicationController
   before_action :gear_item_review, only: [:show, :destroy]
+  before_action :parent_klass
 
   def index
-    @gear_item_reviews = Journal.includes(gear_item_reviews: [:gear_item, :pros_cons])
-                                .find(params[:journal_id])
-                                .gear_item_reviews
+    @gear_item_reviews = @parent.gear_item_reviews
 
     render 'gear_item_reviews/index.json'                               
   end
@@ -36,6 +35,16 @@ class GearItemReviewsController < ApplicationController
   end
 
   private
+
+  def parent_klass
+    parent_klasses = %w[user journal]
+
+    if klass = parent_klasses.detect { |pk| params[:"#{pk}_id"].present? }
+      @parent = klass.camelize.constantize
+                     .includes(gear_item_reviews: [:gear_item, :pros_cons])
+                     .find(params[:"#{klass}_id"])
+    end
+  end
 
   def gear_item_review
     @gear_item_review ||= GearItemReview.includes(:gear_item, :pros_cons)
