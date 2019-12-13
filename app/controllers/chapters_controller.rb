@@ -62,6 +62,7 @@ class ChaptersController < ApplicationController
   def destroy
     @chapter = Chapter.find(params[:id])
     if @chapter.delete
+      @chapter.journal.update_total_distance
       render json: @chapter
     else
       render json: { error: "you cannot delete this chapter" }
