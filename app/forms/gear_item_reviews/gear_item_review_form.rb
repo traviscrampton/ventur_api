@@ -88,8 +88,17 @@ class GearItemReviewForm
       update_all_pros_cons
       remove_journal_associations
       update_journal_ids
+      update_gear_item_photo
     else
     end
+  end
+
+  def update_gear_item_photo
+    first_image = take_first_image
+    
+    return if !@gear_item.image_url.blank? || first_image.blank?
+
+    @gear_item.update(image_url: first_image)
   end
 
   def update_all_pros_cons
