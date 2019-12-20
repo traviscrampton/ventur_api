@@ -15,7 +15,7 @@ class JournalFollowsController < ApplicationController
 
     if journal_follow.save
       journal = Journal.find(params[:journalId])
-      NewFollowerMailer.new_follower(journal_follow.user_email, journal.user.email, journal.title).deliver_later
+      # NewFollowerMailer.new_follower(journal_follow.user_email, journal.user.email, journal.title).deliver_later
       render json: { isFollowing: true }
     else
       render json: { errors: journal_follow.errors.full_messages }, status: 422

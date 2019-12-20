@@ -3,7 +3,8 @@ json = {
     {
       id: gear_item.id,
       name: gear_item.name,
-      imageUrl: gear_item.image_url
+      imageUrl: gear_item.image_url,
+      verified: gear_item.verified
     }
   end
 }
