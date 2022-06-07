@@ -91,7 +91,7 @@ GEM
     jaro_winkler (1.5.1)
     jb (0.6.1)
       multi_json
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     json (1.8.6)
     jwt (2.1.0)
     loofah (2.2.2)
@@ -105,7 +105,9 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.2)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.8.0)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
